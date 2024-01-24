@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Dashboard</title>
+    <script type="text/javascript" src ="script.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+
+</head>
+<body>
+    <div class = "container-fluid">
+        <div class = "row col-12">
+            <header>
+                <h1>Application Tracker</h1>
+            <ul>
+                  <li><a href = "index.html">Home</a></li>
+                  <li><a href = "new-app.html">New Application</a></li>
+                  <li><a href = "sign-up.html">Sign Up</a></li>
+                  <li><a href = "contact.html">Contact</a></li>
+              <!--button is not marked li in order to float it right -->
+              <button id="dark-light">Dark Mode</button>
+            </ul>
+                  
+            
+            </header>
+        </div>
+
+        <div class = "row">
+            <div class = "col-12 col-sm-8 col-lg-8">
+                <table id = "recent">
+                    <tr><thead><h2>Recent Applications</h2></thead></tr>
+                    <tr><td>Date</td><td>Title</td><td>Status</td><td><button id = "update">Update</button></td><td><button id = "delete">Delete</button></td></tr>
+                  <tr><td>Date</td><td>Title</td><td>Status</td><td><button id = "update">Update</button></td><td><button id = "delete">Delete</button></td></tr>
+                  <tr><td>Date</td><td>Title</td><td>Status</td><td><button id = "update">Update</button></td><td><button id = "delete">Delete</button></td>
+                  </tr><tr><td>Date</td><td>Title</td><td>Status</td><td><button id = "update">Update</button></td><td><button id = "delete">Delete</button></td></tr>
+                  <tr><td>Date</td><td>Title</td><td>Status</td><td><button id = "update">Update</button></td><td><button id = "delete">Delete</button></td></tr>
+                    <tr><td colspan = 5><button id="dash-more">MORE</button></td></tr>
+                </table>
+             
+            </div>
+
+            <div class = "col-12 col-sm-4">
+                <h4>Reminders</h4>
+                <p>Follow up with XYZ <button = id = "view-follow">View</button></p>
+                <p>3 incomplete APPS <button id = "view-incomplete">View</button></p>
+                <p><a href = "null">Find More Opportunities</a></p>
+            </div>
+            
+             <div class = "col-7">
+                <button id="newApp"><a href = "new-app.html">Add NEW APP</a></button>
+            </div>
+              <div class = "col-5">
+                <a href = "sign-up.html" id = "accountSettings">Update Account Settings</a>
+        </div>
+      
+
+        <div class = "row col-12 welcome">
+            <p>Welcome to the Green River College Software Development Application Tracking Tool (ATT).
+                The purpose of this tool is to provide a centralized place to track your job/internship applications
+                that can be helpful in your application journey!</p>
+        </div>
+
+        <div class = "row">
+            <div class = "col-12">
+            <h3>Other Resources:</h3>
+            </div>
+
+            <div class = "col-12 col-md-6">
+            <ul>
+                <li><a href = "https://www.linkedin.com">LinkedIn</a></li>
+                <li><a href = "https://www.indeed.com">Indeed</a></li>
+                <li><a href = "https://www.ziprecruiter.com">ZipRecruiter</a></li>
+            
+            </div>
+
+            <div class = "col-12 col-md-6">
+                
+                    <li><a href = "https://www.devs.greenrivertech.net/">Green River Devs</a></li>
+                    <li><a href = "https://www.monster.com">Monster Jobs</a></li>
+                    <li><a href = "https://www.glassdoor.com">Glassdoor</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class = "row">
+            <div class = "col-12 col-md-6 col-lg-4">
+                <img id = "logo" src = "images/GRC_Logo-Green.png"
+                     alt = "Green River College Logo "">
+            </div>
+            <div class = "col-12 col-md-6 col-lg-8">
+                <p>Data analysts and software developers are in high demand across all areas of business. As a student in our Associate of Applied Science (AAS) in Data Analytics & Software Development, you'll learn how to use data analytics tools and programming languages to solve real-world data-related problems. Use your knowledge and creativity to extract meaningful insights from vast amounts of data in healthcare, finance, e-commerce, and other areas.</p>
+            </div>
+        </div>
+
+
+
+
+</div>
+</body>
+</html>

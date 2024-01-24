@@ -1,0 +1,155 @@
+/* get big noodle titling font */
+@import url('https://fonts.cdnfonts.com/css/bignoodletitling');
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 97%;
+  color:  #333333;
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
+
+img{
+  width: 95%;
+}
+
+h1, h2, h3, h4, h5, h6, header {
+  font-family: 'BigNoodleTitling', 'Impact', sans-serif;
+  font-size: 150%;
+  padding-left: 5px;
+}
+
+header h1{
+  text-align: center;
+  color:  #333333;
+}
+
+header ul {
+  list-style-type: none;
+  padding: 10px;
+  background-color: #2C882B;
+  width: 100%;
+}
+
+header li {
+  display: inline-block;
+  padding: 5px;
+  
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+header a:hover {
+  padding: 10px;
+  background-color: #333333;
+}
+
+table {
+  border: 2px solid #333333;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+}
+
+td {
+  padding: 5px;
+}
+
+button, #submit {
+  border-radius: 0%;
+}
+
+.welcome {
+  margin: auto;
+  text-align: center;
+  padding: 15px;
+}
+
+
+/* dark mode */
+.darkMode {
+    background-color: #333333;
+    color: white;
+}
+
+.darkMode h1 {
+  color: #6CB443;
+}
+
+#dark-light {
+  float: right;
+  display: inline;
+  padding: 10px;
+}
+
+#dash-more {
+  text-align: center;
+  width: 100%;
+}
+
+#resources {
+  list-style: square;
+  column-count: 2;
+  color: #2C882B;
+}
+
+a{
+  text-decoration: none;
+  color: #2C882B;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+#reminders {
+  text-align: center;
+}
+
+#reminders p {
+  border: 2px #333333 solid;
+  padding: 15px;
+}
+
+
+#accountSettings {
+  float: right;
+  padding: 5px;
+}
+
+#newApp {
+  padding: 10px;
+  width: 35%;
+  float: right;
+  text-align: center;
+}
+
+#newApp a{
+  color: #333333;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+
+ /* New application */
+
+#RoleName{
+margin-inline-start: 4%;
+
+}
+
+#ContactPhone{
+margin-inline-start: -.5%;
+
+  
+}

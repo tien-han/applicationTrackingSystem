@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>New Application</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <script type="text/javascript" src ="script.js"></script>
+
+</head>
+<body>
+
+  <div class = "container-fluid">
+
+    <header>
+      
+      <h1>Application Tracker</h1>
+    <ul>
+        <li><a href = "index.html">Home</a></li>
+        <li><a href = "new-app.html">New Application</a></li>
+        <li><a href = "sign-up.html">Sign Up</a></li>
+        <li><a href = "contact.html">Contact</a></li>
+    <!--button is not marked li in order to float it right -->
+    <button id="dark-light">Dark Mode</button>
+    </ul>
+
+    <form id = "newApp" method = "GET" action = "vardump.php">
+    </header>
+
+    <div class="row">
+        <div class="col-6 col-lg-6 ">
+
+  
+      <label for="RoleName" class="form-label">Name of role*  </label>
+      <input type="text" id="RoleName" name="RoleName"  class="form-control">
+
+    <div class="col-md-6">
+      <label for="Jobdesc" class="form-label">   Job description*</label>
+      <input type="text" id="Jobdesc" name="Jobdesc" class="form-control">
+    </div>
+       
+
+
+  <h5>Date of Application: </h5>
+    <p id="currentDate"></p>
+
+
+    <h5>Follow update: </h5>
+      <p id="followUpDate"></p>    
+           </div>
+ 
+        
+        <!--
+
+      <label for="FollowupDate" class="form-label">Follow up date:</label>
+      <input type="date" id="FollowupDate" name="FollowupDate" class="form-control">
+    -->
+
+    <div class="col-6 col-lg-4" >
+    <div class="form-field">
+      <input type = "radio" id= "NeedApply" name = "Appliedposition" value = "NeedApply">
+      <label for = "NeedApply">Need to apply</label>
+      <br>
+      <input type = "radio" id ="Applied" name = "Appliedposition" value = "Applied">
+      <label for="Applied">Applied</label> <br>
+
+      <input type = "radio" id="Interviewing" name = "Appliedposition" value = "Interviewing">
+      <label for="Interviewing">Interviewing</label> <br>
+
+      <input type = "radio" id="Rejected" name = "Appliedposition" value = "Rejected">
+      <label for="Rejected">Rejected</label> <br>
+
+      <input type = "radio" id="Accepted" name = "Appliedposition" value = "Accepted">
+      <label for="Accepted">Accepted</label> <br>
+
+      <input type = "radio" id="Inactive" name = "Appliedposition" value = "Inactive">
+      <label for="Inactive">Inactive/Expired</label> <br>
+  
+
+    </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <label for="ContactName" class="form-label">Contact Name*</label>
+      <input type="text" id="ContactName" name="ContactName" class="form-control">
+   <br>
+      <label for="ContactEmail" class="form-label mt-2">Contact Email*</label>
+      <input type="text" id="ContactEmail" name="ContactEmail" class="form-control">
+     <br>
+      <label for="ContactPhone" class="form-label mt-2">Contact Phone*</label>
+      <input type="text" id="ContactPhone" name="ContactPhone" class="form-control">
+    </div>
+    <div class="col-6">
+      <label for="InterviewNotes" class="form-label">Interview Notes*</label>
+      <textarea id="InterviewNotes" name="InterviewNotes" rows="7" class="form-control"></textarea>
+    </div>
+ 
+  
+  
+  </div>
+
+    <div class="row">
+      <div class="col-12">
+          <input id = "submit" type="submit" value="Submit" class="btn btn-primary mt-3">
+
+                  </div>
+              </div>
+          </form>
+      </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
