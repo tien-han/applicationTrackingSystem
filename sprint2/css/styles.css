@@ -43,10 +43,38 @@ table {
 }
 
 /* ------------------------------Homepage Styling------------------------------ */
-/* Reminders Section Styling*/
+/* Reminders Section*/
 #reminders {
   text-align: center;
   width: 40%;
+  padding: 15px;
+}
+
+/* New App Button */
+#newApp {
+  padding: 10px;
+  width: 35%;
+  float: right;
+  text-align: center;
+}
+
+#newApp a {
+  color: #333333;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Account Settings Button */
+#accountSettings {
+  float: right;
+  padding: 5px;
+}
+
+/* Resources and Links */
+.welcome {
+  margin: auto;
+  text-align: center;
   padding: 15px;
 }
 
@@ -66,7 +94,7 @@ body {
 }
 
 /* img {
-  width: 95%;
+
 } */
 
 
@@ -103,11 +131,7 @@ button,
   border-radius: 0%;
 }
 
-.welcome {
-  margin: auto;
-  text-align: center;
-  padding: 15px;
-}
+
 
 
 /* dark mode */
@@ -144,27 +168,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-
-
-#accountSettings {
-  float: right;
-  padding: 5px;
-}
-
-#newApp {
-  padding: 10px;
-  width: 35%;
-  float: right;
-  text-align: center;
-}
-
-#newApp a {
-  color: #333333;
-  text-align: center;
-  font-weight: bold;
-  text-decoration: none;
 }
 
 /* New application */
