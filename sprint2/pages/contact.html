@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <h1>Application Tracker</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="new-app.html">New Application</a></li>
+                <li><a href="sign-up.html">Sign Up</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!--button is not marked li in order to float it right -->
+                <button id="dark-light">Dark Mode</button>
+            </ul>
+
+
+        </header>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <form id="contact" method="GET" action="vardump.php">
+                <label for="name">Name*</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="email">Email*</label><br>
+                <input type="text" id="email" name="email"><br>
+                <label for="message">Message*</label><br>
+                <textarea id="message" name="message"></textarea><br>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // locate the button
+            let darkLight = document.getElementById("dark-light")
+                ;
+
+            // toggle darkMode on click and change button text contents
+            darkLight.onclick = function (event) {
+                document.body.classList.toggle("darkMode");
+                if (document.body.classList.contains("darkMode")) {
+                    darkLight.textContent = "Light Mode";
+                } else {
+                    darkLight.textContent = "Dark Mode";
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>
