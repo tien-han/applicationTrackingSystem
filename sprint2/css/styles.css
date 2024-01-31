@@ -3,13 +3,7 @@
 @import url('https://fonts.cdnfonts.com/css/bignoodletitling');
 
 /* ------------------------------Global Styles------------------------------ */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header {
+h1, h2, h3, h4, h5, h6, header {
   font-family: 'BigNoodleTitling', 'Impact', sans-serif;
   font-size: 150%;
   padding-left: 5px;
@@ -109,12 +103,6 @@ table {
 }
 
 /* ------------------------------Other Styling------------------------------ */
-/* TODO: Delete if not using */
-/* html {
-  margin: 0;
-  padding: 0;
-} */
-
 body {
   width: 97%;
   color: #333333;
@@ -150,8 +138,7 @@ td {
   padding: 5px;
 }
 
-button,
-#submit {
+button, #submit {
   border-radius: 0%;
 }
 
