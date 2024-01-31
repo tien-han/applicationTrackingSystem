@@ -15,17 +15,47 @@ header {
   padding-left: 5px;
 }
 
+table {
+  border: 2px solid #333333;
+}
 
+/* ------------------------------Navbar Styling------------------------------ */
+/* Navbar Styling */
+.navbar {
+  background-color: #2C882B;
+}
 
+/* Set styling for navbar header */
+.navbar-header {
+  max-height: 40px;
+  margin: 0px;
+}
 
+/* Set styling for navbar items */
+.nav-link {
+  font-family: 'BigNoodleTitling', 'Impact', sans-serif;
+  font-size: 150%;
+  text-decoration: none;
+}
 
+.nav-link:hover {
+  background-color: #333333;
+}
 
+/* ------------------------------Homepage Styling------------------------------ */
+/* Reminders Section Styling*/
+#reminders {
+  text-align: center;
+  width: 40%;
+  padding: 15px;
+}
 
-
-html {
+/* ------------------------------Other Styling------------------------------ */
+/* TODO: Delete if not using */
+/* html {
   margin: 0;
   padding: 0;
-}
+} */
 
 body {
   width: 97%;
@@ -62,13 +92,6 @@ header li {
 header a {
   color: white;
   text-decoration: none;
-}
-
-table {
-  border: 2px solid #333333;
-  padding: 5px;
-  margin: 5px;
-  width: 100%;
 }
 
 td {
@@ -123,14 +146,6 @@ a:hover {
   text-decoration: underline;
 }
 
-#reminders {
-  text-align: center;
-}
-
-#reminders p {
-  border: 2px #333333 solid;
-  padding: 15px;
-}
 
 
 #accountSettings {
@@ -161,27 +176,4 @@ a:hover {
 
 #ContactPhone {
   margin-inline-start: -.5%;
-}
-
-/* ------------------------------Navbar Styling------------------------------ */
-/* Navbar Styling */
-.navbar {
-  background-color: #2C882B;
-}
-
-/* Set styling for navbar header */
-.navbar-header {
-  max-height: 40px;
-  margin: 0px;
-}
-
-/* Set styling for navbar items */
-.nav-link {
-  font-family: 'BigNoodleTitling', 'Impact', sans-serif;
-  font-size: 150%;
-  text-decoration: none;
-}
-
-.nav-link:hover {
-  background-color: #333333;
 }

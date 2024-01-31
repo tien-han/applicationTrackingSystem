@@ -58,6 +58,8 @@
     <br />
     <br />
     <br />
+
+    <!-- Dashboard -->
     <div class="container-fluid">
         <div class="row col-12">
             <header>
@@ -65,62 +67,83 @@
             </header>
         </div>
 
+        <!-- Main Homepage Dashboard -->
         <div class="row">
-            <div class="col-12 col-sm-8 col-lg-8">
-                <table id="recent">
-                    <tr>
-                        <thead>
-                            <h2>Recent Applications</h2>
-                        </thead>
-                    </tr>
-                    <tr>
-                        <td>Date</td>
-                        <td>Title</td>
-                        <td>Status</td>
-                        <td><button id="update">Update</button></td>
-                        <td><button id="delete">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Date</td>
-                        <td>Title</td>
-                        <td>Status</td>
-                        <td><button id="update">Update</button></td>
-                        <td><button id="delete">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Date</td>
-                        <td>Title</td>
-                        <td>Status</td>
-                        <td><button id="update">Update</button></td>
-                        <td><button id="delete">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Date</td>
-                        <td>Title</td>
-                        <td>Status</td>
-                        <td><button id="update">Update</button></td>
-                        <td><button id="delete">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Date</td>
-                        <td>Title</td>
-                        <td>Status</td>
-                        <td><button id="update">Update</button></td>
-                        <td><button id="delete">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td colspan=5><button id="dash-more">MORE</button></td>
-                    </tr>
-                </table>
+            <div class="container m-3">
+                <div class="row col-12">
+                    <!-- Recent Applications -->
+                    <div class="border border-success rounded col-md-7 text-break">
+                        <h2 class="text-center p-2">Recent Applications</h2>
+                        <table class="table text-center align-middle">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Title</td>
+                                    <td>Status</td>
+                                    <td><button type="button" class="btn btn-success">Update</button></td>
+                                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Title</td>
+                                    <td>Status</td>
+                                    <td><button type="button" class="btn btn-success">Update</button></td>
+                                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Title</td>
+                                    <td>Status</td>
+                                    <td><button type="button" class="btn btn-success">Update</button></td>
+                                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
 
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Title</td>
+                                    <td>Status</td>
+                                    <td><button type="button" class="btn btn-success">Update</button></td>
+                                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-dark mb-2">MORE</button>
+                        </div>
+                    </div>
+
+                    <!-- Reminders -->
+                    <div id="reminders" class="container border border-success rounded col-sm-4 text-break">
+                        <h2 class="text-center p-2">Reminders</h2>
+                        <div class="border border-success rounded mb-4 p-2 overflow-auto">
+                            <p class="text-center">Follow up with XYZ</p>
+                            <button>VIEW</button>
+                        </div>
+                        <div class="border border-success rounded mb-4 p-2 overflow-auto">
+                            <div>
+                                <p class="text-center">3 Incomplete APPS</p>
+                                <button>VIEW</button>
+                            </div>
+                        </div>
+                        <div id="reminder-section3" class="border border-success rounded mb-4 p-2 overflow-auto">
+                            <p class="text-center">
+                                <a class="link-text" href="https://www.linkedin.com" target="_blank">Find More
+                                    Opportunities</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-12 col-sm-4">
-                <h4>Reminders</h4>
-                <p>Follow up with XYZ <button=id="view-follow">View</button></p>
-                <p>3 incomplete APPS <button id="view-incomplete">View</button></p>
-                <p><a href="null">Find More Opportunities</a></p>
-            </div>
 
             <div class="col-7">
                 <button id="newApp"><a href="new-app.html">Add NEW APP</a></button>
