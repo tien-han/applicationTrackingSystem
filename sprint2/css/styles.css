@@ -95,6 +95,19 @@ table {
   text-decoration: none;
 }
 
+/* Form container (grouping all form sections) */
+.form-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Styling for each form section */
+.form-group {
+  padding: 20px;
+}
+
 /* ------------------------------Other Styling------------------------------ */
 /* TODO: Delete if not using */
 /* html {
