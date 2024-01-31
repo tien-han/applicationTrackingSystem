@@ -78,6 +78,23 @@ table {
   padding: 15px;
 }
 
+/* ------------------------------Form Styling------------------------------ */
+/* TODO: Are these actually needed? This was previously #newApp. */
+#new-app-form {
+  padding: 10px;
+  width: 35%;
+  float: right;
+  text-align: center;
+}
+
+/* TODO: Are these actually needed? This was previously #newApp. */
+#new-app-form a {
+  color: #333333;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 /* ------------------------------Other Styling------------------------------ */
 /* TODO: Delete if not using */
 /* html {
@@ -92,12 +109,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-/* img {
-
-} */
-
-
 
 header h1 {
   text-align: center;
@@ -130,9 +141,6 @@ button,
 #submit {
   border-radius: 0%;
 }
-
-
-
 
 /* dark mode */
 .darkMode {
