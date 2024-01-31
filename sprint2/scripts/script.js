@@ -1,9 +1,42 @@
 'use strict';
 
 //-------------------------------------------------------------------------------------------------
-// Dark Mode Toggling
+// Dark Mode Setting, Toggling, and Propagation
 //-------------------------------------------------------------------------------------------------
-// make sure page has loaded before running event or it will not work
+//Run this as soon as the window completely loads to store user preferences
+window.onload = (event) => {
+    //Set the user dark mode preference in local storage if it doesn't exist yet
+    if (localStorage.getItem("darkMode") === null) {
+        localStorage.setItem("darkMode", "disabled");
+    }
+    setColorTheme();
+}
+
+//Function to set the dark/light mode depending on what has been selected
+function setColorTheme() {
+    if (localStorage.getItem("darkMode") === "enabled") {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
+}
+
+//Helper function that sets light mode
+function disableDarkMode() {
+    localStorage.setItem("darkMode", "disabled");
+    document.body.classList.remove("darkMode");
+    document.getElementById("dark-light").textContent = "Dark Mode";
+}
+
+//Helper function that sets dark mode
+function enableDarkMode() {
+    localStorage.setItem("darkMode", "enabled");
+    document.body.classList.add("darkMode");
+    document.getElementById("dark-light").textContent = "Light Mode";
+}
+
+//Make sure page has loaded before running event or it will not work
+//This adds the onclick toggling event to the dark mode button
 document.addEventListener("DOMContentLoaded", function () {
     // locate the button
     let darkLight = document.getElementById("dark-light");
@@ -11,10 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // toggle darkMode on click and change button text contents
     darkLight.onclick = function (event) {
         document.body.classList.toggle("darkMode");
+
         if (document.body.classList.contains("darkMode")) {
-            darkLight.textContent = "Light Mode";
+            enableDarkMode();
         } else {
-            darkLight.textContent = "Dark Mode";
+            disableDarkMode();
         }
     }
 });

@@ -79,22 +79,6 @@ table {
 }
 
 /* ------------------------------Form Styling------------------------------ */
-/* TODO: Are these actually needed? This was previously #newApp. */
-#new-app-form {
-  padding: 10px;
-  width: 35%;
-  float: right;
-  text-align: center;
-}
-
-/* TODO: Are these actually needed? This was previously #newApp. */
-#new-app-form a {
-  color: #333333;
-  text-align: center;
-  font-weight: bold;
-  text-decoration: none;
-}
-
 /* Form container (grouping all form sections) */
 .form-container {
   margin: 20px;
@@ -106,6 +90,22 @@ table {
 /* Styling for each form section */
 .form-group {
   padding: 20px;
+}
+
+/* ------------------------------Dark Mode Styling------------------------------ */
+.darkMode {
+  background-color: #333333;
+  color: white;
+}
+
+.darkMode h1 {
+  color: #6CB443;
+}
+
+#dark-light {
+  float: right;
+  display: inline;
+  padding: 10px;
 }
 
 /* ------------------------------Other Styling------------------------------ */
@@ -153,22 +153,6 @@ td {
 button,
 #submit {
   border-radius: 0%;
-}
-
-/* dark mode */
-.darkMode {
-  background-color: #333333;
-  color: white;
-}
-
-.darkMode h1 {
-  color: #6CB443;
-}
-
-#dark-light {
-  float: right;
-  display: inline;
-  padding: 10px;
 }
 
 #dash-more {
