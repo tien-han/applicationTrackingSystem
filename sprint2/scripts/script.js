@@ -58,13 +58,24 @@ document.addEventListener("DOMContentLoaded", function () {
 //-------------------------------------------------------------------------------------------------
 if (document.getElementById("new-app-form")) {
     document.addEventListener('DOMContentLoaded', function () {
-        var currentDate = new Date();
-        document.getElementById("currentDate").innerHTML = currentDate.toDateString();
+        var currentDateInput = document.getElementById("currentDateInput")
 
-        var followUpDate = new Date();
-        followUpDate.setDate(currentDate.getDate() + 14);
-        document.getElementById("followUpDate").innerHTML = followUpDate.toDateString();
-    });
+        var currentDate = new Date();
+        currentDateInput.valueAsDate = currentDate;
+
+       function updateFollowUpDate() {
+        var selectedDate = new Date(currentDateInput.value);
+
+               var followUpDate = new Date(selectedDate);
+           followUpDate.setDate(currentDate.getDate() + 14);
+           document.getElementById("followUpDateDisplay").innerHTML = followUpDate.toDateString();
+       }
+        updateFollowUpDate();
+        currentDateInput.addEventListener('change', updateFollowUpDate);
+
+           });
+
+
 }
 
 //-------------------------------------------------------------------------------------------------

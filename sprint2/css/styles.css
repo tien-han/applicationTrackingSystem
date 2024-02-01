@@ -162,8 +162,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* New application */
-
+/* New application
 #RoleName {
   margin-inline-start: 4%;
 
@@ -171,4 +170,15 @@ a:hover {
 
 #ContactPhone {
   margin-inline-start: -.5%;
+}
+
+
+ */
+
+#new-app-form {
+  margin: 20px;
+  margin-top: 100px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }

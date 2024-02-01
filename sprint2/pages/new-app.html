@@ -77,18 +77,20 @@
         <input type="text" id="RoleName" name="RoleName" class="form-control">
 
         <div class="col-md-6">
-          <label for="Jobdesc" class="form-label"> Job description*</label>
-          <input type="text" id="Jobdesc" name="Jobdesc" class="form-control">
+          <label for="Jobdesc" class="form-label">Job Description*</label>
+          <textarea id="Jobdesc" name="Jobdesc" rows="5" class="form-control"></textarea>
         </div>
 
 
 
+
+
         <h5>Date of Application: </h5>
-        <p id="currentDate"></p>
+        <input type="date" id="currentDateInput">
 
 
         <h5>Follow update: </h5>
-        <p id="followUpDate"></p>
+        <input type="date" id="followUpDateDispLay">
       </div>
 
 
@@ -99,6 +101,10 @@
     -->
 
       <div class="col-6 col-lg-4">
+
+      <label for="employerName" class="form-label">Employer Name*</label>
+        <input type="text" id="employerName" name="RoleName" class="form-control">
+
         <div class="form-field">
           <input type="radio" id="NeedApply" name="Appliedposition" value="NeedApply">
           <label for="NeedApply">Need to apply</label>
@@ -134,9 +140,15 @@
         <label for="ContactPhone" class="form-label mt-2">Contact Phone*</label>
         <input type="text" id="ContactPhone" name="ContactPhone" class="form-control">
       </div>
+
       <div class="col-6">
         <label for="InterviewNotes" class="form-label">Interview Notes*</label>
-        <textarea id="InterviewNotes" name="InterviewNotes" rows="7" class="form-control"></textarea>
+        <textarea id="InterviewNotes" name="InterviewNotes" rows="5" class="form-control"></textarea>
+
+
+
+
+
       </div>
 
 
