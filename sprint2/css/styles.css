@@ -72,6 +72,25 @@ table {
   padding: 15px;
 }
 
+/* ------------------------------Admin Homepage Styling------------------------------ */
+/* Enable the table to scroll */
+#users-table-wrapper {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+/* Keep the table header on top when scrolling */
+#users-table-wrapper thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Add in a border around all the elements in the header */
+#users-table-wrapper th {
+  box-shadow: 1px 1px 5px black;
+}
+
 /* ------------------------------Form Styling------------------------------ */
 /* Form container (grouping all form sections) */
 .form-container {
