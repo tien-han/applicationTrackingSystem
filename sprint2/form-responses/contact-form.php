@@ -106,7 +106,6 @@
             include("..\pages\contact.html");
         }
 
-        if (isset($name))
 
 
 
