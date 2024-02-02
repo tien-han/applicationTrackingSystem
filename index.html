@@ -1,13 +1,21 @@
+<!--
+    This page is Cicada Team's homepage. It holds our personal bios and our Team Agreement.
+
+    Author: Sage, Colton, Gene, Tien
+    File: index.html
+    Date: 1/31/2024
+ -->
+
 <!DOCTYPE html>
-<html lang="en" xmlns:border-style="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cicada Team</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.css">
-
-
 </head>
 
 <body>
@@ -17,7 +25,7 @@
                 <h1>Cicada Team</h1>
             </div>
         </div>
-
+        <!-- Navbar to sprints and in class assignments -->
         <div class="row">
             <div class="col-12">
                 <ul>
@@ -31,9 +39,9 @@
             </div>
         </div>
 
-
+        <!-- Team Bio's -->
         <div class="row">
-            <div class="col-4">
+            <div class="col-3 d-flex flex-column justify-content-top">
                 <img src="pictures/Colton.jpeg">
                 <h3>Colton</h3>
                 <p>
@@ -41,16 +49,25 @@
                     warehouses and the car-maintenance industry.
                 </p>
             </div>
-            <div class="col-4">
+            <div class="col-3 d-flex flex-column justify-content-top">
                 <img src="pictures/Gene.jpeg">
                 <h3>Gene</h3>
                 <p>My name is Eugene, I go by Gene. This is my first year in the BAS program at Green River.</p>
             </div>
-            <div class="col-4">
+            <div class="col-3 d-flex flex-column justify-content-top">
                 <img src="pictures/Sage.jpg">
-                <H3>Sage</H3>
+                <h3>Sage</h3>
                 <p>Hello, my name is Sage and this is my third year at Green River. I have five years experience in
                     warehousing and distribution. During Covid I decided to change careers and go to college.</p>
+            </div>
+            <div class="col-3 d-flex flex-column justify-content-top">
+                <img src="pictures/Tien-Han.png">
+                <h3>Tien Han</h3>
+                <p>This is my first semester in Green River College's BASc Software Development program and I have 3.5
+                    years of professional software engineering experience. I'm excited to learn and engineer a project
+                    that I can be proud of. I have 3 cats and love to craft!</p>
+                <a class="btn btn-primary mx-auto" href="https://github.com/tien-han" target="_blank">Check out my
+                    Github!</a>
             </div>
         </div>
 
@@ -70,7 +87,11 @@
             </div>
         </div>
     </div>
-    </div>
+
+    <!--Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

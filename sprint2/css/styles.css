@@ -72,6 +72,47 @@ table {
   padding: 15px;
 }
 
+/* ------------------------------Admin Homepage Styling------------------------------ */
+/* Users table search bar */
+#user-search {
+  /* Full-width */
+  width: 100%;
+
+  /* Increase font-size */
+  font-size: 16px;
+
+  /* Add some padding */
+  padding: 12px 20px 12px 40px;
+
+  /* Add a grey border */
+  border: 1px solid #ddd;
+
+  /* Add some space below the input */
+  margin-bottom: 12px;
+}
+
+/* Enable the table to scroll */
+#users-table-wrapper {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+/* Keep the table header on top when scrolling */
+#users-table-wrapper thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Add in a border around all the elements in the header */
+#users-table-wrapper th {
+  box-shadow: 1px 1px 5px black;
+}
+
+#users-table tr:hover td {
+  background-color: #f1f1f1;
+}
+
 /* ------------------------------Form Styling------------------------------ */
 /* Form container (grouping all form sections) */
 .form-container {
@@ -164,11 +205,10 @@ a:hover {
 
 /* New application */
 
-#RoleName {
-  margin-inline-start: 4%;
-
-}
-
-#ContactPhone {
-  margin-inline-start: -.5%;
+#new-app-form {
+  margin: 20px;
+  margin-top: 100px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
