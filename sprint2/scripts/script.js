@@ -58,65 +58,78 @@ document.addEventListener("DOMContentLoaded", function () {
 //-------------------------------------------------------------------------------------------------
 if (document.getElementById("new-app-form")) {
     document.addEventListener('DOMContentLoaded', function () {
+        var currentDateInput = document.getElementById("currentDateInput")
+
         var currentDate = new Date();
-        document.getElementById("currentDate").innerHTML = currentDate.toDateString();
+        currentDateInput.valueAsDate = currentDate;
 
-        var followUpDate = new Date();
-        followUpDate.setDate(currentDate.getDate() + 14);
-        document.getElementById("followUpDate").innerHTML = followUpDate.toDateString();
-    });
-}
+        function updateFollowUpDate() {
+            var selectedDate = new Date(currentDateInput.value);
 
-//-------------------------------------------------------------------------------------------------
-// Sign Up Form Validation
-//-------------------------------------------------------------------------------------------------
-if (document.getElementById("sign-up-form")) {
-    document.getElementById('signupForm').addEventListener('submit', function (event) {
-        // Validate Cohort Number
-        var cohortNumber = document.getElementById('cohortNumber').value;
-        if (cohortNumber < 1 || cohortNumber > 100) {
-            alert('Cohort Number must be between 1 and 100.');
-            event.preventDefault();
-            return false;
+            var followUpDate = new Date(selectedDate);
+            followUpDate.setDate(currentDate.getDate() + 14);
+            document.getElementById("followUpDateDisplay").innerHTML = followUpDate.toDateString();
         }
+        updateFollowUpDate();
+        currentDateInput.addEventListener('change', updateFollowUpDate);
 
-        // Validate Email
-        var email = document.getElementById('email').value;
-        if (!email.endsWith('@greenriver.edu') && !email.endsWith('@greenrivercollege.edu')) {
-            // Ask user for confirmation to proceed
-            var confirmation = confirm('greenriver.edu email is preferred. Are you sure you want to proceed?');
-            if (!confirmation) {
-                event.preventDefault();
-                return false;
-            }
-        }
-
-        return true;
     });
-}
 
-//-------------------------------------------------------------------------------------------------
-// Contact Form Validation
-//-------------------------------------------------------------------------------------------------
-//Contact Form Validation on Change
-if (document.getElementById("contact-page")) {
-    document.getElementById("name").addEventListener("change", function () {
-        validateFullName();
+}
+//New app Form Validation on Change
+if (document.getElementById("new-app-form")) {
+    document.getElementById("RoleName").addEventListener("change", function () {
+        validateRoleName();
     })
-    document.getElementById("email").addEventListener("change", function () {
-        validateEmail();
+    document.getElementById("Jobdesc").addEventListener("change", function () {
+        validateJobdesc();
     })
-    document.getElementById("message").addEventListener("change", function () {
-        validateMessage();
+    document.getElementById("ContactName").addEventListener("change", function () {
+        validateContactName(); //not working yet
     })
+    document.getElementById("ContactEmail").addEventListener("change", function () {
+        validateContactEmail();
+    })
+    document.getElementById("ContactPhone").addEventListener("change", function () {
+        validateContactPhone();
+    })
+    document.getElementById("InterviewNotes").addEventListener("change", function () {
+        validateInterviewNotes();
+    })
+    document.getElementById("appStatus").addEventListener("change", function () {
+        validateappStatus();
+    })
+
+    document.getElementById("employerName").addEventListener("change", function () {
+        validateemployerName();
+    })
+
+
+
+
+
+
+
+
+
 }
 
 //Contact Form Validation on Submit
 function validateContactForm() {
     const validationResult =
-        validateFullName()
-        && validateEmail()
-        && validateMessage();
+        validateJobdesc()
+        && validateContactEmail()
+        && validateContactName()
+        && validateContactPhone()
+        && validateInterviewNotes()
+        && validateemployerName()
+
+        && validateRoleName();
+
+
+
+
+
 
     if (!validationResult) {
         event.preventDefault();
@@ -124,8 +137,8 @@ function validateContactForm() {
 }
 
 //Form validation for a full name
-function validateFullName() {
-    const name = document.getElementById("name").value.trim();
+function validateRoleName() {   //
+    const name = document.getElementById("RoleName").value.trim();
     const errorMessage = document.getElementById("name-error");
 
     //We won't be validating full name for only alphabetic values, as names may have other characters
@@ -138,8 +151,8 @@ function validateFullName() {
 }
 
 //Form validation for an email
-function validateEmail() {
-    const email = document.getElementById("email").value.trim();
+function validateContactEmail() {  //
+    const email = document.getElementById("ContactEmail").value.trim();
     const errorMessage = document.getElementById("email-error");
 
     if (email === "") {
@@ -151,14 +164,163 @@ function validateEmail() {
 }
 
 //Form validation for a message (currently used in Contact Form)
-function validateMessage() {
-    const message = document.getElementById("message").value.trim();
+function validateJobdesc() { //
+    const message = document.getElementById("Jobdesc").value.trim();
     const errorMessage = document.getElementById("message-error");
 
     if (message === "") {
-        errorMessage.innerText = "***Please enter in a message, you've only entered in spaces";
+        errorMessage.innerText = "***Please enter in a description, you've only entered in spaces";
         return false;
     }
     errorMessage.innerText = "";
     return true;
 }
+    function validateContactName() {
+        const name = document.getElementById("ContactName").value.trim();
+        const errorMessage = document.getElementById("name-error");
+
+        //We won't be validating full name for only alphabetic values, as names may have other characters
+        if (name === "") {
+            errorMessage.innerText = "***Please enter in a name, you've only entered in spaces";
+            return false;
+        }
+        errorMessage.innerText = "";
+        return true;
+    }
+
+    function validateContactPhone() { // come back later
+        const message = document.getElementById("ContactPhone").value.trim();
+        const errorMessage = document.getElementById("message-error");
+
+        if (message === "") {
+            errorMessage.innerText = "***Please enter in a description, you've only entered in spaces";
+            return false;
+        }
+        errorMessage.innerText = "";
+        return true;
+    }
+
+        function validateInterviewNotes() { //
+            const message = document.getElementById("InterviewNotes").value.trim();
+            const errorMessage = document.getElementById("message-error");
+
+            if (message === "") {
+                errorMessage.innerText = "***Please enter in your interview notes , you've only entered in spaces";
+                return false;
+            }
+            errorMessage.innerText = "";
+            return true;
+
+        }
+function validateemployerName() { //
+    const name = document.getElementById("employerName").value.trim();
+    const errorMessage = document.getElementById("name-error");
+
+    //We won't be validating full name for only alphabetic values, as names may have other characters
+    if (name === "") {
+        errorMessage.innerText = "***Please enter in a name, you've only entered in spaces";
+        return false;
+    }
+    errorMessage.innerText = "";
+    return true;
+}
+
+
+
+
+
+//-------------------------------------------------------------------------------------------------
+// Sign Up Form Validation
+//-------------------------------------------------------------------------------------------------
+    if (document.getElementById("sign-up-form")) {
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            // Validate Cohort Number
+            var cohortNumber = document.getElementById('cohortNumber').value;
+            if (cohortNumber < 1 || cohortNumber > 100) {
+                alert('Cohort Number must be between 1 and 100.');
+                event.preventDefault();
+                return false;
+            }
+
+            // Validate Email
+            var email = document.getElementById('email').value;
+            if (!email.endsWith('@greenriver.edu') && !email.endsWith('@greenrivercollege.edu')) {
+                // Ask user for confirmation to proceed
+                var confirmation = confirm('greenriver.edu email is preferred. Are you sure you want to proceed?');
+                if (!confirmation) {
+                    event.preventDefault();
+                    return false;
+                }
+            }
+
+            return true;
+        });
+    }
+
+//-------------------------------------------------------------------------------------------------
+// Contact Form Validation
+//-------------------------------------------------------------------------------------------------
+//Contact Form Validation on Change
+    if (document.getElementById("contact-page")) {
+        document.getElementById("name").addEventListener("change", function () {
+            validateFullName();
+        })
+        document.getElementById("email").addEventListener("change", function () {
+            validateEmail();
+        })
+        document.getElementById("message").addEventListener("change", function () {
+            validateMessage();
+        })
+    }
+
+//Contact Form Validation on Submit
+    function validateContactForm() {
+        const validationResult =
+            validateFullName()
+            && validateEmail()
+            && validateMessage();
+
+        if (!validationResult) {
+            event.preventDefault();
+        }
+    }
+
+//Form validation for a full name
+    function validateFullName() {
+        const name = document.getElementById("name").value.trim();
+        const errorMessage = document.getElementById("name-error");
+
+        //We won't be validating full name for only alphabetic values, as names may have other characters
+        if (name === "") {
+            errorMessage.innerText = "***Please enter in a name, you've only entered in spaces";
+            return false;
+        }
+        errorMessage.innerText = "";
+        return true;
+    }
+
+//Form validation for an email
+    function validateEmail() {
+        const email = document.getElementById("email").value.trim();
+        const errorMessage = document.getElementById("email-error");
+
+        if (email === "") {
+            errorMessage.innerText = "***Please enter an email address"
+            return false;
+        }
+        errorMessage.innerText = "";
+        return true;
+    }
+
+//Form validation for a message (currently used in Contact Form)
+    function validateMessage() {
+        const message = document.getElementById("message").value.trim();
+        const errorMessage = document.getElementById("message-error");
+
+        if (message === "") {
+            errorMessage.innerText = "***Please enter in a message, you've only entered in spaces";
+            return false;
+        }
+        errorMessage.innerText = "";
+        return true;
+    }
