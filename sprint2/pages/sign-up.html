@@ -14,10 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" >
     <link rel="stylesheet" href="../css/styles.css">
-    <!-- TODO: Delete this reference once we confirm CDN is working and styles aren't breaking -->
-    <link rel="stylesheet" href="../css/bootstrap-grid.css">
 </head>
 
 <body id="sign-up-form">
@@ -68,22 +66,27 @@
         </div>
     </div>
 
-    <div class="container-flex">
-        <!-- TODO: Update action link once website goes live -->
-        <form id="signUp" method="GET" action="vardump.php">
+    <div class = "row justify-content-center">
+        <form class = "form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12"
+        id="signUp" method="POST" action="../form-responses/sign-up-form.php"
+        <!-- TODO: ADD VALIDATION JAVASCRIPT onsubmit = "return ..."-->
+
 
             <!-- Name -->
             <div class="form-group">
                 <label for="name">Name*</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" maxlength="100" minlength="1"
+                       aria-describedby="nameHelp" placeholder="Enter name" required>
+                <small id="nameHelp" class="form-text text-muted"></small>
             </div>
 
             <!-- Email -->
-            <div class="form-group">
-                <label for="email">Email*</label>
-                <input type="email" id="email" name="email" required>
-
-            </div>
+        <section class="form-group">
+            <label for="email">Email address*</label><span class="text-danger" id="email-error"></span>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                   placeholder="Enter email" required>
+            <small id="emailHelp" class="form-text text-muted"></small>
+        </section>
 
             <!-- Cohort Number -->
             <div class="form-group">
