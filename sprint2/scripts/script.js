@@ -114,8 +114,8 @@ if (document.getElementById("new-app-form")) {
 
 }
 
-//Contact Form Validation on Submit
-function validateContactForm() {
+//new app Form Validation on Submit
+function validatenewappform() {
     const validationResult =
         validateJobdesc()
         && validateContactEmail()
