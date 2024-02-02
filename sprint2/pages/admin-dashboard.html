@@ -38,13 +38,13 @@
                     <a class="nav-link active" href="admin-dashboard.html">Admin Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/new-app.html">New Application</a>
+                    <a class="nav-link" href="new-app.html">New Application</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/sign-up.html">Sign Up</a>
+                    <a class="nav-link" href="sign-up.html">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/contact.html">Contact</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
                 </li>
             </ul>
             <ul class="navbar-nav align-items-center ms-auto">
@@ -153,8 +153,9 @@
                     <!-- List of Users -->
                     <div class="border border-success rounded text-break">
                         <h2 class="text-center p-2">Users</h2>
+                        <input type="text" id="user-search" onkeyup="searchUsers()" placeholder="Search for users...">
                         <div id="users-table-wrapper">
-                            <table class="table text-center align-middle">
+                            <table id="users-table" class="table text-center align-middle">
                                 <thead id="users-table-header">
                                     <tr>
                                         <th scope="col">Name</th>
