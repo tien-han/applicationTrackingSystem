@@ -79,29 +79,29 @@ if (document.getElementById("new-app-form")) {
 //New app Form Validation on Change
 if (document.getElementById("new-app-form")) {
     document.getElementById("RoleName").addEventListener("change", function () {
-        validateFullName();
+        validateRoleName();
     })
     document.getElementById("Jobdesc").addEventListener("change", function () {
-        validateEmail();
+        validateJobdesc();
     })
     document.getElementById("ContactName").addEventListener("change", function () {
-        validateMessage();
+        validateContactName(); //not working yet
     })
     document.getElementById("ContactEmail").addEventListener("change", function () {
-        validateMessage();
+        validateContactEmail();
     })
     document.getElementById("ContactPhone").addEventListener("change", function () {
-        validateMessage();
+        validateContactPhone();
     })
     document.getElementById("InterviewNotes").addEventListener("change", function () {
-        validateMessage();
+        validateInterviewNotes();
     })
     document.getElementById("appStatus").addEventListener("change", function () {
-        validateMessage();
+        validateappStatus();
     })
 
     document.getElementById("employerName").addEventListener("change", function () {
-        validateMessage();
+        validateemployerName();
     })
 
 
@@ -117,9 +117,19 @@ if (document.getElementById("new-app-form")) {
 //Contact Form Validation on Submit
 function validateContactForm() {
     const validationResult =
-        validateFullName()
-        && validateEmail()
-        && validateMessage();
+        validateJobdesc()
+        && validateContactEmail()
+        && validateContactName()
+        && validateContactPhone()
+        && validateInterviewNotes()
+        && validateemployerName()
+
+        && validateRoleName();
+
+
+
+
+
 
     if (!validationResult) {
         event.preventDefault();
@@ -127,7 +137,7 @@ function validateContactForm() {
 }
 
 //Form validation for a full name
-function validateFullName() {
+function validateRoleName() {   //
     const name = document.getElementById("RoleName").value.trim();
     const errorMessage = document.getElementById("name-error");
 
@@ -141,8 +151,8 @@ function validateFullName() {
 }
 
 //Form validation for an email
-function validateEmail() {
-    const email = document.getElementById("email").value.trim();
+function validateContactEmail() {  //
+    const email = document.getElementById("ContactEmail").value.trim();
     const errorMessage = document.getElementById("email-error");
 
     if (email === "") {
@@ -154,19 +164,19 @@ function validateEmail() {
 }
 
 //Form validation for a message (currently used in Contact Form)
-function validateMessage() {
-    const message = document.getElementById("message").value.trim();
+function validateJobdesc() { //
+    const message = document.getElementById("Jobdesc").value.trim();
     const errorMessage = document.getElementById("message-error");
 
     if (message === "") {
-        errorMessage.innerText = "***Please enter in a message, you've only entered in spaces";
+        errorMessage.innerText = "***Please enter in a description, you've only entered in spaces";
         return false;
     }
     errorMessage.innerText = "";
     return true;
-
-    function validateFullName() {
-        const name = document.getElementById("RoleName").value.trim();
+}
+    function validateContactName() {
+        const name = document.getElementById("ContactName").value.trim();
         const errorMessage = document.getElementById("name-error");
 
         //We won't be validating full name for only alphabetic values, as names may have other characters
@@ -177,6 +187,46 @@ function validateMessage() {
         errorMessage.innerText = "";
         return true;
     }
+
+    function validateContactPhone() { // come back later
+        const message = document.getElementById("ContactPhone").value.trim();
+        const errorMessage = document.getElementById("message-error");
+
+        if (message === "") {
+            errorMessage.innerText = "***Please enter in a description, you've only entered in spaces";
+            return false;
+        }
+        errorMessage.innerText = "";
+        return true;
+    }
+
+        function validateInterviewNotes() { //
+            const message = document.getElementById("InterviewNotes").value.trim();
+            const errorMessage = document.getElementById("message-error");
+
+            if (message === "") {
+                errorMessage.innerText = "***Please enter in your interview notes , you've only entered in spaces";
+                return false;
+            }
+            errorMessage.innerText = "";
+            return true;
+
+        }
+function validateemployerName() { //
+    const name = document.getElementById("employerName").value.trim();
+    const errorMessage = document.getElementById("name-error");
+
+    //We won't be validating full name for only alphabetic values, as names may have other characters
+    if (name === "") {
+        errorMessage.innerText = "***Please enter in a name, you've only entered in spaces";
+        return false;
+    }
+    errorMessage.innerText = "";
+    return true;
+}
+
+
+
 
 
 //-------------------------------------------------------------------------------------------------
@@ -274,4 +324,3 @@ function validateMessage() {
         errorMessage.innerText = "";
         return true;
     }
-}
