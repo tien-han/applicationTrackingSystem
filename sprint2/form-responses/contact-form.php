@@ -6,7 +6,8 @@
     <title>Contact Form</title>
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
 </head>
 
 <body>
@@ -26,13 +27,13 @@
                         <a class="nav-link" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="new-app.html">New Application</a>
+                        <a class="nav-link" href="../pages/new-app.html">New Application</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="sign-up.html">Sign Up</a>
+                        <a class="nav-link" href="../pages/sign-up.html">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="contact.html">Contact</a>
+                        <a class="nav-link active" href="../pages/contact.html">Contact</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav align-items-center ms-auto">
@@ -49,22 +50,74 @@
         <br />
         <!--Form Handling for Contact Form-->
         <?php
-            if (isset($_POST["contact-form"])) {
-                echo "<div class='form-container pt-0'>
-                    <h1 class='pt-5 header-text'>Great job adding a new contact!</h1>
-                    <h4>Here's what you just entered:</h4><br/>
-                    <p>The name you added was: " . $_POST["name"] . ".</p>
-                    <p>The email you added was: " . $_POST["email"] . ".</p>
-                    <p>The message you added was: " . $_POST["message"] . ".</p>
-                </div>";
+
+        // TODO: CHANGE EMAIL TO TYLER'S ONCE TESTING IS DONE
+
+        // check email fields are filled before sending email or showing receipt
+        if (isset($_POST['message']) && $_POST['message'] != '' &&
+            isset($_POST['name']) && $_POST['name'] != '' &&
+            isset($_POST['email']) && $_POST['email'] != ''){
+            // assign fields to variables for the email
+            $email = $_POST['email'];
+            $name = $_POST['name'];
+            $message = $_POST['message'];
+            $headers = "From: $name" . "\r\n Reply-to: $email";
+            $to = "Sage Markwardt<smarkwar@smarkwardt.greenriverdev.com>";
+
+            // Use subject field if filled out - otherwise use generic title
+            if (isset($_POST['subject']) && $_POST['subject'] != '') {
+                $subject = $_POST['subject'];
+            } else {
+                // default subject with customer name
+                $subject = "No subject - $name Contact Form";
             }
+
+            // send the email
+            mail($to, $subject, $message, $headers);
+
+            // print out the reciept
+            echo "<div class='form-container pt-0'>
+            <div class = 'row justify-content-center'>
+            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
+
+            <h1 class='pt-5 header-text'>A response will be sent soon, thank you!</h1>
+            <h5>Here's what you just entered:</h5><br/>
+            <p>The name you added was: " . $name . ".</p>
+            <p>The subject of your message was: " . $subject . "</p>
+            <p>The email you added was: " . $email . ".</p>
+            <p>The message you added was: " . $message . ".</p>
+            </div>
+            </div>
+            </div>";
+        } else {
+            // tell the user to go to the contact form and fill it out
+            echo "<div class='form-container pt-0'>
+            <div class = 'row justify-content-center'>
+            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
+            <h1 class='pt-5 header-text m-auto'>Error!</h1>
+            <br>
+            <p>Please fill out the form below. </p>
+            <p>An email will not be sent until there is content.</p>
+            </div>
+            </div>
+            </div>
+            ";
+            // TODO: MAKE THIS A PRETTIER ERROR MESSAGE
+            include("..\pages\contact.html");
+        }
+
+
+
+
+
+
         ?>
     
         <!--Scripts-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
-        <script src="../scripts/script.js"></script>
+        <script type="text/javascript" src="../scripts/script.js"></script>
 
     </body>
 </html>
