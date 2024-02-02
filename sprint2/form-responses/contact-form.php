@@ -51,11 +51,12 @@
         <!--Form Handling for Contact Form-->
         <?php
 
-        // TODO: ADD A SUBJECT FOR THE EMAIL
         // TODO: CHANGE EMAIL TO TYLER'S ONCE TESTING IS DONE
 
-        // check email fields are filled before sending
-        if (isset($_POST['message']) && $_POST['message'] != ''){
+        // check email fields are filled before sending email or showing receipt
+        if (isset($_POST['message']) && $_POST['message'] != '' &&
+            isset($_POST['name']) && $_POST['name'] != '' &&
+            isset($_POST['email']) && $_POST['email'] != ''){
             // assign fields to variables for the email
             $email = $_POST['email'];
             $name = $_POST['name'];
@@ -67,7 +68,8 @@
             if (isset($_POST['subject']) && $_POST['subject'] != '') {
                 $subject = $_POST['subject'];
             } else {
-                $subject = "No subject - contact request";
+                // default subject with customer name
+                $subject = "No subject - $name Contact Form";
             }
 
             // send the email
@@ -94,12 +96,14 @@
             <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
             <h1 class='pt-5 header-text m-auto'>Error!</h1>
             <br>
-            <p>Please return to the contact form page and fill it out.
-            An email will not be sent until there is content.</p>
+            <p>Please fill out the form below. </p>
+            <p>An email will not be sent until there is content.</p>
             </div>
             </div>
             </div>
             ";
+            // TODO: MAKE THIS A PRETTIER ERROR MESSAGE
+            include("..\pages\contact.html");
         }
 
         if (isset($name))

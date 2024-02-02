@@ -50,17 +50,36 @@
 
 <?php
 // TODO: validate information is entered before showing receipt
-echo "<div class = 'row justify-content-center'>
-<div class='form-container pt-0 col-lg-4'>
-<h1 class='pt-5 header-text m-auto'>Thanks for signing up, " . $_POST['name']. "!</h1>
+
+if (isset($_POST['email']) && $_POST['email'] != '' &&
+    isset($_POST['name']) && $_POST['name'] != '' &&
+    isset($_POST['cohortNumber']) && $_POST['cohortNumber'] != '')
+{
+        echo "<div class = 'row justify-content-center'>
+        <div class='form-container pt-0 col-lg-4'>         
+        <h1 class='pt-5 header-text m-auto'>Thanks for signing up, " . $_POST['name']. "!</h1>
         <h5>The details you entered are: </h5>
         <p>Email: " . $_POST['email'] . " </p>
         <p>Cohort Number: " . $_POST['cohortNumber'] . "</p>
         <p>Status: " . $_POST['seekingInternship'] . "</p>
         <p>Looking for: " . $_POST['seekingRoles'] . "</p>
         </div>
-        </div>"
-
+        </div>";
+} else {
+    // show error message if page is navigated to without form submission
+    echo "<div class='form-container pt-0'>
+            <div class = 'row justify-content-center'>
+            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
+            <h1 class='pt-5 header-text m-auto'>Error!</h1>
+            <br>
+            <p>Please return to the sign up form page and fill it out.</p>
+            <p>We can't create an account for you with no information! </p>
+            </div>
+            </div>
+            </div>";
+    // TODO: MAKE THIS A PRETTIER ERROR MESSAGE
+    include("..\pages\sign-up.html");
+}
     ?>
 
 </body>
