@@ -75,10 +75,10 @@
             // send the email
             mail($to, $subject, $message, $headers);
 
-            // print out the reciept
+            // print out the receipt
             echo "<div class='form-container pt-0'>
             <div class = 'row justify-content-center'>
-            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
+            <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-10 col-12'>
 
             <h1 class='pt-5 header-text'>A response will be sent soon, thank you!</h1>
             <h5>Here's what you just entered:</h5><br/>
@@ -94,15 +94,13 @@
             echo "<div class='form-container pt-0'>
             <div class = 'row justify-content-center'>
             <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
-            <h1 class='pt-5 header-text m-auto'>Error!</h1>
+            <h1 class='pt-5 header-text m-auto'>Please fill out the form below!</h1>
             <br>
-            <p>Please fill out the form below. </p>
+   
             <p>An email will not be sent until there is content.</p>
             </div>
-            </div>
-            </div>
             ";
-            // TODO: MAKE THIS A PRETTIER ERROR MESSAGE
+
             include("..\pages\contact.html");
         }
 

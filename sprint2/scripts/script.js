@@ -175,7 +175,7 @@ function validateJobdesc() { //
     errorMessage.innerText = "";
     return true;
 }
-<<<<<<< HEAD
+
 
 //-------------------------------------------------------------------------------------------------
 // Users Table Search Bar
@@ -202,7 +202,7 @@ function searchUsers() {
         }
     }
 }
-=======
+
     function validateContactName() {
         const name = document.getElementById("ContactName").value.trim();
         const errorMessage = document.getElementById("name-error");
@@ -261,7 +261,7 @@ function validateemployerName() { //
 // Sign Up Form Validation
 //-------------------------------------------------------------------------------------------------
     if (document.getElementById("sign-up-form")) {
-        document.getElementById('signupForm').addEventListener('submit', function (event) {
+        document.getElementById('signUp').addEventListener('submit', function (event) {
             // Validate Cohort Number
             var cohortNumber = document.getElementById('cohortNumber').value;
             if (cohortNumber < 1 || cohortNumber > 100) {
@@ -352,4 +352,4 @@ function validateemployerName() { //
         errorMessage.innerText = "";
         return true;
     }
->>>>>>> main
+

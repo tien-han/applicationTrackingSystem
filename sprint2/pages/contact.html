@@ -72,7 +72,7 @@
 
     <!-- Contact Form -->
     <div class="row justify-content-center">
-        <form class="form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12"
+        <form class="form-container pt-0 col-lg-6 col-md-8 col-sm-10 col-12"
               id="contact-form" action="../form-responses/contact-form.php" method="POST"
             onsubmit="return validateContactForm()">
             <!-- Name -->
@@ -80,16 +80,14 @@
                 <label for="name">Name* </label><span class="text-danger" id="name-error"></span>
                 <input type="text" class="form-control" id="name" name="name" maxlength="100" minlength="1"
                     aria-describedby="nameHelp" placeholder="Enter name" required>
-                <small id="nameHelp" class="form-text text-muted">Please enter your name so that we know how to address
-                    you</small>
+                <small id="nameHelp" class="form-text text-muted"></small>
             </section>
             <!-- Email -->
             <section class="form-group">
                 <label for="email">Email address*</label><span class="text-danger" id="email-error"></span>
                 <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
                     placeholder="Enter email" required>
-                <small id="emailHelp" class="form-text text-muted">Please enter your email so that we know how to reach
-                    you</small>
+                <small id="emailHelp" class="form-text text-muted"></small>
             </section>
             <!-- Message -->
             <section class = form-group>
@@ -103,8 +101,7 @@
                 <label for="message">Message*</label><span class="text-danger" id="message-error"></span>
                 <textarea type="textbox" class="form-control" id="message" name="message" rows="5"
                     aria-describedby="emailHelp" placeholder="Enter Message" required></textarea>
-                <small id="emailHelp" class="form-text text-muted">Please let us know what you're asking
-                    for</small><br />
+                <small id="emailHelp" class="form-text text-muted"></small><br />
             </section>
             <!-- Submit Button -->
             <section class="form-group text-left">
