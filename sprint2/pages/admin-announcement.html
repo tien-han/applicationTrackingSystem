@@ -11,50 +11,56 @@
 </head>
 
 <body id="contact-page">
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark" role="navigation">
-        <!-- Navbar Brand & Toggler -->
-        <div class="navbar-header" id="navbar-header">
-            <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
-                    alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+<nav class="navbar navbar-expand-md fixed-top navbar-dark" role="navigation">
+    <!-- Navbar Brand & Toggler -->
+    <div class="navbar-header" id="navbar-header">
+        <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
+                alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
                 aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span></button>
-        </div>
-        <!-- Navbar Items with Links -->
-        <div class="collapse navbar-collapse" id="navbar-toggler">
-            <ul class="navbar-nav align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link active" href="../index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="new-app.html">New Application</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sign-up.html">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav align-items-center ms-auto">
-                <!-- Dark Mode Toggler -->
-                <li class="nav-item text-center px-3">
-                    <button type="button" class="btn btn-sm btn-dark" id="dark-light">Dark mode!</button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <br />
-    <br />
-    <br />
-    <br />
+            <span class="navbar-toggler-icon"></span></button>
+    </div>
+    <!-- Navbar Items with Links -->
+    <div class="collapse navbar-collapse" id="navbar-toggler">
+        <ul class="navbar-nav align-items-center">
+            <li class="nav-item">
+                <a class="nav-link" href="../index.html">Student Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="admin-dashboard.html">Admin Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="admin-announcement.html">Admin Announcement</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="new-app.html">New Application</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="sign-up.html">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav align-items-center ms-auto">
+            <!-- Dark Mode Toggler -->
+            <li class="nav-item text-center px-3">
+                <button type="button" class="btn btn-sm btn-dark" id="dark-light">Dark mode!</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br />
+<br />
+<br />
+<br />
 
 
 
     <div class="container pt-5">
         <h2>Admin Announcement Form</h2>
 
-        <form action="form-responses/processForm.php" method="post">
+        <form action="../form-responses/admin-announcement.php" method="post">
 
             <label for="title">Title*</label>
             <input class="form-control" type="text" id="title" name="title" required><br>
