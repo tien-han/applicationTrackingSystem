@@ -57,10 +57,18 @@
 
 
 
-    <div class="container pt-5">
-        <h2>Admin Announcement Form</h2>
+<div class="container-fluid">
+    <div class="row col-12">
+        <header>
+            <h1>Admin Announcement</h1>
+        </header>
+    </div>
+</div>
 
-        <form action="../form-responses/admin-announcement.php" method="post">
+
+            <div class = "row justify-content-center">
+                <form class = "form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12"
+                      id="adminAnnouncement" method="POST" action="../form-responses/admin-announcement.php">
 
             <label for="title">Title*</label>
             <input class="form-control" type="text" id="title" name="title" required><br>
@@ -74,7 +82,7 @@
 
             <label for="employer">Employer*</label>
             <input class="form-control" type="text" id="employer" name="employer" required><br>
-    </div>
+
     <div class="mb-3">
         <label for="more_info">More Information:</label>
         <textarea class="form-control" rows="5" id="more_info" name="more_info" required></textarea><br>
