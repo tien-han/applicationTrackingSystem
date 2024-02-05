@@ -5,7 +5,7 @@
 /* ------------------------------Global Styles------------------------------ */
 h1, h2, h3, h4, h5, h6, header {
   font-family: 'BigNoodleTitling', 'Impact', sans-serif;
-  font-size: 150%;
+  font-size: 160%;
   padding-left: 5px;
 }
 
@@ -74,21 +74,15 @@ table {
 
 /* ------------------------------Admin Homepage Styling------------------------------ */
 /* Users table search bar */
+.search-bar {
+  width: 30%;
+  margin-right: 0;
+}
+
+/* Users table search box */
 #user-search {
-  /* Full-width */
-  width: 100%;
-
-  /* Increase font-size */
-  font-size: 16px;
-
-  /* Add some padding */
-  padding: 12px 20px 12px 40px;
-
-  /* Add a grey border */
-  border: 1px solid #ddd;
-
-  /* Add some space below the input */
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
 /* Enable the table to scroll */
@@ -105,8 +99,14 @@ table {
 }
 
 /* Add in a border around all the elements in the header */
+/* We have to use box-shadow because border can't be placed on a changed TH element */
+/*
+  inset (changes the shadow so that it's inside the frame),
+  1px left border, 1px top border, black - color of these two borders.
+  0 is offset-x
+*/
 #users-table-wrapper th {
-  box-shadow: 1px 1px 5px black;
+  box-shadow: inset 1px 1px #ddd, 0 1px #ddd;
 }
 
 #users-table tr:hover td {
@@ -125,6 +125,15 @@ table {
 /* Styling for each form section */
 .form-group {
   padding: 20px;
+}
+
+/* New application */
+#new-app-form {
+  margin: 20px;
+  margin-top: 100px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 /* ------------------------------Dark Mode Styling------------------------------ */
@@ -167,7 +176,6 @@ header ul {
 header li {
   display: inline-block;
   padding: 5px;
-
 }
 
 header a {
@@ -201,14 +209,4 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-/* New application */
-
-#new-app-form {
-  margin: 20px;
-  margin-top: 100px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
 }

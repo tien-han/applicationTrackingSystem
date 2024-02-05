@@ -10,6 +10,14 @@
     <option name="highlightLevel" value="WARNING" />
     <option name="transferred" value="true" />
   </component>
+  <component name="PhpInterpreters">
+    <interpreters>
+      <interpreter id="f88ac6e0-90d5-471e-9b6f-288693957704" name="Gene@localhost:22 password" home="sshConfig://DATA" auto="false" debugger_id="php.debugger.XDebug">
+        <remote_data INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" SSH_CONFIG_ID="980d4f6e-7f85-418f-a725-23a80f2e23f3" SSH_CONFIG_NAME="Gene@localhost:22 password" SSH_CREDENTIALS_ID="sshConfig://Gene@localhost:22 password" />
+      </interpreter>
+    </interpreters>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>
