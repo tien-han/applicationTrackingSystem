@@ -30,6 +30,9 @@
                         <a class="nav-link" href="../pages/new-app.html">New Application</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcment</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="../pages/sign-up.html">Sign Up</a>
                     </li>
                     <li class="nav-item">
@@ -75,10 +78,10 @@
             // send the email
             mail($to, $subject, $message, $headers);
 
-            // print out the reciept
+            // print out the receipt
             echo "<div class='form-container pt-0'>
             <div class = 'row justify-content-center'>
-            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
+            <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-10 col-12'>
 
             <h1 class='pt-5 header-text'>A response will be sent soon, thank you!</h1>
             <h5>Here's what you just entered:</h5><br/>
@@ -94,15 +97,13 @@
             echo "<div class='form-container pt-0'>
             <div class = 'row justify-content-center'>
             <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
-            <h1 class='pt-5 header-text m-auto'>Error!</h1>
+            <h1 class='pt-5 header-text m-auto'>Please fill out the form below!</h1>
             <br>
-            <p>Please fill out the form below. </p>
+   
             <p>An email will not be sent until there is content.</p>
             </div>
-            </div>
-            </div>
             ";
-            // TODO: MAKE THIS A PRETTIER ERROR MESSAGE
+
             include("..\pages\contact.html");
         }
 
@@ -114,10 +115,9 @@
         ?>
     
         <!--Scripts-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
-        <script type="text/javascript" src="../scripts/script.js"></script>
-
+    <script type="text/javascript" src="../scripts/script.js"></script>
     </body>
 </html>

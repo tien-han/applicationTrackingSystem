@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form</title>
+    <title>Sign Up Form</title>
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
     <link rel="stylesheet" href="../css/styles.css">
@@ -23,7 +23,13 @@
     <div class="collapse navbar-collapse" id="navbar-toggler">
         <ul class="navbar-nav align-items-center">
             <li class="nav-item">
-                <a class="nav-link" href="../index.html">Home</a>
+                <a class="nav-link" href="../index.html">Student Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/admin-dashboard.html">Admin Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcment</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/new-app.html">New Application</a>
@@ -49,8 +55,6 @@
 <br />
 
 <?php
-// TODO: validate information is entered before showing receipt
-
 if (isset($_POST['email']) && $_POST['email'] != '' &&
     isset($_POST['name']) && $_POST['name'] != '' &&
     isset($_POST['cohortNumber']) && $_POST['cohortNumber'] != '')
@@ -69,18 +73,25 @@ if (isset($_POST['email']) && $_POST['email'] != '' &&
     // show error message if page is navigated to without form submission
     echo "<div class='form-container pt-0'>
             <div class = 'row justify-content-center'>
-            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
-            <h1 class='pt-5 header-text m-auto'>Error!</h1>
+            <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-10 col-12'>
+            <h1 class='pt-5 header-text m-auto'>Please fill out the form!</h1>
             <br>
-            <p>Please return to the sign up form page and fill it out.</p>
             <p>We can't create an account for you with no information! </p>
             </div>
-            </div>
-            </div>";
-    // TODO: MAKE THIS A PRETTIER ERROR MESSAGE
+            
+            ";
+
     include("..\pages\sign-up.html");
+    echo "</div>
+        </div>";
 }
     ?>
+
+<!--Scripts-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="../scripts/script.js"></script>
 
 </body>
 </html>
