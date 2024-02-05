@@ -78,13 +78,13 @@ if (isset($_POST['email']) && $_POST['email'] != '' &&
             <br>
             <p>We can't create an account for you with no information! </p>
            </div>
-        
             ";
     // include the form since it's not filled out yet
     include("includes-sign-up.php");
     // close the remaining divs
     echo "</div>
         </div>
+ 
         ";
 }
     ?>

@@ -25,10 +25,13 @@
             <div class="collapse navbar-collapse" id="navbar-toggler">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
+                        <a class="nav-link" href="../index.html">Student Homepage</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/new-app.html">New Application</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/admin-dashboard.html">Admin Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcment</a>
@@ -61,23 +64,41 @@
         if (isset($_POST['message']) && $_POST['message'] != '' &&
             isset($_POST['name']) && $_POST['name'] != '' &&
             isset($_POST['email']) && $_POST['email'] != ''){
-            // assign fields to variables for the email
-            $email = $_POST['email'];
+            // Collect form data
             $name = $_POST['name'];
+            $email = $_POST['email'];
             $message = $_POST['message'];
             $headers = "From: $name" . "\r\n Reply-to: $email";
-            $to = "Sage Markwardt<smarkwar@smarkwardt.greenriverdev.com>";
+            $to = 'markwardt.sage@student.greenriver.edu';
 
+            // Create email message
             // Use subject field if filled out - otherwise use generic title
             if (isset($_POST['subject']) && $_POST['subject'] != '') {
                 $subject = $_POST['subject'];
             } else {
                 // default subject with customer name
                 $subject = "No subject - $name Contact Form";
-            }
+            };
+            $msg = "
+                <html>
+                    <head>
+                        <h1>$subject</h1>
+                    </head>
+                    <body>
+                        <h5>A new contact request has been sent from $name:</h5><br/>
+                        <p>Please reply to this address: " . $email . ".</p>
+                        <p>The new message says: </p>
+                        <p>" . $message . "</p>
+                    </body>
+                </html>";
 
-            // send the email
-            mail($to, $subject, $message, $headers);
+            // Set headers for HTML email
+            $headers .= "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+            // Send email
+            $mailSuccess = mail($to, $subject, $message, $headers);
+
 
             // print out the receipt
             echo "<div class='form-container pt-0'>
