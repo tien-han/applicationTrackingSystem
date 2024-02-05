@@ -60,7 +60,7 @@ if (isset($_POST['email']) && $_POST['email'] != '' &&
     isset($_POST['cohortNumber']) && $_POST['cohortNumber'] != '')
 {
         echo "<div class = 'row justify-content-center'>
-        <div class='form-container pt-0 col-lg-4'>         
+        <div class='form-container pt-0 col-lg-5'>         
         <h1 class='pt-5 header-text m-auto'>Thanks for signing up, " . $_POST['name']. "!</h1>
         <h5>The details you entered are: </h5>
         <p>Email: " . $_POST['email'] . " </p>
@@ -71,23 +71,27 @@ if (isset($_POST['email']) && $_POST['email'] != '' &&
         </div>";
 } else {
     // show error message if page is navigated to without form submission
-    echo "<div class='form-container pt-0'>
+    echo "<div class=' pt-0'>
             <div class = 'row justify-content-center'>
-            <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-10 col-12'>
+            <div class='form-container pt-0 col-lg-5 col-md-8 col-sm-10 col-12'>
             <h1 class='pt-5 header-text m-auto'>Please fill out the form!</h1>
             <br>
             <p>We can't create an account for you with no information! </p>
-            </div>
-            
+           </div>
+        
             ";
-
-    include("..\pages\sign-up.html");
+    // include the form since it's not filled out yet
+    include("includes-sign-up.php");
+    // close the remaining divs
     echo "</div>
-        </div>";
+        </div>
+        ";
 }
     ?>
 
 <!--Scripts-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>

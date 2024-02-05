@@ -1,3 +1,4 @@
+
 <html lang="en" data-bs-theme="light">
 
 <head>
@@ -81,7 +82,7 @@
             // print out the receipt
             echo "<div class='form-container pt-0'>
             <div class = 'row justify-content-center'>
-            <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-10 col-12'>
+            <div class='form-container pt-0 col-lg-5 col-md-8 col-sm-10 col-12'>
 
             <h1 class='pt-5 header-text'>A response will be sent soon, thank you!</h1>
             <h5>Here's what you just entered:</h5><br/>
@@ -94,20 +95,21 @@
             </div>";
         } else {
             // tell the user to go to the contact form and fill it out
-            echo "<div class='form-container pt-0'>
+            echo "<div class='pt-0'>
             <div class = 'row justify-content-center'>
-            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
+            <div class='form-container pt-0 col-lg-5 col-md-8 col-sm-10 col-12'>
             <h1 class='pt-5 header-text m-auto'>Please fill out the form below!</h1>
             <br>
-   
             <p>An email will not be sent until there is content.</p>
             </div>
             ";
 
-            include("..\pages\contact.html");
+            // include form to fill out
+            include("includes-contact.php");
+            // close remaining divs
+            echo "</div>
+               </div>";
         }
-
-
 
 
 
