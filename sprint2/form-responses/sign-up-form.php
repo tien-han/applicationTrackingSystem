@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form</title>
+    <title>Sign Up Form</title>
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
     <link rel="stylesheet" href="../css/styles.css">
@@ -23,7 +23,13 @@
     <div class="collapse navbar-collapse" id="navbar-toggler">
         <ul class="navbar-nav align-items-center">
             <li class="nav-item">
-                <a class="nav-link" href="../index.html">Home</a>
+                <a class="nav-link" href="../index.html">Student Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/admin-dashboard.html">Admin Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcment</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/new-app.html">New Application</a>
@@ -80,6 +86,12 @@ if (isset($_POST['email']) && $_POST['email'] != '' &&
         </div>";
 }
     ?>
+
+<!--Scripts-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="../scripts/script.js"></script>
 
 </body>
 </html>
