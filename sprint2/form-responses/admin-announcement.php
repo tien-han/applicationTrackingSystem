@@ -60,7 +60,9 @@
 
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['url']) && $_POST['url'] != '' &&
+    isset($_POST['title']) && $_POST['title'] != '' &&
+    isset($_POST['email']) && $_POST['email'] != '') {
     // Collect form data
     $title = $_POST['title'];
     $jobType = $_POST['job_type'];
@@ -69,8 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $moreInfo = $_POST['more_info'];
     $url = $_POST['url'];
     $email = $_POST['email'];
-
-
+    $headers = "From: $employer" . "\r\n Reply-to: $email";
     $to = 'faison.eugene@student.greenriver.edu';
 
     // Create email message
@@ -97,13 +98,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
     // Send email
-    mail($email, $subject, $message, $headers);
+    $mailSuccess = mail($to, $email, $subject, $moreInfo, $headers);
 
 
  // print out the reciept
             echo "<div class='form-container pt-0'>
             <div class = 'row justify-content-center'>
-            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12'>
+            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12'>
 
             <h1 class='pt-5 header-text'>A response will be sent soon, thank you!</h1>
             <h5>Here's what you just entered:</h5><br/>
