@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md fixed-top navbar-dark" role="navigation">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
     <!-- Navbar Brand & Toggler -->
     <div class="navbar-header" id="navbar-header">
         <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img

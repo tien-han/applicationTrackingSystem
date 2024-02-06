@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark" role="navigation">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
             <!-- Navbar Brand & Toggler -->
             <div class="navbar-header" id="navbar-header">
                 <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
@@ -25,16 +25,16 @@
             <div class="collapse navbar-collapse" id="navbar-toggler">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Student Homepage</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../pages/new-app.html">New Application</a>
+                        <a class="nav-link" href="../index.html">Student Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/admin-dashboard.html">Admin Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/new-app.html">New Application</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/sign-up.html">Sign Up</a>
