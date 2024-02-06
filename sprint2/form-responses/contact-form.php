@@ -69,7 +69,7 @@
             $email = $_POST['email'];
             $message = $_POST['message'];
             $headers = "From: $name" . "\r\n Reply-to: $email";
-            $to = 'markwardt.sage@student.greenriver.edu';
+            $to = 'tschrock@greenriver.edu';
 
             // Create email message
             // Use subject field if filled out - otherwise use generic title
