@@ -304,3 +304,30 @@ function searchUsers() {
         }
     }
 }
+
+// admin announcement Form Validation
+
+function validateFormAdmin() {
+    var emailInput = document.getElementById('email');
+    var urlInput = document.getElementById('url');
+
+    var email = emailInput.value;
+    var url = urlInput.value;
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var urlRegex = /^(http(s)?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}(\S*)?$/;
+
+    if (!emailRegex.test(email)) {
+        alert('Invalid email address');
+        emailInput.focus();
+        return false;
+    }
+
+    if (!urlRegex.test(url)) {
+        alert('Invalid URL');
+        urlInput.focus();
+        return false;
+    }
+
+    return true;
+}

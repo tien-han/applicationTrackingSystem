@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body id="contact-page">
+<body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
         <!-- Navbar Brand & Toggler -->
         <div class="navbar-header" id="navbar-header">
@@ -68,7 +68,7 @@
 
     <div class="row justify-content-center">
         <form class="form-container pt-0 col-lg-4 col-md-8 col-sm-10 col-12" id="adminAnnouncement" method="POST"
-            action="../form-responses/admin-announcement.php" onsubmit="return validateContactForm()">
+            action="../form-responses/admin-announcement.php">
 
             <label for="title">Title*</label>
             <input class="form-control" type="text" id="title" name="title" required><br>
@@ -99,10 +99,9 @@
 
             <!-- Submit Button -->
             <section class="form-group text-left">
-                <input id="submit-button" type="submit" class="btn btn-primary" value="Send"></input>
+                <input id="submit-button" type="submit" class="btn btn-primary" value="Send"
+                    onsubmit="return validateFormAdmin()"></input>
             </section>
-
-
         </form>
 
 

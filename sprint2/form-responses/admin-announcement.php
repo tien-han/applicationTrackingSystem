@@ -98,7 +98,7 @@ if (isset($_POST['url']) && $_POST['url'] != '' &&
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
     // Send email
-    $mailSuccess = mail($to, $email, $subject, $moreInfo, $headers);
+    $mailSuccess = mail($to, $subject, $message, $headers);
 
 
  // print out the reciept
