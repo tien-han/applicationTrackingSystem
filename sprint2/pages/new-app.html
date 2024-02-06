@@ -80,9 +80,12 @@
   <div class="row">
     <div class="col-6 col-lg-6 ">
       <label for="RoleName" class="form-label">Name of role* </label>
+      <span class="text-danger" id="RoleName-error"></span>
       <input type="text" id="RoleName" name="RoleName" class="form-control" required>
+
       <div class="col-md-6">
         <label for="Jobdesc" class="form-label">Job Description* </label >
+        <span class="text-danger" id="message-error"></span>
         <textarea id="Jobdesc" name="Jobdesc" rows="5" class="form-control" required></textarea>
       </div>
         <h5>Date of Application: </h5>
@@ -102,25 +105,26 @@
       <div class="col-6 col-lg-4">
 
         <label for="employerName" class="form-label">Employer Name*</label>
-        <input type="text" id="employerName" name="RoleName" class="form-control" required>
+        <span class="text-danger" id="employerName-error"></span>
+        <input type="text" id="employerName" name="employerName" class="form-control" required>
 
-        <div class="form-field" id="appStatus">
-          <input type="radio" id="NeedApply" name="Appliedposition" value="NeedApply">
+        <div class="form-field" id="appStatus" >
+          <input type="radio" id="NeedApply" name="Appliedposition" value="NeedApply" required>
           <label for="NeedApply">Need to apply</label>
           <br>
-          <input type="radio" id="Applied" name="Appliedposition" value="Applied">
+          <input type="radio" id="Applied" name="Appliedposition" value="Applied" required>
           <label for="Applied">Applied</label> <br>
 
-          <input type="radio" id="Interviewing" name="Appliedposition" value="Interviewing">
+          <input type="radio" id="Interviewing" name="Appliedposition" value="Interviewing" required>
           <label for="Interviewing">Interviewing</label> <br>
 
-          <input type="radio" id="Rejected" name="Appliedposition" value="Rejected">
+          <input type="radio" id="Rejected" name="Appliedposition" value="Rejected" required>
           <label for="Rejected">Rejected</label> <br>
 
-          <input type="radio" id="Accepted" name="Appliedposition" value="Accepted">
+          <input type="radio" id="Accepted" name="Appliedposition" value="Accepted" required>
           <label for="Accepted">Accepted</label> <br>
 
-          <input type="radio" id="Inactive" name="Appliedposition" value="Inactive">
+          <input type="radio" id="Inactive" name="Appliedposition" value="Inactive" required>
           <label for="Inactive">Inactive/Expired</label> <br>
 
 
@@ -131,17 +135,21 @@
     <div class="row">
       <div class="col-6">
         <label for="ContactName" class="form-label">Contact Name*</label>
+        <span class="text-danger" id="name-error"></span>
         <input type="text" id="ContactName" name="ContactName" class="form-control" required>
         <br>
         <label for="ContactEmail" class="form-label mt-2">Contact Email*</label>
+        <span class="text-danger" id="email-error"></span>
         <input type="text" id="ContactEmail" name="ContactEmail" class="form-control" required>
         <br>
         <label for="ContactPhone" class="form-label mt-2">Contact Phone*</label>
+        <span class="text-danger" id="phone-error"></span>
         <input type="text" id="ContactPhone" name="ContactPhone" class="form-control" required>
       </div>
 
       <div class="col-6">
         <label for="InterviewNotes" class="form-label">Interview Notes*</label>
+        <span class="text-danger" id="InterviewNotes-error"></span>
         <textarea id="InterviewNotes" name="InterviewNotes" rows="5" class="form-control" required></textarea>
 
 
