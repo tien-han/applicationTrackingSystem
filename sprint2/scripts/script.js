@@ -74,33 +74,30 @@ if (document.getElementById("new-app-form")) {
     });
 
 }
-
+// Will go through next sprint and properlly rename all ids in this area to camelCase, my bad for messing that up. -Colton
 //New app Form Validation on Change
 if (document.getElementById("new-app-form")) {
     document.getElementById("RoleName").addEventListener("change", function () {
-        validateFullName("RoleName");
+        validateRoleName("RoleName");
     })
     document.getElementById("Jobdesc").addEventListener("change", function () {
         validateMessage("Jobdesc");
     })
     document.getElementById("ContactName").addEventListener("change", function () {
-        validateContactName(); //not working yet
+        validateFullName("ContactName");
     })
     document.getElementById("ContactEmail").addEventListener("change", function () {
         validateEmail("ContactEmail");
     })
     document.getElementById("ContactPhone").addEventListener("change", function () {
-        validateContactPhone();
+        validateContactPhone("ContactPhone");
     })
     document.getElementById("InterviewNotes").addEventListener("change", function () {
-        validateInterviewNotes();
-    })
-    document.getElementById("appStatus").addEventListener("change", function () {
-        validateappStatus();
+        validateInterviewNotes("InterviewNotes");
     })
 
     document.getElementById("employerName").addEventListener("change", function () {
-        validateemployerName();
+        validateemployerName("employerName");
     })
 }
 
@@ -109,43 +106,20 @@ function validatenewappform() {
     const validationResult =
         validateMessage("Jobdesc") //Form validation for a message (currently used in Contact Form)
         && validateEmail("ContactEmail")
-        && validateFullName("RoleName")
-        && validateContactPhone()
-        && validateInterviewNotes()
-        && validateemployerName()
-        && validateRoleName();
+        && validateContactPhone("ContactPhone")
+        && validateInterviewNotes("InterviewNotes")
+        && validateemployerName("employerName")
+        && validateFullName("ContactName")
+        && validateRoleName("RoleName");
     if (!validationResult) {
         event.preventDefault();
     }
 }
 
-function validateContactPhone() { // come back later
-    const message = document.getElementById("ContactPhone").value.trim();
-    const errorMessage = document.getElementById("message-error");
-
-    if (message === "") {
-        errorMessage.innerText = "***Please enter in a description, you've only entered in spaces";
-        return false;
-    }
-    errorMessage.innerText = "";
-    return true;
-}
-
-function validateInterviewNotes() { //
-    const message = document.getElementById("InterviewNotes").value.trim();
-    const errorMessage = document.getElementById("message-error");
-
-    if (message === "") {
-        errorMessage.innerText = "***Please enter in your interview notes , you've only entered in spaces";
-        return false;
-    }
-    errorMessage.innerText = "";
-    return true;
-}
 
 function validateemployerName() { //
     const name = document.getElementById("employerName").value.trim();
-    const errorMessage = document.getElementById("name-error");
+    const errorMessage = document.getElementById("employerName-error");
 
     //We won't be validating full name for only alphabetic values, as names may have other characters
     if (name === "") {
@@ -155,6 +129,48 @@ function validateemployerName() { //
     errorMessage.innerText = "";
     return true;
 }
+function validateRoleName() { //
+    const name = document.getElementById("RoleName").value.trim();
+    const errorMessage = document.getElementById("RoleName-error");
+
+    //We won't be validating full name for only alphabetic values, as names may have other characters
+    if (name === "") {
+        errorMessage.innerText = "***Please enter in a name, you've only entered in spaces";
+        return false;
+    }
+    errorMessage.innerText = "";
+    return true;
+}
+function validateInterviewNotes(messageId) {
+    const message = document.getElementById(messageId).value.trim();
+    const errorMessage = document.getElementById("InterviewNotes-error");
+
+    if (message === "") {
+        errorMessage.innerText = "***Please enter in notes, you've only entered in spaces";
+        return false;
+    }
+    errorMessage.innerText = "";
+    return true;
+}
+
+function validateContactPhone(ContactPhone) {
+    const phoneInput = document.getElementById("ContactPhone");
+    const phone = phoneInput.value.trim();
+    const errorMessage = document.getElementById("phone-error");
+    const phoneNumberPattern = /^\d{10}$/;
+
+    if (!phoneNumberPattern.test(phone)) {
+        errorMessage.innerText = "Please enter a valid 10 digit phone number";
+        return false;
+    }
+
+    errorMessage.innerText = "";
+    return true;
+}
+
+
+
+
 
 //-------------------------------------------------------------------------------------------------
 // Sign Up Form Validation
@@ -215,6 +231,7 @@ function validateContactForm() {
 // Form Validation Helper Methods
 //-------------------------------------------------------------------------------------------------
 //Validate a full name in a form
+//used in new app Contact Name
 function validateFullName(nameId) {
     console.log("Validating full name");
     const name = document.getElementById(nameId).value.trim();
