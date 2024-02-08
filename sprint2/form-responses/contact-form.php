@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark" role="navigation">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
             <!-- Navbar Brand & Toggler -->
             <div class="navbar-header" id="navbar-header">
                 <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
@@ -25,16 +25,16 @@
             <div class="collapse navbar-collapse" id="navbar-toggler">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Student Homepage</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../pages/new-app.html">New Application</a>
+                        <a class="nav-link" href="../index.html">Student Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/admin-dashboard.html">Admin Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/new-app.html">New Application</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/sign-up.html">Sign Up</a>
@@ -69,7 +69,7 @@
             $email = $_POST['email'];
             $message = $_POST['message'];
             $headers = "From: $name" . "\r\n Reply-to: $email";
-            $to = 'markwardt.sage@student.greenriver.edu';
+            $to = 'tschrock@greenriver.edu';
 
             // Create email message
             // Use subject field if filled out - otherwise use generic title
@@ -103,7 +103,7 @@
             // print out the receipt
             echo "<div class='form-container pt-0'>
             <div class = 'row justify-content-center'>
-            <div class='form-container pt-0 col-lg-5 col-md-8 col-sm-10 col-12'>
+            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12'>
 
             <h1 class='pt-5 header-text'>A response will be sent soon, thank you!</h1>
             <h5>Here's what you just entered:</h5><br/>
@@ -118,7 +118,7 @@
             // tell the user to go to the contact form and fill it out
             echo "<div class='pt-0'>
             <div class = 'row justify-content-center'>
-            <div class='form-container pt-0 col-lg-5 col-md-8 col-sm-10 col-12'>
+            <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12'>
             <h1 class='pt-5 header-text m-auto'>Please fill out the form below!</h1>
             <br>
             <p>An email will not be sent until there is content.</p>
