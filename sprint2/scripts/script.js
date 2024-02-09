@@ -65,8 +65,8 @@ if (document.getElementById("new-app-form")) {
         function updateFollowUpDate() {
             var selectedDate = new Date(currentDateInput.value);
             var followUpDate = new Date(selectedDate);
-            followUpDate.setDate(currentDate.getDate() + 14);
-            document.getElementById("followUpDateDisplay").innerHTML = followUpDate.toDateString();
+            followUpDate.setDate(followUpDate.getDate() + 14);
+            document.getElementById("followUpDateDisplay").valueAsDate = followUpDate;
         }
         updateFollowUpDate();
         currentDateInput.addEventListener('change', updateFollowUpDate);
@@ -157,7 +157,13 @@ function validateContactPhone(ContactPhone) {
     const phoneInput = document.getElementById("ContactPhone");
     const phone = phoneInput.value.trim();
     const errorMessage = document.getElementById("phone-error");
-    const phoneNumberPattern = /^\d{10}$/;
+    const phoneNumberPattern = /^(?:\d{10}|\d{3}[-\/]?\d{3}[-\/]?\d{4})$/; //allows hypens and slashes in number
+
+
+    if (phone === "") {
+        errorMessage.innerText = "";
+        return true; //checks if number is entered, if none entered, passes validation
+    }
 
     if (!phoneNumberPattern.test(phone)) {
         errorMessage.innerText = "Please enter a valid 10 digit phone number";
@@ -167,6 +173,8 @@ function validateContactPhone(ContactPhone) {
     errorMessage.innerText = "";
     return true;
 }
+
+
 
 
 
@@ -238,10 +246,16 @@ function validateFullName(nameId) {
     const errorMessage = document.getElementById("name-error");
 
     //We won't be validating full name for only alphabetic values, as names may have other characters
+    if (nameId === "ContactName") {
+        errorMessage.innerText = "";   // checks if Id is contactname passes if it is.
+        return true;
+    }
+
     if (name === "") {
         errorMessage.innerText = "***Please enter in a name, you've only entered in spaces";
         return false;
     }
+
     errorMessage.innerText = "";
     return true;
 }
@@ -257,6 +271,11 @@ function validateEmail(emailId) {
         .match(
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         );
+
+    if (email === "" && emailId === "ContactEmail") {
+        errorMessage.innerText = ""; //checks if the Email id is ContactEmail and bypasses validation if it is.
+        return true;
+    }
 
     if (!isEmail) {
         errorMessage.innerText = "***Please enter an email address"
