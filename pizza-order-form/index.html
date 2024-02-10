@@ -12,71 +12,65 @@
     toppings - 8 different (check boxes)
     notes (txt box)
     -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href = "css/styles.css">
-    <script src = "css/script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-<div class="container-flex">
-    <div class = "row">
-        <div class = "col-4">
-            <form name="pizza" action="vardump.php" method = "POST" onsubmit = "validateForm()" >
-                <label for="fname">Name:</label><br>
-                <input type="text" id="fname" name="fname"><br>
-                <label for="phone">Phone:</label><br>
-                <input type="text" id="phone" name="phone"><br>
-                <label for="email">Email:</label><br>
-                <input type="text" id="email" name="email"><br>
-                <label for="address">Street Address:</label><br>
-                <input type="text" id="address" name="address"><br>
-                <label for="city">City:</label><br>
-                <input type="text" id="city" name="city"><br>
-                <label for="State">State:</label><br>
-                <input type="text" id="state" name="state"><br>
-                <input type= "radio" id="Delivery" name="Delivery" value="Delivery">
-                <label for="Delivery"> Delivery</label><br>
+    <div class="container-flex">
+        <div class="row">
+            <div class="col-4">
+                <form name="pizza" action="form-responses/vardump.php" method="POST" onsubmit="validateForm()">
+                    <label for="fname">Name:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="phone">Phone:</label><br>
+                    <input type="text" id="phone" name="phone"><br>
+                    <label for="email">Email:</label><br>
+                    <input type="text" id="email" name="email"><br>
+                    <label for="address">Street Address:</label><br>
+                    <input type="text" id="address" name="address"><br>
+                    <label for="city">City:</label><br>
+                    <input type="text" id="city" name="city"><br>
+                    <label for="State">State:</label><br>
+                    <input type="text" id="state" name="state"><br>
+                    <input type="radio" id="Delivery" name="Delivery" value="Delivery">
+                    <label for="Delivery"> Delivery</label><br>
 
-                <input type= "radio" id="Pickup" name="deliveryMethod"vvalue="Pickup">
-                <label for="Pickup"> Pickup</label><br>
+                    <input type="radio" id="Pickup" name="deliveryMethod" vvalue="Pickup">
+                    <label for="Pickup"> Pickup</label><br>
 
-                <label for="Promo-Code">Promo Code:</label><br>
-                <input type= "text" id="Promo-Code" name="deliveryMethod">
+                    <label for="Promo-Code">Promo Code:</label><br>
+                    <input type="text" id="Promo-Code" name="deliveryMethod">
 
+                    <div class="form-field">
+                        <!--Radio for size  -->
+                        <input type="radio" id="sm" name="size" value="sm">
+                        <label for="sm"> Small</label><br>
 
-            
-        </div>
+                        <input type="radio" id="md" name="size" value="md">
+                        <label for="md"> Medium</label><br>
 
-        <div class = "col-4">
-            <div class = "form-field">
-                <!--Radio for size  -->
-                <input type = "radio" id="sm" name="size" value="sm">
-                <label for="sm"> Small</label><br>
+                        <input type="radio" id="lg" name="size" value="lg">
+                        <label for="lg"> Large</label><br>
+                    </div>
 
-                <input type = "radio" id="md" name="size" value="md">
-                <label for="md"> Medium</label><br>
-
-                <input type = "radio" id="lg" name="size" value="lg">
-                <label for="lg"> Large</label><br>
+                    <!-- checkbox for toppings -->
+                    <h6>Toppings (Select 3)</h6>
+                    <input type="checkbox" id="topping1" name="topping1" value="Pepperoni"> <label>Pepperoni</label>
+                    <input type="checkbox" id="topping2" name="topping2" value="Mushrooms"> <label> Mushrooms</label>
+                    <input type="checkbox" id="topping3" name="topping3" value="Pineapple"> <label> Pineapples</label>
+                    <input type="checkbox" id="topping4" name="topping4" value="Ham"> <label>Ham</label>
+                    <input type="checkbox" id="topping5" name="topping5" value="Onions"> <label>Onions</label>
+                    <input type="checkbox" id="topping6" name="topping6" value="Sausage"> <label> Sausage</label>
+                    <input type="checkbox" id="topping7" name="topping7" value="Chicken"> <label> Chicken</label>
+                    <input type="checkbox" id="topping8" name="topping8" value="Beef"> <label> Beef </label>
+                    <input type="submit" value="Submit">
             </div>
+            </form>
         </div>
-
-        <!-- checkbox for toppings -->
-        <div class = "col-4">
-            <h6>Toppings (Select 3)</h6>
-                <input type="checkbox" id="topping1" name="topping1" value="Pepperoni"> <label>Pepperoni</label>
-                <input type="checkbox" id="topping2" name="topping2" value="Mushrooms"> <label> Mushrooms</label>
-                <input type="checkbox" id="topping3" name="topping3" value="Pineapple"> <label> Pineapples</label>
-                <input type="checkbox" id="topping4" name="topping4" value="Ham"> <label>Ham</label>
-                <input type="checkbox" id="topping5" name="topping5" value="Onions"> <label>Onions</label>
-                <input type="checkbox" id="topping6" name="topping6" value="Sausage"> <label> Sausage</label>
-                <input type="checkbox" id="topping7" name="topping7" value="Chicken"> <label> Chicken</label>
-                <input type="checkbox" id="topping8" name="topping8" value="Beef"> <label> Beef </label>
-                <input type="submit" value="Submit">
-        </div>
-        </form>
     </div>
-</div>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
