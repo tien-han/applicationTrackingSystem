@@ -36,3 +36,28 @@ On any HTML or PHP page, right click in the window and click "PHP Server: Serve 
 ## How to get this project up and running on Windows
 1. Clone this repository with `https://github.com/tien-han/applicationTrackingSystem.git` to get access to the code.
 2. Install PHP: https://windows.php.net/
+
+## Checklist of manual tests to make when adding a feature
+#### General Testing for Each Feature:
+- [ ] While testing in the browser, make sure the browser devtools/inspector is open. In the `console` tab, are there any errors?
+- [ ] Are there enough comments in your added code so that another person can understand it at a glance? (Or yourself at a later date?)
+- [ ] Is your filename self explanatory? Or is the purpose not clear?
+- [ ] What does the page look like on a smaller screen? Is text wrap changing properly? Does anything look "broken"?
+- [ ] If code was copied and pasted, are there any duplicated code sections/comments that need to be removed or updated?
+
+#### Navbar Changes
+- [ ] Click around to every page, and test every link on each page. Are there any broken links, or links that take you somewhere not expected?
+- [ ] Check how it looks on smaller screens - does it collapse appropriately?
+- [ ] Make sure that the navbar items are the same on each page, and that they don’t shift on hover/clicking.
+
+#### Form Page:
+- [ ] Does it have front end (top layer) validation? i.e. built in HTML browser validation.
+- [ ] Does it have front end (middle layer) validation? i.e. Javascript validation.
+- [ ] Does it have back end (lowest layer) validation? i.e. PHP form validation.
+    - [ ] Is there validation on what type of information is being sent in?
+    - [ ] Is there validation that we’re stripping leading & trailing white space, no “breaking” special characters, etc -> i.e. sanitizing inputs before saving into our database.?
+- [ ] Does the form style match other forms?
+- [ ] Does the form receipt page match the other form receipt pages?
+
+#### Dashboard Page:
+- [ ] Is there dummy data in the tables?
