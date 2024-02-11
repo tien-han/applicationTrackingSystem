@@ -284,8 +284,8 @@ function validateMessage(messageId) {
 // Users Table Search Bar
 //-------------------------------------------------------------------------------------------------
 function searchUsers() {
-    // Declare variables
-    var input, filter, table, tr, td, i, txtValue;
+    // Declare variables first to prevent any issues from variables not loading properly
+    let input, filter, table, tr, td, email, i, txtValue, emailValue;
     input = document.getElementById("user-search");
     filter = input.value.toUpperCase();
     table = document.getElementById("users-table");
@@ -293,10 +293,19 @@ function searchUsers() {
 
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
+        //td represents each name in the users table (full name)
         td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
+        email = tr[i].getElementsByTagName("td")[1];
+
+        if (td || email) {
             txtValue = td.textContent || td.innerText;
+            emailValue = email.textContent || email.innerText;
+
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                //Check if the users name matches
+                tr[i].style.display = "";
+            } else if (emailValue.toUpperCase().indexOf(filter) > -1) {
+                //Check if the users email matches
                 tr[i].style.display = "";
             } else {
                 tr[i].style.display = "none";
