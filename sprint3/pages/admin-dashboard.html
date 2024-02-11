@@ -1,0 +1,260 @@
+<!--
+    This page features a dashboard where administration can keep track of recent applications added by students and to see all users.
+
+    Author: Tien Han
+    File: admin-dashboard.html
+    Date: 1/31/2024
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Dashboard</title>
+    <!-- Bootstrap CDN -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
+        <!-- Navbar Brand & Toggler -->
+        <div class="navbar-header" id="navbar-header">
+            <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
+                    alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+                aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+        </div>
+        <!-- Navbar Items with Links -->
+        <div class="collapse navbar-collapse" id="navbar-toggler">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Student Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="admin-dashboard.html">Admin Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-announcement.html">Admin Announcment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="new-app.html">New Application</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sign-up.html">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav align-items-center ms-auto">
+                <!-- Dark Mode Toggler -->
+                <li class="nav-item text-center px-3">
+                    <button type="button" class="btn btn-sm btn-dark" id="dark-light">Dark mode!</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <!-- Dashboard -->
+    <div class="container-fluid">
+        <div class="row col-12">
+            <header>
+                <h1>Admin Dashboard</h1>
+            </header>
+        </div>
+
+        <!-- Admin Homepage Dashboard for Recent Applications -->
+        <div class="row">
+            <div class="container m-3">
+                <div class="row col-12">
+                    <!-- Recent Applications -->
+                    <div class="border border-success rounded col-md-7 text-break">
+                        <h2 class="text-center p-2">Recent Applications</h2>
+                        <table class="table text-center align-middle">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Title</td>
+                                    <td>Status</td>
+                                    <td><button type="button" class="btn btn-success">Update</button></td>
+                                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Title</td>
+                                    <td>Status</td>
+                                    <td><button type="button" class="btn btn-success">Update</button></td>
+                                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Title</td>
+                                    <td>Status</td>
+                                    <td><button type="button" class="btn btn-success">Update</button></td>
+                                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Title</td>
+                                    <td>Status</td>
+                                    <td><button type="button" class="btn btn-success">Update</button></td>
+                                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="text-center">
+                            <button type="button">MORE</button>
+                        </div>
+                    </div>
+
+                    <!-- Reminders -->
+                    <div id="reminders" class="container border border-success rounded col-sm-4 text-break">
+                        <h2 class="text-center p-2">Reminders</h2>
+                        <div class="border border-success rounded mb-4 p-2 overflow-auto">
+                            <p class="text-center">Follow up with XYZ</p>
+                            <button>VIEW</button>
+                        </div>
+                        <div class="border border-success rounded mb-4 p-2 overflow-auto">
+                            <div>
+                                <p class="text-center">3 Incomplete APPS</p>
+                                <button>VIEW</button>
+                            </div>
+                        </div>
+                        <div id="reminder-section3" class="border border-success rounded mb-4 p-2 overflow-auto">
+                            <p class="text-center">
+                                <a class="link-text" href="https://www.linkedin.com" target="_blank">Find More
+                                    Opportunities</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Homepage Dashboard for Seeing Users-->
+        <div class="row">
+            <div class="container m-3">
+                <div class="row col-12">
+                    <div class="border border-success rounded text-break">
+                        <!-- Table Title & Search Bar -->
+                        <div class="d-flex align-items-center">
+                            <h2 class="text-center mx-auto">Users</h2>
+                            <nav class="search-bar">
+                                <form class="form-inline my-2 my-lg-0">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Name:</span>
+                                        </div>
+                                        <input id="user-search" type="text" onkeyup="searchUsers()" class="form-control"
+                                            placeholder="Search for users..." aria-label="Username"
+                                            aria-describedby="Users Search Bar">
+                                    </div>
+                                </form>
+                            </nav>
+                        </div>
+                        <!-- List of Users -->
+                        <div id="users-table-wrapper">
+                            <table id="users-table" class="table text-center align-middle">
+                                <thead id="users-table-header">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">View</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Miedrail Pelilde</td>
+                                        <td>m.pelilde@student.greenriver.edu</td>
+                                        <td><button type="button" class="btn btn-success">View</button></td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Am Raingloom</td>
+                                        <td>rgloom@student.greenriver.edu</td>
+                                        <td><button type="button" class="btn btn-success">View</button></td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ufuh Rolod</td>
+                                        <td>ufuhrolod@student.greenriver.edu</td>
+                                        <td><button type="button" class="btn btn-success">View</button></td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nia Uy</td>
+                                        <td>nia@student.greenriver.edu</td>
+                                        <td><button type="button" class="btn btn-success">View</button></td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mildred</td>
+                                        <td>milly@student.greenriver.edu</td>
+                                        <td><button type="button" class="btn btn-success">View</button></td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Anna</td>
+                                        <td>anna@student.greenriver.edu</td>
+                                        <td><button type="button" class="btn btn-success">View</button></td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Keith</td>
+                                        <td>kelly@student.greenriver.edu</td>
+                                        <td><button type="button" class="btn btn-success">View</button></td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Melyvr</td>
+                                        <td>melly@student.greenriver.edu</td>
+                                        <td><button type="button" class="btn btn-success">View</button></td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jona</td>
+                                        <td>jojo@student.greenriver.edu</td>
+                                        <td><button type="button" class="btn btn-success">View</button></td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <!--Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../scripts/script.js"></script>
+</body>
+
+</html>

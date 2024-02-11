@@ -1,0 +1,212 @@
+/* ------------------------------Style Dependencies------------------------------ */
+/* get big noodle titling font */
+@import url('https://fonts.cdnfonts.com/css/bignoodletitling');
+
+/* ------------------------------Global Styles------------------------------ */
+h1, h2, h3, h4, h5, h6, header {
+  font-family: 'BigNoodleTitling', 'Impact', sans-serif;
+  font-size: 160%;
+  padding-left: 5px;
+}
+
+table {
+  border: 2px solid #333333;
+}
+
+/* ------------------------------Navbar Styling------------------------------ */
+/* Navbar Styling */
+.navbar {
+  background-color: #2C882B;
+}
+
+/* Set styling for navbar header */
+.navbar-header {
+  max-height: 40px;
+  margin: 0px;
+}
+
+/* Set styling for navbar items */
+.nav-link {
+  font-family: 'BigNoodleTitling', 'Impact', sans-serif;
+  font-size: 150%;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: #333333;
+}
+
+/* ------------------------------Homepage Styling------------------------------ */
+/* Reminders Section*/
+#reminders {
+  text-align: center;
+  width: 40%;
+  padding: 15px;
+}
+
+/* New App Button */
+#newApp {
+  padding: 10px;
+  width: 35%;
+  float: right;
+  text-align: center;
+}
+
+#newApp a {
+  color: #333333;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Account Settings Button */
+#accountSettings {
+  float: right;
+  padding: 5px;
+}
+
+/* Resources and Links */
+.welcome {
+  margin: auto;
+  text-align: center;
+  padding: 15px;
+}
+
+/* ------------------------------Admin Homepage Styling------------------------------ */
+/* Users table search bar */
+.search-bar {
+  width: 30%;
+  margin-right: 0;
+}
+
+/* Users table search box */
+#user-search {
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+/* Enable the table to scroll */
+#users-table-wrapper {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+/* Keep the table header on top when scrolling */
+#users-table-wrapper thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Add in a border around all the elements in the header */
+/* We have to use box-shadow because border can't be placed on a changed TH element */
+/*
+  inset (changes the shadow so that it's inside the frame),
+  1px left border, 1px top border, black - color of these two borders.
+  0 is offset-x
+*/
+#users-table-wrapper th {
+  box-shadow: inset 1px 1px #ddd, 0 1px #ddd;
+}
+
+#users-table tr:hover td {
+  background-color: #f1f1f1;
+}
+
+/* ------------------------------Form Styling------------------------------ */
+/* Form container (grouping all form sections) */
+.form-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Styling for each form section */
+.form-group {
+  padding: 20px;
+}
+
+/* New application */
+#new-app-form {
+  margin: 20px;
+  margin-top: 100px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* ------------------------------Dark Mode Styling------------------------------ */
+.darkMode {
+  background-color: #333333;
+  color: white;
+}
+
+.darkMode h1 {
+  color: #6CB443;
+}
+
+#dark-light {
+  float: right;
+  display: inline;
+  padding: 10px;
+}
+
+/* ------------------------------Other Styling------------------------------ */
+body {
+  width: 97%;
+  color: #333333;
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
+
+header h1 {
+  text-align: center;
+  color: #333333;
+}
+
+header ul {
+  list-style-type: none;
+  padding: 10px;
+  background-color: #2C882B;
+  width: 100%;
+}
+
+header li {
+  display: inline-block;
+  padding: 5px;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+td {
+  padding: 5px;
+}
+
+button, #submit {
+  border-radius: 0%;
+}
+
+#dash-more {
+  text-align: center;
+  width: 100%;
+}
+
+#resources {
+  list-style: square;
+  column-count: 2;
+  color: #2C882B;
+}
+
+a {
+  text-decoration: none;
+  color: #2C882B;
+}
+
+a:hover {
+  text-decoration: underline;
+}
