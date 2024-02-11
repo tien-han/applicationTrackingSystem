@@ -34,37 +34,39 @@
                     <input type="text" id="city" name="city"><br>
                     <label for="State">State:</label><br>
                     <input type="text" id="state" name="state"><br>
-                    <input type="radio" id="Delivery" name="Delivery" value="Delivery">
-                    <label for="Delivery"> Delivery</label><br>
-
-                    <input type="radio" id="Pickup" name="deliveryMethod" vvalue="Pickup">
-                    <label for="Pickup"> Pickup</label><br>
-
-                    <label for="Promo-Code">Promo Code:</label><br>
-                    <input type="text" id="Promo-Code" name="deliveryMethod">
-
+                    <br />
+                    <!-- Delivery Radio Buttons -->
+                    <label for="delivery">Delivery or Pickup?</label><br>
+                    <input type="radio" id="delivery" name="delivery" value="delivery">
+                    <label for="delivery">Delivery</label><br>
+                    <input type="radio" id="pickup" name="delivery" value="pickup">
+                    <label for="pickup"> Pickup</label><br>
+                    <br />
+                    <!-- Promo Code -->
+                    <label for="promo">Promo Code:</label>
+                    <input type="text" id="promo" name="promo">
+                    <br />
+                    <!-- Pizza Size Radio Buttons -->
                     <div class="form-field">
-                        <!--Radio for size  -->
+                        <label for="size">Pizza Size:</label><br>
                         <input type="radio" id="sm" name="size" value="sm">
                         <label for="sm"> Small</label><br>
-
                         <input type="radio" id="md" name="size" value="md">
                         <label for="md"> Medium</label><br>
-
                         <input type="radio" id="lg" name="size" value="lg">
                         <label for="lg"> Large</label><br>
                     </div>
-
+                    <br />
                     <!-- checkbox for toppings -->
                     <h6>Toppings (Select 3)</h6>
-                    <input type="checkbox" id="topping1" name="topping1" value="Pepperoni"> <label>Pepperoni</label>
-                    <input type="checkbox" id="topping2" name="topping2" value="Mushrooms"> <label> Mushrooms</label>
-                    <input type="checkbox" id="topping3" name="topping3" value="Pineapple"> <label> Pineapples</label>
-                    <input type="checkbox" id="topping4" name="topping4" value="Ham"> <label>Ham</label>
-                    <input type="checkbox" id="topping5" name="topping5" value="Onions"> <label>Onions</label>
-                    <input type="checkbox" id="topping6" name="topping6" value="Sausage"> <label> Sausage</label>
-                    <input type="checkbox" id="topping7" name="topping7" value="Chicken"> <label> Chicken</label>
-                    <input type="checkbox" id="topping8" name="topping8" value="Beef"> <label> Beef </label>
+                    <input type="checkbox" id="topping1" name="topping[]" value="Pepperoni"> <label>Pepperoni</label>
+                    <input type="checkbox" id="topping2" name="topping[]" value="Mushrooms"> <label> Mushrooms</label>
+                    <input type="checkbox" id="topping3" name="topping[]" value="Pineapple"> <label> Pineapples</label>
+                    <input type="checkbox" id="topping4" name="topping[]" value="Ham"> <label>Ham</label>
+                    <input type="checkbox" id="topping5" name="topping[]" value="Onions"> <label>Onions</label>
+                    <input type="checkbox" id="topping6" name="topping[]" value="Sausage"> <label> Sausage</label>
+                    <input type="checkbox" id="topping7" name="topping[]" value="Chicken"> <label> Chicken</label>
+                    <input type="checkbox" id="topping8" name="topping[]" value="Beef"> <label> Beef </label>
                     <input type="submit" value="Submit">
             </div>
             </form>

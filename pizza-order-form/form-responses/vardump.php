@@ -8,5 +8,11 @@
 
   <?php echo '<p>GET</p>'; ?> 
   <?php echo var_dump($_GET); ?> 
+
+  <!-- Call on insert.php to insert form submission values into our pizza table -->
+    <?php
+        require '../data-processing/insert.php';
+        insertPizzaValues($_POST);
+    ?>
  </body>
 </html>
