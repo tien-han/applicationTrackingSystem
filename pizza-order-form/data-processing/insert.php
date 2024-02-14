@@ -1,6 +1,8 @@
 <?php
     //This function handles inserting pizza form values into our db
     function insertPizzaValues($VALUES) {
+        echo "<div>Thank you for your order!</><br />";
+
         //Get and clean form responses
         $name = clean_form_responses($VALUES["fname"]);
         $phone = clean_form_responses($VALUES["phone"]);
@@ -29,28 +31,32 @@
                 city,
                 state
             ) VALUES (
-                $name,
-                $phone,
-                $email,
-                $address,
-                $city,
-                $state
+                '$name',
+                '$phone',
+                '$email',
+                '$address',
+                '$city',
+                '$state'
             )
         ";
 
         //Insert customer into database
-        $insertCustomer = @mysqli_query($cnxn, $customerSQL);
+        if (mysqli_query($cnxn, $customerSQL)) {
+            echo "<br />New customer record created successfully<br /><br />";
+        } else {
+            echo "Error: " . $customerSQL . "<br>" . mysqli_error($cnxn);
+        }
 
         //Get customerID out of database
-        $customerRow = mysqli_fetch_assoc($insertCustomer);
-        $customerId = $customerRow['customerID'];
+        $customerIdSQL = "SELECT * FROM Customers ORDER BY customerID DESC LIMIT 1";
+        $customerIdsResult = mysqli_query($cnxn, $customerIdSQL);
+        $customerId = mysqli_fetch_assoc($customerIdsResult);
+        $customerId = $customerId["customerID"];
 
-        //Calculate the delivery boolean
-        $deliveryBool = null;
+        //Calculate the delivery value
+        $deliveryVal = 0;
         if ($delivery == "delivery") {
-            $deliveryBool = True;
-        } else {
-            $deliveryBool = False;
+            $deliveryVal = 1;
         }
 
         //SQL for getting the "priceId" of a pizza size
@@ -70,56 +76,75 @@
         }
 
         //Run SQL query to find out the priceId of the pizza size
-        $selectPriceId = @mysqli_query($cnxn, $pizzaSizeSQL);
+        $selectPriceId = mysqli_query($cnxn, $pizzaSizeSQL);
         $priceRow = mysqli_fetch_assoc($selectPriceId);
-        $priceId = $promoRow['promoID'];
+        $priceId = $priceRow['priceID'];
 
         //Run SQL query to find out the promoId for the promo code
-        $promoSQL = "";
+        $promoId = "";
         if ($promo != "") {
-            $promoSQL = "
-                SELECT * FROM `Promos` WHERE code='$promo'
-            ";
-        }
+            $promoSQL = "SELECT * FROM `Promos` WHERE code='$promo'";
 
-        //Run SQL query to find out what the promoId is
-        $selectPromoId = @mysqli_query($cnxn, $promoSQL);
-        $promoRow = mysqli_fetch_assoc($selectPromoId);
-        $promoId = null;
-        if (mysql_num_rows($promoRow) > 0) {
+            //Run SQL query to find out what the promoId is
+            $selectPromoId = mysqli_query($cnxn, $promoSQL);
+            $promoRow = mysqli_fetch_assoc($selectPromoId);
             $promoId = $promoRow['promoID'];
         }
 
         //Calculate the timestamp for when the order is placed
-        $date = date('m/d/Y h:i:s a', time());
+        $date = date('Y-m-d H:i:s', time());
 
         //SQL Query to insert new order into db
         //We won't define orderID, we will assume every order is new
-        $orderSQL = "
+        $orderSQL = "";
+
+        if ($promoId == "") {
+            $orderSQL = "
             INSERT INTO Orders(
                 customerId,
                 topping1,
                 topping2,
                 topping3,
                 delivery,
-                promoID,
+                priceID,
+                order_placed
+            ) VALUES (
+                '$customerId',
+                '$topping1',
+                '$topping2',
+                '$topping3',
+                '$deliveryVal',
+                '$priceId',
+                '$date'
+            )";
+        } else {
+            $orderSQL = "
+            INSERT INTO Orders(
+                customerId,
+                topping1,
+                topping2,
+                topping3,
+                delivery,
                 priceID,
                 promoID,
                 order_placed
             ) VALUES (
-                $customerId,
-                $topping1,
-                $topping2,
-                $topping3,
-                $deliveryBool,
-                $priceId,
-                $promoId,
-                $date
-            )
-        ";
+                '$customerId',
+                '$topping1',
+                '$topping2',
+                '$topping3',
+                '$deliveryVal',
+                '$priceId',
+                '$promoId',
+                '$date'
+            )";
+        }
 
-        //Insert order into database
-        @mysqli_query($cnxn, $orderSQL);
+        if (mysqli_query($cnxn, $orderSQL)) {
+            echo "New order record created successfully<br /><br />";
+        } else {
+            echo "Error: " . $orderSQL . "<br>" . mysqli_error($cnxn);
+        }
     }
 
     //Clean up form responses to prevent security issues
