@@ -3,11 +3,10 @@
   <title>PHP Test</title>
  </head>
  <body>
-  <?php echo '<p>POST</p>'; ?> 
-  <?php echo var_dump($_POST); ?>
-
-  <?php echo '<p>GET</p>'; ?> 
-  <?php echo var_dump($_GET); ?> 
+  <?php
+    echo '<p>POST</p>';
+    echo var_dump($_POST);
+  ?>
 
   <!-- Call on insert.php to insert form submission values into our pizza table -->
     <?php
