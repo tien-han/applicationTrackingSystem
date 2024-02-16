@@ -19,7 +19,7 @@ require "../data-processing/edit-app-populate.php"
     <!-- Navbar Brand & Toggler -->
     <div class="navbar-header" id="navbar-header">
         <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
-                alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
+                    alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
                 aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span></button>
@@ -72,19 +72,31 @@ require "../data-processing/edit-app-populate.php"
     uses same JavaScript as new app since the data is the same-->
 <!-- TODO: change JavaScript to check for changed values
     TODO: Use JavaScript to add a message once the new values are saved
-    TODO: Use JS to tell user if they have made no changes to save -->
+   -->
+
+<!-- This message is hidden until the form submits -->
+<div class='pt-0 d-none' id = 'successMessage'>
+    <div class = 'row justify-content-center'>
+        <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12'>
+            <h1 class='pt-5 header-text m-auto'>Success!</h1>
+            <br>
+            <p>Your changes have been saved!</p>
+        </div>
+    </div>
+</div>
+
 
 <div class="row justify-content-center">
-    <form class = "form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12" method="POST" action="../form-responses/edit-app-insert-sql.php" onsubmit="return validatenewappform()">
+    <form class = "form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12" method="POST" action="../data-processing/edit-app-insert-sql.php" onsubmit="return validateEditAppForm()">
         <section class="form-group">
             <label for="RoleName" class="form-label">Name of role* </label>
             <span class="text-danger" id="RoleName-error"></span>
-            <input type="text" id="RoleName" name="RoleName" class="form-control" value = <?php echo "$RoleName"?> required >
+            <input type="text" id="RoleName" name="RoleName" class="form-control" value = "<?php echo $RoleName?>" required >
         </section>
         <section class="form-group">
             <label for="Jobdesc" class="form-label">Job Description* </label>
             <span class="text-danger" id="message-error"></span>
-            <textarea id="Jobdesc" name="Jobdesc" rows="5" class= "form-control" required><?php echo "$jobDesc"?></textarea>
+            <textarea id="Jobdesc" name="Jobdesc" rows="5" class= "form-control" required><?php echo $jobDesc?></textarea>
         </section>
         <!-- TODO: How do we set these to the value in the database? -->
         <section class="form-group">
@@ -100,32 +112,31 @@ require "../data-processing/edit-app-populate.php"
         <section class="form-group">
             <label for="employerName" class="form-label">Employer Name*</label>
             <span class="text-danger" id="employerName-error"></span>
-            <input type="text" id="employerName" name="employerName" class="form-control" value = <?php echo "$employerName"?>required>
+            <input type="text" id="employerName" name="employerName" class="form-control" value = "<?php echo $employerName?>" required>
         </section>
 
         <section class="form-group">
 
             <!-- This contains the radio buttons field -->
             <div class="form-field form" id="appStatus" >
-                <!-- Define the possible options for the radio buttons -->
-                <?php $options = array('NeedApply', 'Applied', 'Interviewing',
-                     'Rejected', 'Accepted', 'Inactive');
-
-                // check if a radio button should be checked (i.e. does it match database value?)
-                // returns a string
-                function isChecked($value, $checkedValue): string
-                {
-                    // if true, return checked, if not true return blank statement
-                    return $value === $checkedValue ? 'checked' : '';
-                }
+                <!-- Define the possible options for the radio buttons AND the value to show in html-->
+                <?php $options = array(
+                    'NeedApply' => 'Need to apply',
+                    'Applied' => 'Applied',
+                    'Interviewing' => 'Interviewing',
+                    'Rejected' => 'Rejected',
+                    'Accepted' => 'Accepted',
+                    'Inactive' => 'Inactive/Expired'
+                );
 
                 // use for loop and the function to create our radio buttons
-                foreach ($options as $checked): ?>
-                <label for="<?php echo $checked; ?>"><?php echo $checked; ?></label>
-                <input type="radio" name="Appliedposition" id="<?php echo $checked; ?>" value="<?php echo $checked; ?>"
-                    <?php echo isChecked($checked, $appStatus);
+                foreach ($options as $optionValue => $optionLabel): ?>
+                <input type="radio" id="<?php echo $optionValue; ?>" name="options" value="<?php echo $optionValue; ?>" <?php echo ($appStatus == $optionValue) ? 'checked' : ''; ?>>
+                <label for="<?php echo $optionValue; ?>"><?php echo $optionLabel;
+                    echo "</label><br>";
+                    // end the loop
                     endforeach;
-                    ?> required>
+                    ?>
 
             </div>
         </section>
@@ -133,18 +144,18 @@ require "../data-processing/edit-app-populate.php"
         <section class="form-group">
             <label for="ContactName" class="form-label">Contact Name</label>
             <span class="text-danger" id="name-error"></span>
-            <input type="text" id="ContactName" name="ContactName" class="form-control"  required value = <?php echo "$contactName"?>>
+            <input type="text" id="ContactName" name="ContactName" class="form-control"  value = "<?php echo $contactName?>" required >
         </section>
 
         <section class="form-group">
             <label for="ContactEmail" class="form-label mt-2">Contact Email</label>
             <span class="text-danger" id="email-error"></span>
-            <input type="text" id="ContactEmail" name="ContactEmail" value = <?php echo "$RoleName"?> class="form-control" required>
+            <input type="text" id="ContactEmail" name="ContactEmail" class="form-control" value = "<?php echo "$contactEmail"?>"  required>
         </section>
         <section class="form-group">
             <label for="ContactPhone" class="form-label mt-2">Contact Phone</label>
             <span class="text-danger" id="phone-error"></span>
-            <input type="text" id="ContactPhone" name="ContactPhone" value = <?php echo "$contactPhone"?> class="form-control" required>
+            <input type="text" id="ContactPhone" name="ContactPhone" class="form-control" value = "<?php echo "$contactPhone"?>" required>
         </section>
 
         <section class="form-group">

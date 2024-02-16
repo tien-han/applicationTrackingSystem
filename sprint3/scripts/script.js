@@ -168,8 +168,19 @@ function validateContactPhone(ContactPhone) {
     return true;
 }
 
+//
+// Edit App Validation
+//
+function validateEditAppForm(){
+    validatenewappform();
+    validateSuccess();
+}
 
-
+// This will show the hidden confirmation message
+function validateSuccess(){
+    let message = document.getElementById("successMessage");
+        message.classList.remove("d-none");
+}
 
 
 //-------------------------------------------------------------------------------------------------

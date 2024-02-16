@@ -1,11 +1,14 @@
-<?php
+<?php // This php file will populate the form with fields from the SQL database
+// it will get the applicationID from the button submission to find the correct line
 
 require '/home/cicadagr/atsdb.php';
+// don't forget to grab the ID to use for filling the form from the button
+$applicationID = $_POST['applicationID'];
 
-// prefill fields with current data
-// TODO: add a WHERE statement to match selected app with SQL apps
-$sql = "SELECT * FROM applications)";
+$sql = "SELECT * FROM applications WHERE applicationID = '$applicationID'";
+
 $result = @mysqli_query($cnxn, $sql);
+
 // assign values to variables to place in fields initially
 while ($row = mysqli_fetch_assoc($result))
 {
@@ -20,5 +23,8 @@ while ($row = mysqli_fetch_assoc($result))
     $contactPhone = $row['contact_phone'];
     $notes = $row['notes'];
 }
+
+
+
 
 
