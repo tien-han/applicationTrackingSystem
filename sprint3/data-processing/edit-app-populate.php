@@ -3,9 +3,9 @@
 
 require '/home/cicadagr/atsdb.php';
 // don't forget to grab the ID to use for filling the form from the button
-$applicationID = $_POST['applicationID'];
+$applicationsID = $_POST['applicationID'];
 
-$sql = "SELECT * FROM applications WHERE applicationID = '$applicationID'";
+$sql = "SELECT * FROM applications WHERE applicationsID = '$applicationsID'";
 
 $result = @mysqli_query($cnxn, $sql);
 
@@ -14,7 +14,7 @@ while ($row = mysqli_fetch_assoc($result))
 {
     $RoleName = $row['role_name'];
     $jobDesc = $row['job_description'];
-    $currentDateInput = $row['created_at'];
+    $submissionDate = $row['created_at'];
     $followUpDateDisplay = $row['follow_up_date'];
     $employerName = $row['employer_name'];
     $appStatus = $row['status'];

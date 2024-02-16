@@ -168,9 +168,9 @@ function validateContactPhone(ContactPhone) {
     return true;
 }
 
-//
+// ------------
 // Edit App Validation
-//
+// ------------
 function validateEditAppForm(){
     validatenewappform();
     validateSuccess();
@@ -181,6 +181,21 @@ function validateSuccess(){
     let message = document.getElementById("successMessage");
         message.classList.remove("d-none");
 }
+
+// this will put the correct value in the calendar
+if (document.body.id === "edit-app-form"){
+    // change the date on load of the page
+    window.onload = function() {
+        // get the value that was put in the php file
+        var databaseDate = document.getElementById('DatabaseDate').value;
+
+        // Set the value the visitor sees
+        var date = document.getElementById('submissionDate');
+        date.value = databaseDate;
+        console.log("The date has been set to " + date);
+    };
+}
+
 
 
 //-------------------------------------------------------------------------------------------------

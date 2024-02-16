@@ -91,17 +91,19 @@ require "../data-processing/edit-app-populate.php"
         <section class="form-group">
             <label for="RoleName" class="form-label">Name of role* </label>
             <span class="text-danger" id="RoleName-error"></span>
-            <input type="text" id="RoleName" name="RoleName" class="form-control" value = "<?php echo $RoleName?>" required >
+            <input type="text" id="RoleName" name="RoleName" class="form-control" value = "<?php echo $RoleName;?>" required >
         </section>
         <section class="form-group">
             <label for="Jobdesc" class="form-label">Job Description* </label>
             <span class="text-danger" id="message-error"></span>
-            <textarea id="Jobdesc" name="Jobdesc" rows="5" class= "form-control" required><?php echo $jobDesc?></textarea>
+            <textarea id="Jobdesc" name="Jobdesc" rows="5" class= "form-control" required><?php echo $jobDesc;?></textarea>
         </section>
         <!-- TODO: How do we set these to the value in the database? -->
         <section class="form-group">
             <h5>Date of Application: </h5>
-            <input type="date" id="currentDateInput">
+            <!-- use a hidden element to hold the date from SQL for JavaScript-->
+            <input type="hidden" id="DatabaseDate" value="<?php echo "$submissionDate"; ?>">
+            <input type="date" id="submissionDate">
         </section>
 
         <section class="form-group">
@@ -112,13 +114,14 @@ require "../data-processing/edit-app-populate.php"
         <section class="form-group">
             <label for="employerName" class="form-label">Employer Name*</label>
             <span class="text-danger" id="employerName-error"></span>
-            <input type="text" id="employerName" name="employerName" class="form-control" value = "<?php echo $employerName?>" required>
+            <input type="text" id="employerName" name="employerName" class="form-control" value = "<?php echo $employerName;?>" required>
         </section>
 
         <section class="form-group">
 
             <!-- This contains the radio buttons field -->
             <div class="form-field form" id="appStatus" >
+                <label for ="appStatus" class = "form-label">Status</label><br>
                 <!-- Define the possible options for the radio buttons AND the value to show in html-->
                 <?php $options = array(
                     'NeedApply' => 'Need to apply',
@@ -131,7 +134,7 @@ require "../data-processing/edit-app-populate.php"
 
                 // use for loop and the function to create our radio buttons
                 foreach ($options as $optionValue => $optionLabel): ?>
-                <input type="radio" id="<?php echo $optionValue; ?>" name="options" value="<?php echo $optionValue; ?>" <?php echo ($appStatus == $optionValue) ? 'checked' : ''; ?>>
+                <input type="radio" id="<?php echo $optionValue; ?>" name="Appliedposition" value="<?php echo $optionValue; ?>" <?php echo ($appStatus == $optionValue) ? 'checked' : ''; ?>>
                 <label for="<?php echo $optionValue; ?>"><?php echo $optionLabel;
                     echo "</label><br>";
                     // end the loop
@@ -144,24 +147,24 @@ require "../data-processing/edit-app-populate.php"
         <section class="form-group">
             <label for="ContactName" class="form-label">Contact Name</label>
             <span class="text-danger" id="name-error"></span>
-            <input type="text" id="ContactName" name="ContactName" class="form-control"  value = "<?php echo $contactName?>" required >
+            <input type="text" id="ContactName" name="ContactName" class="form-control"  value = "<?php echo "$contactName"; ?>" required >
         </section>
 
         <section class="form-group">
             <label for="ContactEmail" class="form-label mt-2">Contact Email</label>
             <span class="text-danger" id="email-error"></span>
-            <input type="text" id="ContactEmail" name="ContactEmail" class="form-control" value = "<?php echo "$contactEmail"?>"  required>
+            <input type="text" id="ContactEmail" name="ContactEmail" class="form-control" value = "<?php echo "$contactEmail"; ?>"  required>
         </section>
         <section class="form-group">
             <label for="ContactPhone" class="form-label mt-2">Contact Phone</label>
             <span class="text-danger" id="phone-error"></span>
-            <input type="text" id="ContactPhone" name="ContactPhone" class="form-control" value = "<?php echo "$contactPhone"?>" required>
+            <input type="text" id="ContactPhone" name="ContactPhone" class="form-control" value = "<?php echo "$contactPhone"; ?>" required>
         </section>
 
         <section class="form-group">
             <label for="InterviewNotes" class="form-label">Interview Notes*</label>
             <span class="text-danger" id="InterviewNotes-error"></span>
-            <textarea id="InterviewNotes" name="InterviewNotes" rows="5" class="form-control" required><?php echo "$notes"?></textarea>
+            <textarea id="InterviewNotes" name="InterviewNotes" rows="5" class="form-control" required><?php echo "$notes";?></textarea>
         </section>
 
         <div class="row">
@@ -173,7 +176,7 @@ require "../data-processing/edit-app-populate.php"
     </form>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/boot  strap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="../scripts/script.js"></script>
