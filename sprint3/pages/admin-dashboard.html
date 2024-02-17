@@ -16,6 +16,9 @@
     <!-- Bootstrap CDN -->
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+    <!-- Datatables CDN -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" />
+    <!-- Our personal CSS styles -->
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -39,7 +42,7 @@
                     <a class="nav-link active" href="admin-dashboard.html">Admin Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin-announcement.html">Admin Announcment</a>
+                    <a class="nav-link" href="admin-announcement.html">Admin Announcement</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="new-app.html">New Application</a>
@@ -128,21 +131,18 @@
 
                     <!-- Reminders -->
                     <div id="reminders" class="container border border-success rounded col-sm-4 text-break">
-                        <h2 class="text-center p-2">Reminders</h2>
+                        <h2 class="text-center p-2">Recent Announcements</h2>
                         <div class="border border-success rounded mb-4 p-2 overflow-auto">
-                            <p class="text-center">Follow up with XYZ</p>
-                            <button>VIEW</button>
+                            <p class="text-center">Applications for Disney will be c... <button>VIEW</button></p>
                         </div>
                         <div class="border border-success rounded mb-4 p-2 overflow-auto">
                             <div>
-                                <p class="text-center">3 Incomplete APPS</p>
-                                <button>VIEW</button>
+                                <p class="text-center">Please delete applications tha...<button>VIEW</button></p>
                             </div>
                         </div>
                         <div id="reminder-section3" class="border border-success rounded mb-4 p-2 overflow-auto">
                             <p class="text-center">
-                                <a class="link-text" href="https://www.linkedin.com" target="_blank">Find More
-                                    Opportunities</a>
+                                <a class="link-text" href="#" target="_blank">See All Announcements</a>
                             </p>
                         </div>
                     </div>
@@ -156,23 +156,11 @@
                 <div class="row col-12">
                     <div class="border border-success rounded text-break">
                         <!-- Table Title & Search Bar -->
-                        <div class="d-flex align-items-center">
-                            <h2 class="text-center mx-auto">Users</h2>
-                            <nav class="search-bar">
-                                <form class="form-inline my-2 my-lg-0">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Name:</span>
-                                        </div>
-                                        <input id="user-search" type="text" onkeyup="searchUsers()" class="form-control"
-                                            placeholder="Search for users..." aria-label="Username"
-                                            aria-describedby="Users Search Bar">
-                                    </div>
-                                </form>
-                            </nav>
+                        <div class="align-items-center">
+                            <h2 class="text-center p-2">Users</h2>
                         </div>
                         <!-- List of Users -->
-                        <div id="users-table-wrapper">
+                        <div id="users-table-wrapper" class="align-items-center">
                             <table id="users-table" class="table text-center align-middle">
                                 <thead id="users-table-header">
                                     <tr>
@@ -182,61 +170,7 @@
                                         <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Miedrail Pelilde</td>
-                                        <td>m.pelilde@student.greenriver.edu</td>
-                                        <td><button type="button" class="btn btn-success">View</button></td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Am Raingloom</td>
-                                        <td>rgloom@student.greenriver.edu</td>
-                                        <td><button type="button" class="btn btn-success">View</button></td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ufuh Rolod</td>
-                                        <td>ufuhrolod@student.greenriver.edu</td>
-                                        <td><button type="button" class="btn btn-success">View</button></td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nia Uy</td>
-                                        <td>nia@student.greenriver.edu</td>
-                                        <td><button type="button" class="btn btn-success">View</button></td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mildred</td>
-                                        <td>milly@student.greenriver.edu</td>
-                                        <td><button type="button" class="btn btn-success">View</button></td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Anna</td>
-                                        <td>anna@student.greenriver.edu</td>
-                                        <td><button type="button" class="btn btn-success">View</button></td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Keith</td>
-                                        <td>kelly@student.greenriver.edu</td>
-                                        <td><button type="button" class="btn btn-success">View</button></td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Melyvr</td>
-                                        <td>melly@student.greenriver.edu</td>
-                                        <td><button type="button" class="btn btn-success">View</button></td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jona</td>
-                                        <td>jojo@student.greenriver.edu</td>
-                                        <td><button type="button" class="btn btn-success">View</button></td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                                    </tr>
+                                <tbody id="users-table-body">
                                 </tbody>
                             </table>
                         </div>
@@ -251,10 +185,18 @@
     <br />
 
     <!--Scripts-->
+    <!-- Bootstrap CDN link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <!-- jQuery CDN to get Datables to work -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Datatables CDN link -->
+    <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+    <!-- Form validation and dark mode script -->
     <script type="text/javascript" src="../scripts/script.js"></script>
+    <!-- JS Script for getting all users -->
+    <script type="text/javascript" src="../scripts/get-users.js"></script>
 </body>
 
 </html>
