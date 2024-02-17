@@ -28,6 +28,12 @@ CREATE TABLE IF NOT EXISTS `users`(
     `cohort` INT DEFAULT NULL,
     `status` VARCHAR(255) DEFAULT NULL,
     `roles` VARCHAR(255) DEFAULT NULL,
+    `user_deleted` BOOLEAN DEFAULT FALSE,
+    `user_deleted_at` DATETIME DEFAULT NULL,
+    `user_hard_delete` BOOLEAN DEFAULT FALSE, 
+    `admin_deleted` BOOLEAN DEFAULT FALSE,
+    `admin_deleted_at` DATETIME DEFAULT NULL,
+    `admin_hard_delete` BOOLEAN DEFAULT FALSE,
     `created_at` DATETIME DEFAULT NULL,
     `deleted_at` DATETIME DEFAULT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
@@ -47,6 +53,66 @@ VALUES (
     10,
     'Looking',
     'Full time'
+), (
+    'Miedrail Pelilde',
+    'm.pelilde@student.greenriver.edu',
+    11,
+    'Looking',
+    'Full time'
+), (
+    'Am Raingloom',
+    'rgloom@student.greenriver.edu',
+    11,
+    'Looking',
+    'Full time'
+), (
+    'Ufuh Rolod',
+    'ufuhrolod@student.greenriver.edu',
+    11,
+    'Looking',
+    'Full time'
+), (
+    'Nia Uy',
+    'nia@student.greenriver.edu',
+    11,
+    'Looking',
+    'Full time' 
+), (
+    'Mildred',
+    'milly@student.greenriver.edu',
+    11,
+    'Looking',
+    'Full time' 
+), (
+    'Anna',
+    'anna@student.greenriver.edu',
+    11,
+    'Looking',
+    'Full time' 
+), (
+    'Keith',
+    'kelly@student.greenriver.edu',
+    11,
+    'Looking',
+    'Full time' 
+), (
+    'Melyvr',
+    'melly@student.greenriver.edu',
+    11,
+    'Looking',
+    'Full time' 
+), (
+    'Jona',
+    'jojo@student.greenriver.edu',
+    11,
+    'Looking',
+    'Full time' 
+), (
+    'Zach the Crab',
+    'crabby@student.greenriver.edu',
+    11,
+    'Looking',
+    'Full time' 
 );
 -- --------------------------------------------------------
 --

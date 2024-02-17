@@ -73,42 +73,6 @@ table {
 }
 
 /* ------------------------------Admin Homepage Styling------------------------------ */
-/* Users table search bar */
-.search-bar {
-  width: 30%;
-  margin-right: 0;
-}
-
-/* Users table search box */
-#user-search {
-  margin-bottom: 12px;
-  cursor: pointer;
-}
-
-/* Enable the table to scroll */
-#users-table-wrapper {
-  max-height: 400px;
-  overflow: scroll;
-}
-
-/* Keep the table header on top when scrolling */
-#users-table-wrapper thead th {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-/* Add in a border around all the elements in the header */
-/* We have to use box-shadow because border can't be placed on a changed TH element */
-/*
-  inset (changes the shadow so that it's inside the frame),
-  1px left border, 1px top border, black - color of these two borders.
-  0 is offset-x
-*/
-#users-table-wrapper th {
-  box-shadow: inset 1px 1px #ddd, 0 1px #ddd;
-}
-
 #users-table tr:hover td {
   background-color: #f1f1f1;
 }

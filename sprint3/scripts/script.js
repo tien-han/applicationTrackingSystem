@@ -205,7 +205,7 @@ function validateContactPhone(ContactPhone) {
 // Sign Up Form Validation
 //-------------------------------------------------------------------------------------------------
 if (document.getElementById("sign-up-form")) {
-    document.getElementById('signupForm').addEventListener('submit', function (event) {
+    document.getElementById('sign-up-form').addEventListener('submit', function (event) {
         // Validate Cohort Number
         var cohortNumber = document.getElementById('cohortNumber').value;
         if (cohortNumber < 1 || cohortNumber > 100) {
@@ -262,7 +262,6 @@ function validateContactForm() {
 //Validate a full name in a form
 //used in new app Contact Name
 function validateFullName(nameId) {
-    console.log("Validating full name");
     const name = document.getElementById(nameId).value.trim();
     const errorMessage = document.getElementById("name-error");
 
