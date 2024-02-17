@@ -44,7 +44,7 @@ $(window).on('resize', function () {
 
 //This method gets all users with fetch() and kicks off "updateUsersTable()" to populate the users table
 async function getUsers() {
-    await fetch("https://cicada.greenriverdev.com/sprint3/pages/data-processing/select-all-users.php")
+    await fetch("https://cicada.greenriverdev.com/sprint3/data-processing/select-all-users.php")
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Something went wrong while trying to get all users.");
