@@ -100,14 +100,15 @@ else {
 require '/home/cicadagr/atsdb.php';
 
 
-$sql = "INSERT INTO applications (role_name, job_description, employer_name, contact_name, contact_email, contact_phone, notes, status, application_date,follow_up_date ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO applications (userid, role_name, job_description, employer_name, contact_name, contact_email, contact_phone, notes, status, application_date,follow_up_date ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = mysqli_prepare($cnxn, $sql);
 
 
 if ($stmt) {
 
-    mysqli_stmt_bind_param($stmt, 'ssssssssss', $roleName, $jobDesc, $employerName, $contactName, $contactEmail, $contactPhone, $interviewNotes, $applicationStatus,$application_date ,$follow_up_date);
+    $userid = $userid = 1;
+    mysqli_stmt_bind_param($stmt, 'sssssssssss', $userid, $roleName, $jobDesc, $employerName, $contactName, $contactEmail, $contactPhone, $interviewNotes, $applicationStatus,$application_date ,$follow_up_date);
 
 
     if (mysqli_stmt_execute($stmt)) {
