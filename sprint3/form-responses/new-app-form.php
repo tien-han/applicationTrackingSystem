@@ -100,7 +100,7 @@ else {
 require '/home/cicadagr/atsdb.php';
 
 
-$sql = "INSERT INTO applications (userid, role_name, job_description, employer_name, contact_name, contact_email, contact_phone, notes, status, application_date,follow_up_date ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO applications (userId, role_name, job_description, employer_name, contact_name, contact_email, contact_phone, notes, status, application_date,follow_up_date ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = mysqli_prepare($cnxn, $sql);
 
