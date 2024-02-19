@@ -171,31 +171,33 @@ function validateContactPhone(ContactPhone) {
 // ------------
 // Edit App Validation
 // ------------
-function validateEditAppForm(){
+function validateEditAppForm() {
     validatenewappform();
-    validateSuccess();
 }
+if (document.getElementById("edit-app-form")) {
+    addEventListener("DOMContentLoaded", function () {
+        let submissionDateInput = document.getElementById("submissionDate");
+        let followUpDateDisplay = document.getElementById("followUpDateDisplay");
 
-// This will show the hidden confirmation message
-function validateSuccess(){
-    let message = document.getElementById("successMessage");
-        message.classList.remove("d-none");
+        // Set the innerHTML of followUpDateDisplay to a formatted string of the date
+        followUpDateDisplay.innerHTML = new Date(followUpDateDisplay.value).toDateString();
+        // Set the innerHTML of submissionDateInput to a formatted string of the date
+        submissionDateInput.innerHTML = new Date(submissionDateInput.value).toDateString();
+
+        // Add event listener for submission date changes
+        submissionDateInput.addEventListener('change', function (event) {
+            // change value in html
+            let submissionDate = event.target.valueAsDate;
+        });
+
+        // Add event listener for follow-up date changes
+        let followUpDateInput = document.getElementById("followUpDate");
+        followUpDateInput.addEventListener('change', function (event) {
+            // change value in html
+            let followUpDate = event.target.valueAsDate;
+        });
+    });
 }
-
-// this will put the correct value in the calendar
-if (document.body.id === "edit-app-form"){
-    // change the date on load of the page
-    window.onload = function() {
-        // get the value that was put in the php file
-        var databaseDate = document.getElementById('DatabaseDate').value;
-
-        // Set the value the visitor sees
-        var date = document.getElementById('submissionDate');
-        date.value = databaseDate;
-        console.log("The date has been set to " + date);
-    };
-}
-
 
 
 //-------------------------------------------------------------------------------------------------

@@ -70,9 +70,7 @@ require "../data-processing/edit-app-populate.php"
 
 <!-- NOTE: Updated id for form to mitigate conflict with styling
     uses same JavaScript as new app since the data is the same-->
-<!-- TODO: change JavaScript to check for changed values
-    TODO: Use JavaScript to add a message once the new values are saved
-   -->
+<!-- TODO: change JavaScript to check for changed value-->
 
 <!-- This message is hidden until the form submits -->
 <div class='pt-0 d-none' id = 'successMessage'>
@@ -98,17 +96,15 @@ require "../data-processing/edit-app-populate.php"
             <span class="text-danger" id="message-error"></span>
             <textarea id="Jobdesc" name="Jobdesc" rows="5" class= "form-control" required><?php echo $jobDesc;?></textarea>
         </section>
-        <!-- TODO: How do we set these to the value in the database? -->
+
         <section class="form-group">
             <h5>Date of Application: </h5>
-            <!-- use a hidden element to hold the date from SQL for JavaScript-->
-            <input type="hidden" id="DatabaseDate" value="<?php echo "$submissionDate"; ?>">
-            <input type="date" id="submissionDate">
+            <input type="date" id="submissionDate" value = "<?php echo "$submissionDate";?>">
         </section>
 
         <section class="form-group">
             <h5>Follow update: </h5>
-            <input type="date" id="followUpDateDispLay">
+            <input type="date" id="followUpDateDispLay" value = "<?php echo "$followUpDateDisplay";?>">
         </section>
 
         <section class="form-group">
@@ -122,8 +118,10 @@ require "../data-processing/edit-app-populate.php"
             <!-- This contains the radio buttons field -->
             <div class="form-field form" id="appStatus" >
                 <label for ="appStatus" class = "form-label">Status</label><br>
-                <!-- Define the possible options for the radio buttons AND the value to show in html-->
-                <?php $options = array(
+                <!-- create the radio buttons with the chosen one from database selected -->
+                <?php
+                // define possible options and their values
+                $options = array(
                     'NeedApply' => 'Need to apply',
                     'Applied' => 'Applied',
                     'Interviewing' => 'Interviewing',
@@ -131,10 +129,9 @@ require "../data-processing/edit-app-populate.php"
                     'Accepted' => 'Accepted',
                     'Inactive' => 'Inactive/Expired'
                 );
-
                 // use for loop and the function to create our radio buttons
                 foreach ($options as $optionValue => $optionLabel): ?>
-                <input type="radio" id="<?php echo $optionValue; ?>" name="Appliedposition" value="<?php echo $optionValue; ?>" <?php echo ($appStatus == $optionValue) ? 'checked' : ''; ?>>
+                <input type="radio" name="Appliedposition" id="<?php echo $optionValue; ?>" value="<?php echo $optionValue; ?>" <?php echo ($appStatus == $optionValue) ? 'checked' : ''; ?>>
                 <label for="<?php echo $optionValue; ?>"><?php echo $optionLabel;
                     echo "</label><br>";
                     // end the loop
@@ -176,7 +173,7 @@ require "../data-processing/edit-app-populate.php"
     </form>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/boot  strap@5.3.2/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="../scripts/script.js"></script>
