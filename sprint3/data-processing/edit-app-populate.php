@@ -1,10 +1,9 @@
-<!-- This app will grab variables from the SQL database to put into the webpage it's required in -->
 <?php
-$applicationsID = 1;
+$applicationsId = $_POST['applicationID'];;
 
 require '/home/cicadagr/atsdb.php';
 
-$sql = "SELECT * FROM applications WHERE applicationsID = applicationsID";
+$sql = "SELECT * FROM applications WHERE applicationsId = '$applicationsId'";
 
 $result = @mysqli_query($cnxn, $sql);
 
@@ -27,7 +26,7 @@ while ($row = mysqli_fetch_assoc($result))
 
 // change dates to correct date format (not datetime)
 $submissionDate = date("Y-m-d", strtotime($submissionDate));
-$followUpDateDisplay = date("Y-m-d", strtotime($followUpDateDisplay));
+$followUpDateDisplay = date("Y-m-d", strtotime($followUpDateDisplay))
 
 ?>
 

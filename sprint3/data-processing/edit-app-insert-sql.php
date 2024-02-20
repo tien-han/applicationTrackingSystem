@@ -1,5 +1,4 @@
 <?php
-$applicationsID = 1;
 
 require '/home/cicadagr/atsdb.php';
 
@@ -39,7 +38,7 @@ $sql = "UPDATE applications
                 status = '$appStatus',
                 application_date = '$submissionDate', 
                 follow_up_date = '$followUpDate'
-        WHERE applicationsID = '$applicationsID'";
+        WHERE applicationsId = '$applicationsId'";
 
 $result = mysqli_query($cnxn, $sql);
 
