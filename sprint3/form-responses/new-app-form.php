@@ -111,12 +111,6 @@ if ($stmt) {
     mysqli_stmt_bind_param($stmt, 'sssssssssss', $userid, $roleName, $jobDesc, $employerName, $contactName, $contactEmail, $contactPhone, $interviewNotes, $applicationStatus,$application_date ,$follow_up_date);
 
 
-    if (mysqli_stmt_execute($stmt)) {
-        echo "New record created successfully";
-    } else {
-
-        echo "Error: " . mysqli_error($cnxn);
-    }
 
 
     mysqli_stmt_close($stmt);
