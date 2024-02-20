@@ -72,20 +72,9 @@ require "../data-processing/edit-app-populate.php"
     uses same JavaScript as new app since the data is the same-->
 <!-- TODO: change JavaScript to check for changed value-->
 
-<!-- This message is hidden until the form submits -->
-<div class='pt-0 d-none' id = 'successMessage'>
-    <div class = 'row justify-content-center'>
-        <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12'>
-            <h1 class='pt-5 header-text m-auto'>Success!</h1>
-            <br>
-            <p>Your changes have been saved!</p>
-        </div>
-    </div>
-</div>
-
-
 <div class="row justify-content-center">
     <form class = "form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12" method="POST" action="../data-processing/edit-app-insert-sql.php" onsubmit="return validateEditAppForm()">
+        <input type="hidden" name="applicationId" value="<?php echo $applicationsId;?>">
         <section class="form-group">
             <label for="RoleName" class="form-label">Name of role* </label>
             <span class="text-danger" id="RoleName-error"></span>
