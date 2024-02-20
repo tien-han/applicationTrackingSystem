@@ -15,62 +15,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Dashboard</title>
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
-    <!-- Navbar Brand & Toggler -->
-    <div class="navbar-header" id="navbar-header">
-        <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
-                alt="Green River College's logo" src="images/GRC_logo_navbar.png" width="70"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
+        <!-- Navbar Brand & Toggler -->
+        <div class="navbar-header" id="navbar-header">
+            <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
+                    alt="Green River College's logo" src="images/GRC_logo_navbar.png" width="70"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
                 aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span></button>
-    </div>
-    <!-- Navbar Items with Links -->
-    <div class="collapse navbar-collapse" id="navbar-toggler">
-        <ul class="navbar-nav align-items-center">
-            <li class="nav-item">
-                <a class="nav-link active" href="index.html">Student Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pages/admin-dashboard.html">Admin Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pages/admin-announcement.html">Admin Announcment</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pages/new-app.html">New Application</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pages/sign-up.html">Sign Up</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pages/contact.html">Contact</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav align-items-center ms-auto">
-            <!-- Dark Mode Toggler -->
-            <li class="nav-item text-center px-3">
-                <button type="button" class="btn btn-sm btn-dark" id="dark-light">Dark mode!</button>
-            </li>
-        </ul>
-    </div>
-</nav>
-<br />
-<br />
-<br />
-<br />
+                <span class="navbar-toggler-icon"></span></button>
+        </div>
+        <!-- Navbar Items with Links -->
+        <div class="collapse navbar-collapse" id="navbar-toggler">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Student Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/admin-dashboard.html">Admin Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/admin-announcement.html">Admin Announcment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/new-app.html">New Application</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/sign-up.html">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/contact.html">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav align-items-center ms-auto">
+                <!-- Dark Mode Toggler -->
+                <li class="nav-item text-center px-3">
+                    <button type="button" class="btn btn-sm btn-dark" id="dark-light">Dark mode!</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+    <br />
 
-<!-- Dashboard -->
-<div class="container-fluid">
-    <div class="row col-12">
-        <header>
-            <h1>Application Tracker</h1>
-        </header>
-    </div>
+    <!-- Dashboard -->
+    <div class="container-fluid">
+        <div class="row col-12">
+            <header>
+                <h1>Application Tracker</h1>
+            </header>
+        </div>
 
         <!-- Main Homepage Dashboard -->
         <div class="row">
@@ -81,13 +81,13 @@
                         <h2 class="text-center p-2">Recent Applications</h2>
                         <table class="table text-center align-middle">
                             <thead>
-                            <tr>
-                                <th scope="col">Date</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Update</th>
-                                <th scope="col">Delete</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
                             </thead>
                             <tbody id="applicationsTableBody">
 
@@ -97,172 +97,171 @@
                             <button type="button">MORE</button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Reminders -->
-                <div id="reminders" class="container border border-success rounded col-sm-4 text-break">
-                    <h2 class="text-center p-2">Reminders</h2>
-                    <div class="border border-success rounded mb-4 p-2 overflow-auto">
-                        <p class="text-center">Follow up with XYZ</p>
-                        <button>VIEW</button>
-                    </div>
-                    <div class="border border-success rounded mb-4 p-2 overflow-auto">
-                        <div>
-                            <p class="text-center">3 Incomplete APPS</p>
+                    <!-- Reminders -->
+                    <div id="reminders" class="container border border-success rounded col-sm-4 text-break">
+                        <h2 class="text-center p-2">Reminders</h2>
+                        <div class="border border-success rounded mb-4 p-2 overflow-auto">
+                            <p class="text-center">Follow up with XYZ</p>
                             <button>VIEW</button>
                         </div>
-                    </div>
-                    <div id="reminder-section3" class="border border-success rounded mb-4 p-2 overflow-auto">
-                        <p class="text-center">
-                            <a class="link-text" href="https://www.linkedin.com" target="_blank">Find More
-                                Opportunities</a>
-                        </p>
+                        <div class="border border-success rounded mb-4 p-2 overflow-auto">
+                            <div>
+                                <p class="text-center">3 Incomplete APPS</p>
+                                <button>VIEW</button>
+                            </div>
+                        </div>
+                        <div id="reminder-section3" class="border border-success rounded mb-4 p-2 overflow-auto">
+                            <p class="text-center">
+                                <a class="link-text" href="https://www.linkedin.com" target="_blank">Find More
+                                    Opportunities</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Add New App & Update Account Settings Buttons -->
-    <div class="row">
-        <div class="col-7">
-            <button id="newApp"><a href="pages/new-app.html">Add NEW APP</a></button>
-        </div>
-        <div class="col-5">
-            <a href="sign-up.html" id="accountSettings">Update Account Settings</a>
-        </div>
-    </div>
-</div>
-<br />
-
-<!-- Green River Information & Resources -->
-<div class="container border border-success rounded">
-    <div class="row welcome">
-        <!-- Welcome statement for Green River College -->
-        <p>
-            Welcome to the Green River College Software Development Application Tracking Tool (ATT). The purpose
-            of this tool is to provide a centralized place to track your job/internship applications that can be
-            helpful in your application journey!
-        </p>
-    </div>
-    <div class="row">
-        <!-- Helpful Resources -->
-        <h5>Resources to help you start your career in tech</h5>
-        <!-- Header -->
-        <!-- TODO: Fix styling for table and descriptions when in dark mode -->
-        <table class="table">
-            <thead>
-            <tr>
-                <th class="col-sm-3" scope="col">Resource</th>
-                <th class="col-sm-6" scope="col">Information/Details</th>
-                <th class="col-sm-3" scope="col">Link to Resource</th>
-            </tr>
-            </thead>
-        </table>
-        <dl class="row">
-            <!-- Green River Resources -->
-            <dt class="col-sm-3">Green River College Tech</dt>
-            <dd class="col-sm-6">Green River College has many great resources for students looking for technical
-                roles.
-            </dd>
-            <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.devs.greenrivertech.net/"
-                                               target="_blank">https://www.devs.greenrivertech.net/</a></dd>
-            <!-- Professional Profile -->
-            <dt class="col-sm-3">LinkedIn</dt>
-            <dd class="col-sm-6">LinkedIn can be used to host your professional profile to show prospective
-                employers,
-                apply to job positions, and network.
-            </dd>
-            <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.linkedin.com"
-                                               target="_blank">https://www.linkedin.com</a>
-            </dd>
-            <!-- Job Boards/Resources -->
-            <dt class="col-sm-3">Job Boards</dt>
-            <dd class="col-sm-9">
-                <dl class="row">
-                    <dt class="col-sm-2">Indeed</dt>
-                    <dd class="col-sm-6">Indeed is a job board website where you can also apply to these open
-                        roles.
-                    </dd>
-                    <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.indeed.com/"
-                                                       target="_blank">https://www.indeed.com/</a>
-                    </dd>
-                </dl>
-                <dl class="row">
-                    <dt class="col-sm-2">Glassdoor</dt>
-                    <dd class="col-sm-6">Glassdoor is a great place to find out more about a company's culture.
-                    </dd>
-                    <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.glassdoor.com/index.htm"
-                                                       target="_blank">https://www.glassdoor.com/index.htm</a></dd>
-                </dl>
-                <dl class="row">
-                    <dt class="col-sm-2">ZipRecruiter</dt>
-                    <dd class="col-sm-6">ZipRecruiter is a website to find open positions and for recruiters to find
-                        candidates.
-                    </dd>
-                    <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.ziprecruiter.com"
-                                                       target="_blank">https://www.ziprecruiter.com</a></dd>
-                </dl>
-                <dl class="row">
-                    <dt class="col-sm-2">Monster Jobs</dt>
-                    <dd class="col-sm-6">ZipRecruiter is another great site where you can find open positions.
-                    </dd>
-                    <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.monster.com"
-                                                       target="_blank">https://www.monster.com</a></dd>
-                </dl>
-            </dd>
-        </dl>
-    </div>
-    <div class="mb-3 pb-2">
+        <!-- Add New App & Update Account Settings Buttons -->
         <div class="row">
-            <!-- TODO: Update this logo to prevent stretching in smaller views -->
-            <img class="col-3" alt="Green River College's logo" width="329.5" height="192"
-                 src="images/GRC_logo_green.png">
-            <div class="col-9">
-                <p>Data analysts and software developers are in high demand across all areas of business. As a
-                    student in our Associate of Applied Science (AAS) in Data Analytics & Software Development,
-                    you'll learn how to use data analytics tools and programming languages to solve real-world
-                    data-related problems. Use your knowledge and creativity to extract meaningful insights from
-                    vast amounts of data in healthcare, finance, e-commerce, and other areas.</p>
-
-                <p><a class="link-text" href="https://www.greenriver.edu/software/team/" target="_blank">Meet the
-                    SDEV team</a></p>
-                <p>You can find more information about the Green River College Bachelor's in Software Development at
-                    <a class="link-text" href="https://www.greenriver.edu/software"
-                       target="_blank">www.greenriver.edu/software</a>
-                </p>
+            <div class="col-7">
+                <button id="newApp"><a href="pages/new-app.html">Add NEW APP</a></button>
+            </div>
+            <div class="col-5">
+                <a href="sign-up.html" id="accountSettings">Update Account Settings</a>
             </div>
         </div>
     </div>
-</div>
-<br />
-<br />
-<br />
+    <br />
 
-<!--Scripts-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    <!-- Green River Information & Resources -->
+    <div class="container border border-success rounded">
+        <div class="row welcome">
+            <!-- Welcome statement for Green River College -->
+            <p>
+                Welcome to the Green River College Software Development Application Tracking Tool (ATT). The purpose
+                of this tool is to provide a centralized place to track your job/internship applications that can be
+                helpful in your application journey!
+            </p>
+        </div>
+        <div class="row">
+            <!-- Helpful Resources -->
+            <h5>Resources to help you start your career in tech</h5>
+            <!-- Header -->
+            <!-- TODO: Fix styling for table and descriptions when in dark mode -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="col-sm-3" scope="col">Resource</th>
+                        <th class="col-sm-6" scope="col">Information/Details</th>
+                        <th class="col-sm-3" scope="col">Link to Resource</th>
+                    </tr>
+                </thead>
+            </table>
+            <dl class="row">
+                <!-- Green River Resources -->
+                <dt class="col-sm-3">Green River College Tech</dt>
+                <dd class="col-sm-6">Green River College has many great resources for students looking for technical
+                    roles.
+                </dd>
+                <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.devs.greenrivertech.net/"
+                        target="_blank">https://www.devs.greenrivertech.net/</a></dd>
+                <!-- Professional Profile -->
+                <dt class="col-sm-3">LinkedIn</dt>
+                <dd class="col-sm-6">LinkedIn can be used to host your professional profile to show prospective
+                    employers,
+                    apply to job positions, and network.
+                </dd>
+                <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.linkedin.com"
+                        target="_blank">https://www.linkedin.com</a>
+                </dd>
+                <!-- Job Boards/Resources -->
+                <dt class="col-sm-3">Job Boards</dt>
+                <dd class="col-sm-9">
+                    <dl class="row">
+                        <dt class="col-sm-2">Indeed</dt>
+                        <dd class="col-sm-6">Indeed is a job board website where you can also apply to these open
+                            roles.
+                        </dd>
+                        <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.indeed.com/"
+                                target="_blank">https://www.indeed.com/</a>
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-2">Glassdoor</dt>
+                        <dd class="col-sm-6">Glassdoor is a great place to find out more about a company's culture.
+                        </dd>
+                        <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.glassdoor.com/index.htm"
+                                target="_blank">https://www.glassdoor.com/index.htm</a></dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-2">ZipRecruiter</dt>
+                        <dd class="col-sm-6">ZipRecruiter is a website to find open positions and for recruiters to find
+                            candidates.
+                        </dd>
+                        <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.ziprecruiter.com"
+                                target="_blank">https://www.ziprecruiter.com</a></dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-2">Monster Jobs</dt>
+                        <dd class="col-sm-6">ZipRecruiter is another great site where you can find open positions.
+                        </dd>
+                        <dd class="col-sm-3 text-break"><a class="link-text" href="https://www.monster.com"
+                                target="_blank">https://www.monster.com</a></dd>
+                    </dl>
+                </dd>
+            </dl>
+        </div>
+        <div class="mb-3 pb-2">
+            <div class="row">
+                <!-- TODO: Update this logo to prevent stretching in smaller views -->
+                <img class="col-3" alt="Green River College's logo" width="329.5" height="192"
+                    src="images/GRC_logo_green.png">
+                <div class="col-9">
+                    <p>Data analysts and software developers are in high demand across all areas of business. As a
+                        student in our Associate of Applied Science (AAS) in Data Analytics & Software Development,
+                        you'll learn how to use data analytics tools and programming languages to solve real-world
+                        data-related problems. Use your knowledge and creativity to extract meaningful insights from
+                        vast amounts of data in healthcare, finance, e-commerce, and other areas.</p>
+
+                    <p><a class="link-text" href="https://www.greenriver.edu/software/team/" target="_blank">Meet the
+                            SDEV team</a></p>
+                    <p>You can find more information about the Green River College Bachelor's in Software Development at
+                        <a class="link-text" href="https://www.greenriver.edu/software"
+                            target="_blank">www.greenriver.edu/software</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <!--Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="scripts/script.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        fetch('../form-responses/get-recent-applications.php')
-            .then(response => {
-                console.log(response); // Check the raw response
-                return response.json();
-            })
-            .then(data => {
-                console.log(data); // Log the JSON data
-                const tableBody = document.getElementById('applicationsTableBody');
-                if (!tableBody) {
-                    console.error('Table body not found');
-                    return;
-                }
-                data.forEach(application => {
-                    console.log(application); // Log each application data
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
+    <script type="text/javascript" src="scripts/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('form-responses/get-recent-applications.php')
+                .then(response => {
+                    console.log(response); // Check the raw response
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data); // Log the JSON data
+                    const tableBody = document.getElementById('applicationsTableBody');
+                    if (!tableBody) {
+                        console.error('Table body not found');
+                        return;
+                    }
+                    data.forEach(application => {
+                        console.log(application); // Log each application data
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
                         <td>${application.application_date}</td>
                         <td>${application.role_name}</td>
                         <td>${application.status}</td>
@@ -273,12 +272,12 @@
                         <button type="submit" class="btn btn-success">Update</button></form></td>
                         <td><button type="button" class="btn btn-danger">Delete</button></td>
                     `;
-                    tableBody.appendChild(row);
-                });
-            })
-            .catch(error => console.error('Error loading recent applications:', error));
-    });
-</script>
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error loading recent applications:', error));
+        });
+    </script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-$applicationsId = $_POST['applicationID'];;
+$applicationsId = $_POST['applicationId'];;
 
 require '/home/cicadagr/atsdb.php';
 

@@ -23,12 +23,12 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
-    <!-- Navbar Brand & Toggler -->
-    <div class="navbar-header" id="navbar-header">
-        <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
-                alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
+        <!-- Navbar Brand & Toggler -->
+        <div class="navbar-header" id="navbar-header">
+            <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
+                    alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
                 aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span></button>
         </div>
@@ -67,13 +67,13 @@
     <br />
     <br />
 
-<!-- Dashboard -->
-<div class="container-fluid">
-    <div class="row col-12">
-        <header>
-            <h1>Admin Dashboard</h1>
-        </header>
-    </div>
+    <!-- Dashboard -->
+    <div class="container-fluid">
+        <div class="row col-12">
+            <header>
+                <h1>Admin Dashboard</h1>
+            </header>
+        </div>
 
         <!-- Admin Homepage Dashboard for Recent Applications -->
         <div class="row">
@@ -117,50 +117,45 @@
                             </p>
                         </div>
                     </div>
-                    <div id="reminder-section3" class="border border-success rounded mb-4 p-2 overflow-auto">
-                        <p class="text-center">
-                            <a class="link-text" href="#" target="_blank">See All Announcements</a>
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-        <!-- Admin Homepage Dashboard for Seeing Users-->
-        <div class="row">
-            <div class="container m-3">
-                <div class="row col-12">
-                    <div class="border border-success rounded text-break">
-                        <!-- Table Title & Search Bar -->
-                        <div class="align-items-center">
-                            <h2 class="text-center p-2">Users</h2>
-                        </div>
-                        <!-- List of Users -->
-                        <div id="users-table-wrapper" class="align-items-center">
-                            <table id="users-table" class="table text-center align-middle">
-                                <thead id="users-table-header">
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">View</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="users-table-body">
-                                </tbody>
-                            </table>
-                        </div>
+    <!-- Admin Homepage Dashboard for Seeing Users-->
+    <div class="row">
+        <div class="container m-3">
+            <div class="row col-12">
+                <div class="border border-success rounded text-break">
+                    <!-- Table Title & Search Bar -->
+                    <div class="align-items-center">
+                        <h2 class="text-center p-2">Users</h2>
+                    </div>
+                    <!-- List of Users -->
+                    <div id="users-table-wrapper" class="align-items-center">
+                        <table id="users-table" class="table text-center align-middle">
+                            <thead id="users-table-header">
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">View</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body">
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<br />
-<br />
-<br />
-<br />
+    </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
 
     <!--Scripts-->
     <!-- Bootstrap CDN link -->
@@ -193,11 +188,11 @@
                     data.forEach(application => {
                         console.log(application); // Log each application data
                         const row = document.createElement('tr');
-                         row.innerHTML = `
+                        row.innerHTML = `
                         <td>${application.application_date}</td>
                         <td>${application.role_name}</td>
                         <td>${application.status}</td>
-                        <form method="POST" action="form-responses/edit-app-form.php">
+                        <form method="POST" action="../form-responses/edit-app-form.php">
                         <input type="hidden" name="applicationId" value="${application.applicationsId}">
                         <button type="submit" class="btn btn-success">Update</button></form></td>
                         <td><button type="button" class="btn btn-danger">Delete</button></td>
