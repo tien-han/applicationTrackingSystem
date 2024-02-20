@@ -104,7 +104,7 @@ require "../data-processing/edit-app-populate.php"
 
         <section class="form-group">
             <h5>Follow update: </h5>
-            <input type="date" id="followUpDateDispLay" value = "<?php echo "$followUpDateDisplay";?>">
+            <input type="date" id="followUpDateDisplay" value = "<?php echo "$followUpDateDisplay";?>">
         </section>
 
         <section class="form-group">
