@@ -10,169 +10,171 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Application</title>
-  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Application Form</title>
+    <link rel="icon" type="image/x-icon" href="../images/GRC_logo.png">
+    <!-- Bootstrap CDN -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css">
+    <!-- Our personal CSS styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Setting dark mode theme before page loads -->
+    <script type="text/javascript" src="../scripts/set-theme.js"></script>
 </head>
 
 <body id="new-app-form">
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
-  <!-- Navbar Brand & Toggler -->
-  <div class="navbar-header" id="navbar-header">
-    <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
-            alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
-            aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span></button>
-  </div>
-  <!-- Navbar Items with Links -->
-  <div class="collapse navbar-collapse" id="navbar-toggler">
-    <ul class="navbar-nav align-items-center">
-      <li class="nav-item">
-        <a class="nav-link" href="../index.html">Student Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="admin-dashboard.html">Admin Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="admin-announcement.html">Admin Announcment</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="new-app.html">New Application</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="sign-up.html">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact.html">Contact</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav align-items-center ms-auto">
-      <!-- Dark Mode Toggler -->
-      <li class="nav-item text-center px-3">
-        <button type="button" class="btn btn-sm btn-dark" id="dark-light">Dark mode!</button>
-      </li>
-    </ul>
-  </div>
-</nav>
-<br />
-<br />
-<br />
-<br />
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
+        <!-- Navbar Brand & Toggler -->
+        <div class="navbar-header" id="navbar-header">
+            <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
+                    alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+                aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+        </div>
+        <!-- Navbar Items with Links -->
+        <div class="collapse navbar-collapse" id="navbar-toggler">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Student Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-dashboard.html">Admin Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-announcement.html">Admin Announcement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="new-app.html">New Application</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sign-up.html">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Dark Mode Toggler -->
+        <div id="darkmode-container" class="nav-item text-center px-3" hidden="true">
+            <input type="checkbox" id="darkmode-toggle"></input>
+            <label id="darkmode-label" for="darkmode-toggle"></label>
+        </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+    <br />
 
-<!-- Add a New Application Form -->
-<div class="container-fluid">
-  <div class="row col-12">
-    <header>
-      <h1>Add a New Application</h1>
-    </header>
-  </div>
-</div>
-
-<!-- TODO: Update action link once website goes live -->
-<!-- NOTE: Updated id for form to mitigate conflict with styling -->
-<form method="POST" action="../form-responses/new-app-form.php" onsubmit="return validatenewappform()">
-  <div class="row">
-    <div class="col-6 col-lg-6 ">
-      <label for="RoleName" class="form-label">Name of role* </label>
-      <span class="text-danger" id="RoleName-error"></span>
-      <input type="text" id="RoleName" name="RoleName" class="form-control" required>
-
-      <div class="col-md-6">
-        <label for="Jobdesc" class="form-label">Job Description* </label>
-        <span class="text-danger" id="message-error"></span>
-        <textarea id="Jobdesc" name="Jobdesc" rows="5" class="form-control" required></textarea>
-      </div>
-      <h5>Date of Application: </h5>
-      <input type="date" id="application_date" name="application_date">
-
-      <h5>Follow up date: </h5>
-      <input type="date" id="follow_up_date" name="follow_up_date">
+    <!-- Add a New Application Form -->
+    <div class="container-fluid">
+        <div class="row col-12">
+            <header>
+                <h1>Add a New Application</h1>
+            </header>
+        </div>
     </div>
 
+    <div class="row justify-content-center">
+        <form class="form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12" method="POST"
+            action="../form-responses/new-app-form.php" onsubmit="return validatenewappform()">
+            <!-- Name of the role -->
+            <div class="form-group">
+                <label for="RoleName" class="form-label">Name of role* </label>
+                <span class="text-danger" id="RoleName-error"></span>
+                <input type="text" id="RoleName" name="RoleName" class="form-control" required>
+            </div>
+            <!-- Job Description -->
+            <div class="form-group">
+                <label for="Jobdesc" class="form-label">Job Description* </label>
+                <span class="text-danger" id="message-error"></span>
+                <textarea id="Jobdesc" name="Jobdesc" rows="5" class="form-control" required></textarea>
+            </div>
+            <!-- Date of Application -->
+            <div class="form-group">
+                <label for="application_date" class="form-label">Date of Application</label>
+                <input type="date" id="application_date" name="application_date">
+            </div>
+            <!-- Follow up Date -->
+            <div class="form-group">
+                <label for="follow_up_date" class="form-label">Follow up date</label>
+                <input type="date" id="follow_up_date" name="follow_up_date">
+                <!-- TODO: These two lines were commented out - are we actually using these? Or can they be removed? -->
+                <!-- <label for="FollowupDate" class="form-label">Follow up date:</label>
+                <input type="date" id="FollowupDate" name="FollowupDate" class="form-control"> -->
+            </div>
+            <!-- Employer Name -->
+            <div class="form-group">
+                <label for="employerName" class="form-label">Employer Name*</label>
+                <span class="text-danger" id="employerName-error"></span>
+                <input type="text" id="employerName" name="employerName" class="form-control" required>
+            </div>
+            <!-- Status of Application -->
+            <div class="form-field form-group" id="appStatus">
+                <label>Application Status</label>
+                <div class="form-check">
+                    <input type="radio" id="NeedApply" name="Appliedposition" value="NeedApply" required>
+                    <label for="NeedApply">Need to apply</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="Applied" name="Appliedposition" value="Applied" required>
+                    <label for="Applied">Applied</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="Interviewing" name="Appliedposition" value="Interviewing" required>
+                    <label for="Interviewing">Interviewing</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="Rejected" name="Appliedposition" value="Rejected" required>
+                    <label for="Rejected">Rejected</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="Accepted" name="Appliedposition" value="Accepted" required>
+                    <label for="Accepted">Accepted</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="Inactive" name="Appliedposition" value="Inactive" required>
+                    <label for="Inactive">Inactive/Expired</label>
+                </div>
+            </div>
+            <!-- Contact Name -->
+            <div class="form-group">
+                <label for="ContactName" class="form-label">Contact Name*</label>
+                <span class="text-danger" id="name-error"></span>
+                <input type="text" id="ContactName" name="ContactName" class="form-control" required>
+            </div>
+            <!-- Contact Email -->
+            <div class="form-group">
+                <label for="ContactEmail" class="form-label mt-2">Contact Email*</label>
+                <span class="text-danger" id="email-error"></span>
+                <input type="text" id="ContactEmail" name="ContactEmail" class="form-control" required>
+            </div>
+            <!-- Contact Phone -->
+            <div class="form-group">
+                <label for="ContactPhone" class="form-label mt-2">Contact Phone*</label>
+                <span class="text-danger" id="phone-error"></span>
+                <input type="text" id="ContactPhone" name="ContactPhone" class="form-control" required>
+            </div>
+            <!-- Interview Notes -->
+            <div class="form-group">
+                <label for="InterviewNotes" class="form-label">Interview Notes*</label>
+                <span class="text-danger" id="InterviewNotes-error"></span>
+                <textarea id="InterviewNotes" name="InterviewNotes" rows="5" class="form-control" required></textarea>
+            </div>
+            <!-- Submit Button -->
+            <section class="form-group text-left">
+                <input id="submit-button" type="submit" class="btn btn-primary" value="Send"></input>
+            </section>
+        </form>
 
-    <!--
-
-  <label for="FollowupDate" class="form-label">Follow up date:</label>
-  <input type="date" id="FollowupDate" name="FollowupDate" class="form-control">
--->
-
-    <div class="col-6 col-lg-4">
-
-      <label for="employerName" class="form-label">Employer Name*</label>
-      <span class="text-danger" id="employerName-error"></span>
-      <input type="text" id="employerName" name="employerName" class="form-control" required>
-
-      <div class="form-field" id="appStatus">
-        <input type="radio" id="NeedApply" name="Appliedposition" value="NeedApply" required>
-        <label for="NeedApply">Need to apply</label>
-        <br>
-        <input type="radio" id="Applied" name="Appliedposition" value="Applied" required>
-        <label for="Applied">Applied</label> <br>
-
-        <input type="radio" id="Interviewing" name="Appliedposition" value="Interviewing" required>
-        <label for="Interviewing">Interviewing</label> <br>
-
-        <input type="radio" id="Rejected" name="Appliedposition" value="Rejected" required>
-        <label for="Rejected">Rejected</label> <br>
-
-        <input type="radio" id="Accepted" name="Appliedposition" value="Accepted" required>
-        <label for="Accepted">Accepted</label> <br>
-
-        <input type="radio" id="Inactive" name="Appliedposition" value="Inactive" required>
-        <label for="Inactive">Inactive/Expired</label> <br>
-
-
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-6">
-      <label for="ContactName" class="form-label">Contact Name*</label>
-      <span class="text-danger" id="name-error"></span>
-      <input type="text" id="ContactName" name="ContactName" class="form-control" required>
-      <br>
-      <label for="ContactEmail" class="form-label mt-2">Contact Email*</label>
-      <span class="text-danger" id="email-error"></span>
-      <input type="text" id="ContactEmail" name="ContactEmail" class="form-control" required>
-      <br>
-      <label for="ContactPhone" class="form-label mt-2">Contact Phone*</label>
-      <span class="text-danger" id="phone-error"></span>
-      <input type="text" id="ContactPhone" name="ContactPhone" class="form-control" required>
-    </div>
-
-    <div class="col-6">
-      <label for="InterviewNotes" class="form-label">Interview Notes*</label>
-      <span class="text-danger" id="InterviewNotes-error"></span>
-      <textarea id="InterviewNotes" name="InterviewNotes" rows="5" class="form-control" required></textarea>
-
-
-
-
-
-    </div>
-
-
-
-  </div>
-
-  <div class="row">
-    <div class="col-12">
-      <input id="submit" type="submit" value="Submit" class="btn btn-primary mt-3">
-
-    </div>
-  </div>
-</form>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-<script type="text/javascript" src="../scripts/script.js"></script>
+        <!--Scripts-->
+        <!-- Bootstrap CDN link -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+        <!-- Form validation and dark mode script -->
+        <script type="text/javascript" src="../scripts/script.js"></script>
 </body>
 
 </html>

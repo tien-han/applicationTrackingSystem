@@ -3,53 +3,45 @@
 //-------------------------------------------------------------------------------------------------
 // Dark Mode Setting, Toggling, and Propagation
 //-------------------------------------------------------------------------------------------------
-//Run this as soon as the window completely loads to store user preferences
+//Run this as soon as the window completely loads to set the theme
 window.onload = (event) => {
-    //Set the user dark mode preference in local storage if it doesn't exist yet
-    if (localStorage.getItem("darkMode") === null) {
-        localStorage.setItem("darkMode", "disabled");
-    }
-    setColorTheme();
+    setThemeTogglerStatus();
 }
 
-//Function to set the dark/light mode depending on what has been selected
-function setColorTheme() {
+//Set the user dark mode preference for the toggler and the theme
+function setThemeTogglerStatus() {
     if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("darkMode");
+        checkToggler();
+    } else {
+        document.body.classList.remove("darkMode");
+        uncheckToggler();
+    }
+    setTheme();
+    document.getElementById("darkmode-container").hidden = false;
+}
+
+//Helper function that sets dark mode on the toggler
+function checkToggler() {
+    document.getElementById("darkmode-toggle").checked = true;
+}
+
+//Helper function that sets light mode on the toggler
+function uncheckToggler() {
+    document.getElementById("darkmode-toggle").checked = false;
+
+}
+
+//Event listener for the light/dark mode toggling button
+document.getElementById('darkmode-toggle').addEventListener('change', (event) => {
+    document.body.classList.toggle("darkMode");
+
+    if (event.currentTarget.checked) {
+        // document.body.classList.add("darkMode");
         enableDarkMode();
     } else {
+        // document.body.classList.remove("darkMode");
         disableDarkMode();
-    }
-}
-
-//Helper function that sets light mode
-function disableDarkMode() {
-    localStorage.setItem("darkMode", "disabled");
-    document.body.classList.remove("darkMode");
-    document.getElementById("dark-light").textContent = "Dark Mode";
-}
-
-//Helper function that sets dark mode
-function enableDarkMode() {
-    localStorage.setItem("darkMode", "enabled");
-    document.body.classList.add("darkMode");
-    document.getElementById("dark-light").textContent = "Light Mode";
-}
-
-//This adds the onclick toggling event to the dark mode button
-//Make sure page has loaded before running event or it will not work
-document.addEventListener("DOMContentLoaded", function () {
-    // locate the button
-    let darkLight = document.getElementById("dark-light");
-
-    // toggle darkMode on click and change button text contents
-    darkLight.onclick = function (event) {
-        document.body.classList.toggle("darkMode");
-
-        if (document.body.classList.contains("darkMode")) {
-            enableDarkMode();
-        } else {
-            disableDarkMode();
-        }
     }
 });
 
