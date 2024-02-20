@@ -247,7 +247,7 @@
 <script type="text/javascript" src="scripts/script.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        fetch('../form-responses/get-recent-applications.php')
+        fetch('form-responses/get-recent-applications.php')
             .then(response => {
                 console.log(response); // Check the raw response
                 return response.json();
