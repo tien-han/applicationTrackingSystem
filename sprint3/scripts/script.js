@@ -56,17 +56,46 @@ document.addEventListener("DOMContentLoaded", function () {
 //-------------------------------------------------------------------------------------------------
 // New Application Form Validation
 //-------------------------------------------------------------------------------------------------
+// document.addEventListener('DOMContentLoaded', function() {
+//     fetch('../form-responses/get-recent-applications.php')
+//         .then(response => {
+//             console.log(response); // Check the raw response
+//             return response.json();
+//         })
+//         .then(data => {
+//             console.log(data); // Log the JSON data
+//             const tableBody = document.getElementById('applicationsTableBody');
+//             if (!tableBody) {
+//                 console.error('Table body not found');
+//                 return;
+//             }
+//             data.forEach(application => {
+//                 console.log(application); // Log each application data
+//                 const row = document.createElement('tr');
+//                 row.innerHTML = `
+//                     <td>${application.application_date}</td>
+//                     <td>${application.role_name}</td>
+//                     <td>${application.status}</td>
+//                     <td><button type="button" class="btn btn-success">Update</button></td>
+//                     <td><button type="button" class="btn btn-danger">Delete</button></td>
+//                 `;
+//                 tableBody.appendChild(row);
+//             });
+//         })
+//         .catch(error => console.error('Error loading recent applications:', error));
+// });
+
 if (document.getElementById("new-app-form")) {
     document.addEventListener('DOMContentLoaded', function () {
-        var currentDateInput = document.getElementById("currentDateInput");
+        var currentDateInput = document.getElementById("application_date");
         var currentDate = new Date();
         currentDateInput.valueAsDate = currentDate;
 
         function updateFollowUpDate() {
             var selectedDate = new Date(currentDateInput.value);
             var followUpDate = new Date(selectedDate);
-            followUpDate.setDate(currentDate.getDate() + 14);
-            document.getElementById("followUpDateDisplay").innerHTML = followUpDate.toDateString();
+            followUpDate.setDate(followUpDate.getDate() + 14);
+            document.getElementById("follow_up_date").valueAsDate = followUpDate;
         }
         updateFollowUpDate();
         currentDateInput.addEventListener('change', updateFollowUpDate);
@@ -204,7 +233,7 @@ if (document.getElementById("edit-app-form")) {
 // Sign Up Form Validation
 //-------------------------------------------------------------------------------------------------
 if (document.getElementById("sign-up-form")) {
-    document.getElementById('signupForm').addEventListener('submit', function (event) {
+    document.getElementById('sign-up-form').addEventListener('submit', function (event) {
         // Validate Cohort Number
         var cohortNumber = document.getElementById('cohortNumber').value;
         if (cohortNumber < 1 || cohortNumber > 100) {
@@ -261,7 +290,6 @@ function validateContactForm() {
 //Validate a full name in a form
 //used in new app Contact Name
 function validateFullName(nameId) {
-    console.log("Validating full name");
     const name = document.getElementById(nameId).value.trim();
     const errorMessage = document.getElementById("name-error");
 
