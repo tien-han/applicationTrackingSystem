@@ -2,6 +2,7 @@
 
 require '/home/cicadagr/atsdb.php';
 
+$applicationsId = $_POST['applicationId'];
 // create a function to clean input
 function clean_form_responses($data) {
     return trim(stripslashes(htmlspecialchars($data)));
