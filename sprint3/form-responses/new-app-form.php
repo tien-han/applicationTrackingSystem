@@ -112,6 +112,12 @@ if ($stmt) {
 
 
 
+    if (mysqli_stmt_execute($stmt)) {
+        echo "";
+    } else {
+
+        echo "Error: " . mysqli_error($cnxn);
+    }
 
     mysqli_stmt_close($stmt);
 } else {
