@@ -9,8 +9,6 @@ $result = @mysqli_query($cnxn, $sql);
 
 // assign values to variables to place in fields initially
 while ($row = mysqli_fetch_assoc($result))
-
-
 {
     $RoleName = $row['role_name'];
     $jobDesc = $row['job_description'];
