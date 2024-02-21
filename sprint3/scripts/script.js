@@ -201,9 +201,9 @@ if (document.getElementById("edit-app-form")) {
         let followUpDateDisplay = document.getElementById("followUpDateDisplay");
 
         // Set the innerHTML of followUpDateDisplay to a formatted string of the date
-        followUpDateDisplay.innerHTML = new Date(followUpDateDisplay.value).toDateString();
+        followUpDateDisplay.value = new Date(followUpDateDisplay.value).toDateString();
         // Set the innerHTML of submissionDateInput to a formatted string of the date
-        submissionDateInput.innerHTML = new Date(submissionDateInput.value).toDateString();
+        submissionDateInput.value = new Date(submissionDateInput.value).toDateString();
 
         // Add event listener for submission date changes
         submissionDateInput.addEventListener('change', function (event) {

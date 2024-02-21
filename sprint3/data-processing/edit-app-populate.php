@@ -1,5 +1,5 @@
 <?php
-$applicationsId = $_POST['applicationId'];;
+$applicationsId = $_POST['applicationId'];
 
 require '/home/cicadagr/atsdb.php';
 
@@ -24,7 +24,7 @@ while ($row = mysqli_fetch_assoc($result))
 
 // change dates to correct date format (not datetime)
 $submissionDate = date("Y-m-d", strtotime($submissionDate));
-$followUpDateDisplay = date("Y-m-d", strtotime($followUpDateDisplay))
+$followUpDateDisplay = date("Y-m-d", strtotime($followUpDateDisplay));
 
 ?>
 

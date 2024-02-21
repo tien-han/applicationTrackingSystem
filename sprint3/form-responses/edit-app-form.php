@@ -91,13 +91,15 @@ require "../data-processing/edit-app-populate.php"
             </section>
 
             <section class="form-group">
-                <h5>Date of Application: </h5>
-                <input type="date" id="submissionDate" value = "<?php echo "$submissionDate";?>">
+                <label for = "submissionDate" class="form-label">Date of Application </label>
+                <br>
+                <input type="date" name = "submissionDate" id="submissionDate" value = "<?php echo "$submissionDate";?>">
             </section>
 
             <section class="form-group">
-                <h5>Follow update: </h5>
-                <input type="date" id="followUpDateDisplay" value = "<?php echo "$followUpDateDisplay";?>">
+                <label for = "followUpDateDisplay" class="form-label">Follow up date </label>
+                <br>
+                <input type="date" name = "followUpDateDisplay" id="followUpDateDisplay" value = "<?php echo "$followUpDateDisplay";?>">
             </section>
 
             <section class="form-group">
