@@ -121,35 +121,37 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Admin Homepage Dashboard for Seeing Users-->
-        <div class="row">
-            <div class="container m-3">
-                <div class="row col-12">
-                    <div class="border border-success rounded text-break">
-                        <!-- Table Title & Search Bar -->
-                        <div class="align-items-center">
-                            <h2 class="text-center p-2">Users</h2>
-                        </div>
-                        <!-- List of Users -->
-                        <div id="users-table-wrapper" class="align-items-center">
-                            <table id="users-table" class="table text-center align-middle">
-                                <thead id="users-table-header">
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">View</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="users-table-body">
-                                </tbody>
-                            </table>
-                        </div>
+    <!-- Admin Homepage Dashboard for Seeing Users-->
+    <div class="row">
+        <div class="container m-3">
+            <div class="row col-12">
+                <div class="border border-success rounded text-break">
+                    <!-- Table Title & Search Bar -->
+                    <div class="align-items-center">
+                        <h2 class="text-center p-2">Users</h2>
+                    </div>
+                    <!-- List of Users -->
+                    <div id="users-table-wrapper" class="align-items-center">
+                        <table id="users-table" class="table text-center align-middle">
+                            <thead id="users-table-header">
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">View</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body">
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
     <br />
     <br />
@@ -192,7 +194,9 @@
                         <td>${application.application_date}</td>
                         <td>${application.role_name}</td>
                         <td>${application.status}</td>
-                        <td><button type="button" class="btn btn-success">Update</button></td>
+                        <form method="POST" action="../form-responses/edit-app-form.php">
+                        <input type="hidden" name="applicationId" value="${application.applicationsId}">
+                        <button type="submit" class="btn btn-success">Update</button></form></td>
                         <td><button type="button" class="btn btn-danger">Delete</button></td>
                     `;
                         tableBody.appendChild(row);

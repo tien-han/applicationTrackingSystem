@@ -61,8 +61,6 @@
         <!--Form Handling for Contact Form-->
         <?php
 
-        // TODO: CHANGE EMAIL TO TYLER'S ONCE TESTING IS DONE
-
         // check email fields are filled before sending email or showing receipt
         if (isset($_POST['message']) && $_POST['message'] != '' &&
             isset($_POST['name']) && $_POST['name'] != '' &&

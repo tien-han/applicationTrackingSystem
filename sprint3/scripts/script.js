@@ -189,8 +189,36 @@ function validateContactPhone(ContactPhone) {
     return true;
 }
 
+// ------------
+// Edit App Validation
+// ------------
+function validateEditAppForm() {
+    validatenewappform();
+}
+if (document.getElementById("edit-app-form")) {
+    addEventListener("DOMContentLoaded", function () {
+        let submissionDateInput = document.getElementById("submissionDate");
+        let followUpDateDisplay = document.getElementById("followUpDateDisplay");
 
+        // Set the innerHTML of followUpDateDisplay to a formatted string of the date
+        followUpDateDisplay.innerHTML = new Date(followUpDateDisplay.value).toDateString();
+        // Set the innerHTML of submissionDateInput to a formatted string of the date
+        submissionDateInput.innerHTML = new Date(submissionDateInput.value).toDateString();
 
+        // Add event listener for submission date changes
+        submissionDateInput.addEventListener('change', function (event) {
+            // change value in html
+            let submissionDate = event.target.valueAsDate;
+        });
+
+        // Add event listener for follow-up date changes
+        let followUpDateInput = document.getElementById("followUpDate");
+        followUpDateInput.addEventListener('change', function (event) {
+            // change value in html
+            let followUpDate = event.target.valueAsDate;
+        });
+    });
+}
 
 
 //-------------------------------------------------------------------------------------------------
