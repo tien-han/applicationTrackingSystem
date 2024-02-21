@@ -10,7 +10,7 @@ out the form -->
     </div>
 
     <div class = "row justify-content-center">
-        <form class = "form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12"
+        <form class = "form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12"
         id="signUp" method="POST" action="../form-responses/sign-up-form.php">
 
 

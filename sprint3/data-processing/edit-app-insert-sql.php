@@ -56,10 +56,15 @@ if (!$result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit An Application</title>
+    <title>Edit Application Form</title>
+    <link rel="icon" type="image/x-icon" href="../images/GRC_logo.png">
+    <!-- Bootstrap CDN -->
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+    <!-- Our personal CSS styles -->
     <link rel="stylesheet" href="../css/styles.css">
+    <!-- Setting dark mode theme before page loads -->
+    <script type="text/javascript" src="../scripts/set-theme.js"></script>
 </head>
 
 <body id="edit-app-form">
@@ -94,12 +99,11 @@ if (!$result) {
                 <a class="nav-link" href="../pages/contact.html">Contact</a>
             </li>
         </ul>
-        <ul class="navbar-nav align-items-center ms-auto">
-            <!-- Dark Mode Toggler -->
-            <li class="nav-item text-center px-3">
-                <button type="button" class="btn btn-sm btn-dark" id="dark-light">Dark mode!</button>
-            </li>
-        </ul>
+    </div>
+    <!-- Dark Mode Toggler -->
+    <div id="darkmode-container" class="nav-item text-center px-3" hidden="true">
+        <input type="checkbox" id="darkmode-toggle"></input>
+        <label id="darkmode-label" for="darkmode-toggle"></label>
     </div>
 </nav>
 <br />
@@ -108,29 +112,35 @@ if (!$result) {
 <br />
 
 <?php
-echo "<html><head><title>Submission Successful</title></head><body>";
-echo "<div class='form-container pt-0'>
-    <div class='row justify-content-center'>
-        <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12'>
-            <h1 class='pt-5 header-text'>Your application has been updated</h1>
-            <h5>Here are your new values</h5><br/>
-            <p>The role name you added was: " . $roleName . ".</p>
-            <p>The job description you added was: " . $jobDesc . ".</p>
-            <p>The employer name you added was: " . $employerName . ".</p>
-            <p>The contact name you added was: " . $contactName . ".</p>
-            <p>The email you added was: " . $contactEmail . ".</p>
-            <p>The Contact Phone you added was: " . $contactPhone . ".</p>
-            <p>The Interview Notes you added were: " . $notes . ".</p>
-            <p>Your Application Status is: " . $appStatus . ".</p>
-            <p>Your Application date is: " . $submissionDate . ".</p>
-            <p>Your Application follow up date is: " . $followUpDate . ".</p>
-        </div>
-    </div>
-</div>";
+echo "<html>
+        <head>
+            <title>Submission Successful</title>
+        </head>
+        <body>
+            <div class='form-container pt-0'>
+                <div class='row justify-content-center'>
+                    <div class='form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12'>
+                        <h1 class='pt-5 header-text'>Your application has been updated</h1>
+                        <h5>Here are your new values</h5><br/>
+                        <p>The role name you added was: " . $roleName . ".</p>
+                        <p>The job description you added was: " . $jobDesc . ".</p>
+                        <p>The employer name you added was: " . $employerName . ".</p>
+                        <p>The contact name you added was: " . $contactName . ".</p>
+                        <p>The email you added was: " . $contactEmail . ".</p>
+                        <p>The Contact Phone you added was: " . $contactPhone . ".</p>
+                        <p>The Interview Notes you added were: " . $notes . ".</p>
+                        <p>Your Application Status is: " . $appStatus . ".</p>
+                        <p>Your Application date is: " . $submissionDate . ".</p>
+                        <p>Your Application follow up date is: " . $followUpDate . ".</p>
+                    </div>
+                </div>
+            </div>";
+// Scripts
 echo '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-<script type="text/javascript" src="../scripts/script.js"></script>
-</body>
-</html>';
+        crossorigin="anonymous">
+        </script>
+        <script type="text/javascript" src="../scripts/script.js"></script>
+        </body>
+    </html>';
 ?>

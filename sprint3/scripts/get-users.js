@@ -8,9 +8,9 @@
 */
 
 //When the dom elements complete loading, populate the users table with users
-window.onload = (event) => {
+window.addEventListener("load", function (event) {
     getUsers();
-}
+})
 
 //Make the users table into a datatable & set parameters
 $(document).ready(function () {
