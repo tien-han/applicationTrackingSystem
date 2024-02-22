@@ -68,16 +68,28 @@
             isset($_POST['email']) && $_POST['email'] != '' &&
             isset($_POST['cohortNumber']) && $_POST['cohortNumber'] != '')
         {
-            echo "<div class = 'row justify-content-center'>
-                <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
-                <h1 class='pt-5 header-text m-auto'>Thanks for signing up, " . $_POST['name']. "!</h1>
-                <h5>The details you entered are: </h5>
-                <p>Email: " . $_POST['email'] . " </p>
-                <p>Cohort Number: " . $_POST['cohortNumber'] . "</p>
-                <p>Status: " . $_POST['seekingInternship'] . "</p>
-                <p>Looking for: " . $_POST['seekingRoles'] . "</p>
+            echo "
+                <div class='container-fluid'>
+                    <div class='row col-12'>
+                        <header>
+                            <h1>Sign Up Form Completed</h1>
+                        </header>
+                    </div>
+
+                    <div class='row justify-content-center'>
+                        <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
+                            <h1 class='pt-5 header-text text-center'>Thanks for signing up, " . $_POST['name']. "!</h1>
+                            <div class='form-response'>
+                                <p>The details you entered are: </p>
+                                <p><b>Email</b>: " . $_POST['email'] . " </p>
+                                <p><b>Cohort Number</b>: " . $_POST['cohortNumber'] . "</p>
+                                <p><b>Status</b>: " . $_POST['seekingInternship'] . "</p>
+                                <p><b>Looking for</b>: " . $_POST['seekingRoles'] . "</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>";
+            ";
 
 
         } else {

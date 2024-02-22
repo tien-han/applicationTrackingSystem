@@ -184,6 +184,12 @@ body.darkMode #users-table tr:hover td {
   display: block;
 }
 
+.form-response {
+  text-align: left;
+  margin: auto;
+  width: 200px;
+}
+
 /* ------------------------------Other Styling------------------------------ */
 body {
   width: 97%;
