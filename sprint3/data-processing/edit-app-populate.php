@@ -29,12 +29,6 @@ $followUpDateDisplay = date("Y-m-d", strtotime($followUpDateDisplay))
 
 
 
-// soft delete
-$result = mysqli_query($connection, "SELECT * FROM applications WHERE application_deleted = 0");
 
-// Soft delete an app
-$applicationsId = $_POST['applicationsId'];
-$update_query = "UPDATE applications SET application_deleted = 1 WHERE applicationsId = $applicationsId";
-mysqli_query($connection, $update_query);
 ?>
 

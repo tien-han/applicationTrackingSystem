@@ -28,16 +28,6 @@
 
 
 
-// soft delete
-$result = mysqli_query($connection, "SELECT * FROM users WHERE user_deleted = 0");
-
-
-// Soft delete a user
-$userId = $_POST['userId'];
-$update_query = "UPDATE users SET user_deleted = 1 WHERE user_id = $userId";
-mysqli_query($connection, $update_query);
-
-
 
 
 ?>

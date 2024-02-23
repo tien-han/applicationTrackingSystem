@@ -108,15 +108,14 @@
         <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
 
         <h1 class='pt-5 header-text'>A response will be sent soon, thank you!</h1>
-        <h5>Here's what you just entered:</h5><br/>
-        <p>The name you added was: " . $title . ".</p>
-        <p>The job type you added was: " . $jobType . ".</p>
-        <p>The location you added was: " . $location . ".</p>
-        <p>The subject of your message was: " . $subject . "</p>
-        <p>The email you added was: " . $email . ".</p>
-        <p>The message you added was: " . $moreInfo . ".</p>
-        <p>The employer you added was: " . $employer . ".</p>
-        <p>The url you added was: " . $url . ".</p>
+        <h5>The details you entered are:</h5><br/>
+        <p>Title: " . $title . ".</p>
+        <p>Job: " . $jobType . ".</p>
+        <p>Location: " . $location . ".</p>
+        <p>Email: " . $email . ".</p>
+        <p>More Information: " . $moreInfo . ".</p>
+        <p>Employer: " . $employer . ".</p>
+        <p>URL: " . $url . ".</p>
         </div>
         </div>
         </div>";
