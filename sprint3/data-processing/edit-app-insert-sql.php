@@ -114,8 +114,7 @@
     <br />
 
 <?php
-    echo "<html>
-        <head>
+    echo "<head>
             <title>Application Updated</title>
         </head>
         <body>
@@ -142,6 +141,7 @@
                             <p><b>Status:</b> " . $appStatus . ".</p>
                             <p><b>Application date:</b> " . $submissionDate . ".</p>
                             <p><b>Follow up date:</b> " . $followUpDate . ".</p>
+                        </div>
                     </div>
                 </div>
             </div>";

@@ -63,8 +63,7 @@ require "../data-processing/edit-app-populate.php"
     <br />
     <br />
 
-    <!-- Add a New Application Form -->
-    echo "
+    <!-- Edit Application Form -->
         <div class='container-fluid'>
             <div class='row col-12'>
                 <header>
