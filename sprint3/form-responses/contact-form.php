@@ -102,19 +102,28 @@
 
 
             // print out the receipt
-            echo "<div class='form-container pt-0'>
-            <div class = 'row justify-content-center'>
-            <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
+            echo "
+                <div class='container-fluid'>
+                    <div class='row col-12'>
+                        <header>
+                            <h1>Contact Us Form Completed</h1>
+                        </header>
+                    </div>
 
-            <h1 class='pt-5 header-text'>A response will be sent soon, thank you!</h1>
-            <h5>Here's what you just entered:</h5><br/>
-            <p>The name you added was: " . $name . ".</p>
-            <p>The subject of your message was: " . $subject . "</p>
-            <p>The email you added was: " . $email . ".</p>
-            <p>The message you added was: " . $message . ".</p>
-            </div>
-            </div>
-            </div>";
+                    <div class='row justify-content-center'>
+                        <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
+                            <h1 class='pt-5 header-text text-center'>Thanks for contacting us " . $name . ", you'll receive an email response soon!</h1>
+                            <div class='form-response'>
+                                <p>The details you entered are:</p>
+                                <p><b>Name</b>: " . $name . "</p>
+                                <p><b>Subject</b>: " . $subject . "</p>
+                                <p><b>Email</b>: " . $email . "</p>
+                                <p><b>Message</b>: " . $message . "</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ";
         } else {
             // tell the user to go to the contact form and fill it out
             echo "<div class='pt-0'>
