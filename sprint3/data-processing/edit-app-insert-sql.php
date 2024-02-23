@@ -125,10 +125,10 @@
                         </header>
                     </div>
        
-            <div class='form-container pt-0'>
+           
                 <div class='row justify-content-center'>
                     <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
-                        <h1 class='pt-5 header-text'>Your application has been updated!</h1>
+                        <h1 class='pt-5 header-text text-center'>Your application has been updated!</h1>
                         <div class = 'form-response'>
                             <p>The details for this application are now:</p>
                             <p><b>Role name: </b> " . $roleName . ".</p>
@@ -144,7 +144,8 @@
                         </div>
                     </div>
                 </div>
-            </div>";
+            </div>
+            ";
 // Scripts
 echo '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
