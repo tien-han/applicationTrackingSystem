@@ -64,107 +64,112 @@ require "../data-processing/edit-app-populate.php"
     <br />
 
     <!-- Add a New Application Form -->
-    <div class="container-fluid">
-        <div class="row col-12">
-            <header>
-                <h1>Edit Your Application</h1>
-            </header>
-        </div>
-    </div>
+    echo "
+        <div class='container-fluid'>
+            <div class='row col-12'>
+                <header>
+                    <h1>Edit Application</h1>
+                </header>
+            </div>
 
     <!-- NOTE: Updated id for form to mitigate conflict with styling
         uses same JavaScript as new app since the data is the same-->
     <!-- TODO: change JavaScript to check for changed value-->
 
-    <div class="row justify-content-center">
-        <form class = "form-container pt-0 col-lg-4 col-md-8 col-sm-12 col-12" method="POST" action="../data-processing/edit-app-insert-sql.php" onsubmit="return validateEditAppForm()">
-            <input type="hidden" name="applicationId" value="<?php echo $applicationsId;?>">
-            <section class="form-group">
-                <label for="RoleName" class="form-label">Name of role* </label>
-                <span class="text-danger" id="RoleName-error"></span>
-                <input type="text" id="RoleName" name="RoleName" class="form-control" value = "<?php echo $RoleName;?>" required >
-            </section>
-            <section class="form-group">
-                <label for="Jobdesc" class="form-label">Job Description* </label>
-                <span class="text-danger" id="message-error"></span>
-                <textarea id="Jobdesc" name="Jobdesc" rows="5" class= "form-control" required><?php echo $jobDesc;?></textarea>
-            </section>
+        <div class="row justify-content-center">
+            <form class = "form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12" method="POST" action="../data-processing/edit-app-insert-sql.php" onsubmit="return validateEditAppForm()">
+                <input type="hidden" name="applicationId" value="<?php echo $applicationsId;?>">
 
-            <section class="form-group">
-                <label for = "submissionDate" class="form-label">Date of Application </label>
-                <br>
-                <input type="date" name = "submissionDate" id="submissionDate" value = "<?php echo "$submissionDate";?>">
-            </section>
+                <section class="form-group">
+                    <label for="RoleName" class="form-label">Name of role* </label>
+                    <span class="text-danger" id="RoleName-error"></span>
+                    <input type="text" id="RoleName" name="RoleName" class="form-control" value = "<?php echo $RoleName;?>" required >
+                </section>
 
-            <section class="form-group">
-                <label for = "followUpDateDisplay" class="form-label">Follow up date </label>
-                <br>
-                <input type="date" name = "followUpDateDisplay" id="followUpDateDisplay" value = "<?php echo "$followUpDateDisplay";?>">
-            </section>
+                <section class="form-group">
+                    <label for="Jobdesc" class="form-label">Job Description* </label>
+                    <span class="text-danger" id="message-error"></span>
+                    <textarea id="Jobdesc" name="Jobdesc" rows="5" class= "form-control" required><?php echo $jobDesc;?></textarea>
+                </section>
 
-            <section class="form-group">
-                <label for="employerName" class="form-label">Employer Name*</label>
-                <span class="text-danger" id="employerName-error"></span>
-                <input type="text" id="employerName" name="employerName" class="form-control" value = "<?php echo $employerName;?>" required>
-            </section>
+                <section class="form-group">
+                    <label for = "submissionDate" class="form-label">Date of Application </label>
+                    <br>
+                    <input type="date" name = "submissionDate" id="submissionDate" value = "<?php echo "$submissionDate";?>">
+                </section>
 
-            <section class="form-group">
-                <!-- This contains the radio buttons field -->
-                <div class="form-field form" id="appStatus" >
-                    <label for ="appStatus" class = "form-label">Status</label><br>
-                    <!-- create the radio buttons with the chosen one from database selected -->
-                    <?php
-                    // define possible options and their values
-                    $options = array(
-                        'NeedApply' => 'Need to apply',
-                        'Applied' => 'Applied',
-                        'Interviewing' => 'Interviewing',
-                        'Rejected' => 'Rejected',
-                        'Accepted' => 'Accepted',
-                        'Inactive' => 'Inactive/Expired'
-                    );
-                    // use for loop and the function to create our radio buttons
-                    foreach ($options as $optionValue => $optionLabel): ?>
-                    <input type="radio" name="Appliedposition" id="<?php echo $optionValue; ?>" value="<?php echo $optionValue; ?>" <?php echo ($appStatus == $optionValue) ? 'checked' : ''; ?>>
-                    <label for="<?php echo $optionValue; ?>"><?php echo $optionLabel;
-                        echo "</label><br>";
-                        // end the loop
-                        endforeach;
+                <section class="form-group">
+                    <label for = "followUpDateDisplay" class="form-label">Follow up date </label>
+                    <br>
+                    <input type="date" name = "followUpDateDisplay" id="followUpDateDisplay" value = "<?php echo "$followUpDateDisplay";?>">
+                </section>
+
+                <section class="form-group">
+                    <label for="employerName" class="form-label">Employer Name*</label>
+                    <span class="text-danger" id="employerName-error"></span>
+                    <input type="text" id="employerName" name="employerName" class="form-control" value = "<?php echo $employerName;?>" required>
+                </section>
+
+                <section class="form-group">
+                    <!-- This contains the radio buttons field -->
+                    <div class="form-field form" id="appStatus" >
+                        <label for ="appStatus" class = "form-label">Status</label><br>
+                        <!-- create the radio buttons with the chosen one from database selected -->
+                        <?php
+                        // define possible options and their values
+                        $options = array(
+                            'NeedApply' => 'Need to apply',
+                            'Applied' => 'Applied',
+                            'Interviewing' => 'Interviewing',
+                            'Rejected' => 'Rejected',
+                            'Accepted' => 'Accepted',
+                            'Inactive' => 'Inactive/Expired'
+                        );
+                        // use for loop and the function to create our radio buttons
+                        foreach ($options as $optionValue => $optionLabel): ?>
+                            <input type="radio" name="Appliedposition" id="<?php echo $optionValue; ?>" value="<?php echo $optionValue; ?>" <?php echo ($appStatus == $optionValue) ? 'checked' : ''; ?>>
+                            <label for="<?php echo $optionValue; ?>"><?php echo $optionLabel;
+                            echo "</label><br>";
+                            // end the loop
+                            endforeach;
                         ?>
+                    </div>
+                </section>
+
+                <section class="form-group">
+                    <label for="ContactName" class="form-label">Contact Name</label>
+                    <span class="text-danger" id="name-error"></span>
+                    <input type="text" id="ContactName" name="ContactName" class="form-control"  value = "<?php echo "$contactName"; ?>">
+                </section>
+
+                <section class="form-group">
+                    <label for="ContactEmail" class="form-label mt-2">Contact Email</label>
+                    <span class="text-danger" id="email-error"></span>
+                    <input type="text" id="ContactEmail" name="ContactEmail" class="form-control" value = "<?php echo "$contactEmail"; ?>">
+                </section>
+
+                <section class="form-group">
+                    <label for="ContactPhone" class="form-label mt-2">Contact Phone</label>
+                    <span class="text-danger" id="phone-error"></span>
+                    <input type="text" id="ContactPhone" name="ContactPhone" class="form-control" value = "<?php echo "$contactPhone"; ?>">
+                </section>
+
+                <section class="form-group">
+                    <label for="InterviewNotes" class="form-label">Interview Notes*</label>
+                    <span class="text-danger" id="InterviewNotes-error"></span>
+                    <textarea id="InterviewNotes" name="InterviewNotes" rows="5" class="form-control"><?php echo "$notes";?></textarea>
+                </section>
+
+                <div class="row">
+                    <div class="col-12">
+                        <input id="submit" type="submit" value="Submit" class="btn btn-primary mt-3">
+
+                    </div>
                 </div>
-            </section>
-
-            <section class="form-group">
-                <label for="ContactName" class="form-label">Contact Name</label>
-                <span class="text-danger" id="name-error"></span>
-                <input type="text" id="ContactName" name="ContactName" class="form-control"  value = "<?php echo "$contactName"; ?>" required >
-            </section>
-
-            <section class="form-group">
-                <label for="ContactEmail" class="form-label mt-2">Contact Email</label>
-                <span class="text-danger" id="email-error"></span>
-                <input type="text" id="ContactEmail" name="ContactEmail" class="form-control" value = "<?php echo "$contactEmail"; ?>"  required>
-            </section>
-            <section class="form-group">
-                <label for="ContactPhone" class="form-label mt-2">Contact Phone</label>
-                <span class="text-danger" id="phone-error"></span>
-                <input type="text" id="ContactPhone" name="ContactPhone" class="form-control" value = "<?php echo "$contactPhone"; ?>" required>
-            </section>
-
-            <section class="form-group">
-                <label for="InterviewNotes" class="form-label">Interview Notes*</label>
-                <span class="text-danger" id="InterviewNotes-error"></span>
-                <textarea id="InterviewNotes" name="InterviewNotes" rows="5" class="form-control" required><?php echo "$notes";?></textarea>
-            </section>
-
-            <div class="row">
-                <div class="col-12">
-                    <input id="submit" type="submit" value="Submit" class="btn btn-primary mt-3">
-
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
+
     <!--Scripts-->
     <!-- Bootstrap CDN link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
