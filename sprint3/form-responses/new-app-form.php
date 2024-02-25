@@ -81,7 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class='row justify-content-center'>
             <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
                 <h1 class='pt-5 header-text'>SIGN UP FORM COMPLETED</h1>
-                <h1 class='pt-5 header-text m-auto'>Thanks for signing up, " . $_POST['name']. "!</h1>          
+                <h1 class='pt-5 header-text m-auto'>Thanks for signing up, " . $_POST['name']. "!</h1>
+                <div class='form-response'>
                 <h5>The details you entered are:</h5><br/>
                 <p><b> Role Name</b> : " . htmlspecialchars($roleName) . ".</p>
                 <p><b>Job Description</b>: " . htmlspecialchars($jobDesc) . ".</p>
@@ -93,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p><b>Application Status</b>: " . htmlspecialchars($applicationStatus) . ".</p>
                 <p><b>Application date</b>: " . htmlspecialchars($application_date) . ".</p>
                 <p><b>Application follow up date</b>: " . htmlspecialchars($follow_up_date) . ".</p>
+            </div>
             </div>
             </div>
           </div>";
