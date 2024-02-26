@@ -1,3 +1,11 @@
+<!--This file handles inserting apps into the database after they're edited.
+    It uses prepared statements for the sql execution.
+
+    Author: Sage Markwardt
+    File: edit-app-insert-sql.php
+    Last changed: 2/26/2024
+    -->
+
 <?php
     // require database connection file
     require '/home/cicadagr/atsdb.php';
@@ -31,24 +39,38 @@
 
     // Construct the SQL UPDATE (since the file already exists) query
     $sql = "UPDATE applications 
-                SET role_name = '$roleName',
-                    job_description = '$jobDesc',
-                    employer_name = '$employerName',
-                    contact_name = '$contactName',
-                    contact_email = '$contactEmail',
-                    contact_phone = '$contactPhone',
-                    notes = '$notes',
-                    status = '$appStatus',
-                    application_date = '$submissionDate', 
-                    follow_up_date = '$followUpDate'
-            WHERE applicationsId = '$applicationsId'";
+                SET role_name = ?,
+                    job_description = ?,
+                    employer_name = ?,
+                    contact_name = ?,
+                    contact_email = ?,
+                    contact_phone = ?,
+                    notes = ?,
+                    status = ?,
+                    application_date = ?, 
+                    follow_up_date = ?
+            WHERE applicationsId = ?";
 
-    $result = mysqli_query($cnxn, $sql);
+    // prepare the connection
+    $stmt = mysqli_prepare($cnxn, $sql);
 
-    // Check if it went through
-    if (!$result) {
-        // Handle the error
-        echo "Error updating record: " . mysqli_error($cnxn);
+    // if the connection runs, bind the values from the update page to the question marks
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, 'sssssssssss', $roleName, $jobDesc, $employerName, $contactName, $contactEmail, $contactPhone,
+        $notes, $appStatus, $submissionDate, $followUpDate, $applicationsId);
+
+        //execute the statement
+        if (mysqli_stmt_execute($stmt)) {
+            // do nothing if it works
+        } else {
+            // print the error if it doesn't work
+            echo "Error: " . mysqli_error($cnxn);
+        }
+        mysqli_stmt_close($stmt);
+    }
+    else {
+        // if statement doesn't prep, print error
+        echo "Error preparing statement: " . mysqli_error($cnxn);
     }
 ?>
 
