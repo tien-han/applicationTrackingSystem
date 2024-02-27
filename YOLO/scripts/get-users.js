@@ -23,11 +23,12 @@ $(document).ready(function () {
         columns: [
             null,
             null,
+            null,
             { orderable: false },
             { orderable: false }
         ],
         "language": {
-            "search": "Name/Email Search:",
+            "search": "Search: ",
             "infoEmpty": "No matching records found"
         },
         columnDefs: [
@@ -43,8 +44,9 @@ $(window).on('resize', function () {
 });
 
 //This method gets all users with fetch() and kicks off "updateUsersTable()" to populate the users table
+//Note: The given path is relative to home, not where the file is
 async function getUsers() {
-    await fetch("https://cicada.greenriverdev.com/sprint3/data-processing/select-all-users.php")
+    await fetch("/YOLO/data-processing/select-all-users.php")
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Something went wrong while trying to get all users.");
@@ -59,7 +61,6 @@ async function getUsers() {
 
             //Convert the JSON users string to an array with objects for us to use
             let users = JSON.parse(filter);
-
             updateUsersTable(users);
         })
         .catch((error) => {
@@ -71,16 +72,42 @@ async function getUsers() {
 function updateUsersTable(users) {
     let userTable = $("#users-table").DataTable();
 
-    let rowNode = users.forEach(user => {
+    users.forEach(user => {
+        //Get the user role and format it for visibility
+        let roles = user.roles.join(", ");
+
         //Create and add a row for the user
-        let rowNode = userTable.row.add([
+        const rowData = userTable.row.add([
             user.name,
             user.email,
+            roles,
             "<button type='button' class='btn btn-success'>View</button>",
             "<td><button type='button' class='btn btn-danger'>Delete</button></td>",
         ]).draw(false).node(); //Don't redraw the table (i.e. reset the sort/search)
 
         //Set the row's id
-        $(rowNode).attr("id", user.userId);
-    })
+        $(rowData).attr("id", user.userId);
+    });
+
+    //Create filtering for the user table
+    $("#users-table-header tr:eq(0) td").not(":eq(3),:eq(4)").each(function (i) {
+        //Create selects for each column (besides the View and Delete columns)
+        //And enable search/filter based on what's selected
+        var select = $('<select><option value=""></option></select>')
+            .appendTo($(this).empty())
+            .on('change', function () {
+                var term = $(this).val();
+                userTable.column(i).search(term, false, false).draw();
+            });
+
+        //Apply values from the table into the select button
+        userTable.column(i).data().unique().sort().each(function (d, j) {
+            select.append('<option value="' + d + '">' + d + '</option>')
+        });
+
+        //Stop select triggering sort
+        $("#users-table-header tr:eq(0) td").click(function (e) {
+            e.stopPropagation();
+        });
+    });
 }
