@@ -136,9 +136,19 @@
                     <div id="users-table-wrapper" class="align-items-center">
                         <table id="users-table" class="table text-center align-middle">
                             <thead id="users-table-header">
+                                <!-- This row is used for filtering -->
+                                <tr>
+                                    <td class="user-filter-head" scope="col"></td>
+                                    <td class="user-filter-head" scope="col"></td>
+                                    <td class="user-filter-head" scope="col"></td>
+                                    <td class="user-filter-head" scope="col"></td>
+                                    <td class="user-filter-head" scope="col"></td>
+                                </tr>
+                                <!-- This row is used for sorting -->
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
+                                    <th scope="col">ATS Role</th>
                                     <th scope="col">View</th>
                                     <th scope="col">Delete</th>
                                 </tr>
@@ -171,40 +181,8 @@
     <script type="text/javascript" src="../scripts/script.js"></script>
     <!-- JS Script for getting all users -->
     <script type="text/javascript" src="../scripts/get-users.js"></script>
-
-    <!-- JS code for filling out the new applications table -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            fetch('../form-responses/get-recent-applications.php')
-                .then(response => {
-                    return response.json();
-                })
-                .then(data => {
-                    const tableBody = document.getElementById('applicationsTableBody');
-                    if (!tableBody) {
-                        console.error('Table body not found');
-                        return;
-                    }
-                    data.forEach(application => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                        <td>${application.application_date}</td>
-                        <td>${application.role_name}</td>
-                        <td>${application.status}</td>
-                        <td>
-                            <form method="POST" action="../form-responses/edit-app-form.php">
-                                <input type="hidden" name="applicationId" value="${application.applicationsId}">
-                                <button type="submit" class="btn btn-success">Update</button>
-                            </form>
-                        </td>
-                        <td><button type="button" class="btn btn-danger">Delete</button></td>
-                    `;
-                        tableBody.appendChild(row);
-                    });
-                })
-                .catch(error => console.error('Error loading recent applications:', error));
-        });
-    </script>
+    <!-- JS Script for getting all applications -->
+    <script type="text/javascript" src="../scripts/get-applications.js"></script>
 </body>
 
 </html>
