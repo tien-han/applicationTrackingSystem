@@ -28,7 +28,7 @@ $(document).ready(function () {
             { orderable: false }
         ],
         "language": {
-            "search": "Name/Email Search:",
+            "search": "Search:",
             "infoEmpty": "No matching records found"
         },
         columnDefs: [
