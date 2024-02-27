@@ -28,7 +28,7 @@ $(document).ready(function () {
             { orderable: false }
         ],
         "language": {
-            "search": "Search:",
+            "search": "Search: ",
             "infoEmpty": "No matching records found"
         },
         columnDefs: [
