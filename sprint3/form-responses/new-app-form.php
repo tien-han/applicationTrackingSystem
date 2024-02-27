@@ -77,13 +77,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     echo "<html><head><title>Submission Successful</title></head><body>";
-    echo "<div class='form-container pt-0'>
+    echo "         <div class='container-fluid'>
+                    <div class='row col-12'>
+                        <header>
+                            <h1>New Application Form Completed</h1>
+                        </header>
+                    </div>
+
+
+
             <div class='row justify-content-center'>
             <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
-                <h1 class='pt-5 header-text'>SIGN UP FORM COMPLETED</h1>
-                <h1 class='pt-5 header-text m-auto'>Thanks for signing up, " . $_POST['name']. "!</h1>
+                <h1 class='pt-5 header-text text-center'>Thanks for the Application!</h1>
                 <div class='form-response'>
-                <h5>The details you entered are:</h5><br/>
+                <p>The details you entered are:</p>
                 <p><b> Role Name</b> : " . htmlspecialchars($roleName) . ".</p>
                 <p><b>Job Description</b>: " . htmlspecialchars($jobDesc) . ".</p>
                 <p><b>Employer name</b>: " . htmlspecialchars($employerName) . ".</p>
