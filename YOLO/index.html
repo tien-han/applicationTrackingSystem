@@ -103,23 +103,10 @@
                     </div>
 
                     <!-- Reminders -->
-                    <div id="reminders" class="container border border-success rounded col-sm-4 text-break">
+                    <div class="container border border-success rounded col-sm-4 text-break">
                         <h2 class="text-center p-2">Reminders</h2>
-                        <div class="border border-success rounded mb-4 p-2 overflow-auto">
-                            <p class="text-center">Follow up with XYZ</p>
-                            <button>VIEW</button>
-                        </div>
-                        <div class="border border-success rounded mb-4 p-2 overflow-auto">
-                            <div>
-                                <p class="text-center">3 Incomplete APPS</p>
-                                <button>VIEW</button>
-                            </div>
-                        </div>
-                        <div id="reminder-section3" class="border border-success rounded mb-4 p-2 overflow-auto">
-                            <p class="text-center">
-                                <a class="link-text" href="https://www.linkedin.com" target="_blank">Find More
-                                    Opportunities</a>
-                            </p>
+                        <div id = "reminders">
+
                         </div>
                     </div>
                 </div>
@@ -155,7 +142,6 @@
             <!-- Helpful Resources -->
             <h5>Resources to help you start your career in tech</h5>
             <!-- Header -->
-            <!-- TODO: Fix styling for table and descriptions when in dark mode -->
             <table class="table">
                 <thead>
                     <tr>
@@ -254,6 +240,8 @@
     <script type="text/javascript" src="scripts/script.js"></script>
     <!-- JS Script for getting all applications -->
     <script type="text/javascript" src="scripts/get-applications.js"></script>
+    <!-- JS Script for getting all due follow-ups -->
+    <script src="scripts/get-follow-ups.js"></script>
 </body>
 
 </html>
