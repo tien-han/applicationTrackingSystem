@@ -77,21 +77,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     echo "<html><head><title>Submission Successful</title></head><body>";
-    echo "<div class='form-container pt-0'>
+    echo "         <div class='container-fluid'>
+                    <div class='row col-12'>
+                        <header>
+                            <h1>New Application Form Completed</h1>
+                        </header>
+                    </div>
+
+
+
             <div class='row justify-content-center'>
             <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
-                <h1 class='pt-5 header-text'>A response will be sent soon, thank you!</h1>
-                <h5>Here's what you just entered:</h5><br/>
-                <p>The Role Name you added was: " . htmlspecialchars($roleName) . ".</p>
-                <p>The Job Description you added was: " . htmlspecialchars($jobDesc) . ".</p>
-                <p>The employer name you added was: " . htmlspecialchars($employerName) . ".</p>
-                <p>The contact name you added was: " . htmlspecialchars($contactName) . ".</p>
-                <p>The email you added was: " . htmlspecialchars($contactEmail) . ".</p>
-                <p>The Contact Phone you added was: " . htmlspecialchars($contactPhone) . ".</p>
-                <p>The Interview Notes You added were: " . htmlspecialchars($interviewNotes) . ".</p>
-                <p>Your Application Status is: " . htmlspecialchars($applicationStatus) . ".</p>
-                <p>Your Application date is: " . htmlspecialchars($application_date) . ".</p>
-                <p>Your Application follow up date is: " . htmlspecialchars($follow_up_date) . ".</p>
+                <h1 class='pt-5 header-text text-center'>Thanks for the Application!</h1>
+                <div class='form-response'>
+                <p>The details you entered are:</p>
+                <p><b> Role Name</b> : " . htmlspecialchars($roleName) . ".</p>
+                <p><b>Job Description</b>: " . htmlspecialchars($jobDesc) . ".</p>
+                <p><b>Employer name</b>: " . htmlspecialchars($employerName) . ".</p>
+                <p><b>Contact name</b>: " . htmlspecialchars($contactName) . ".</p>
+                <p><b>Email</b>: " . htmlspecialchars($contactEmail) . ".</p>
+                <p><b>Contact Phone</b>: " . htmlspecialchars($contactPhone) . ".</p>
+                <p><b>Interview Notes</b>: " . htmlspecialchars($interviewNotes) . ".</p>
+                <p><b>Application Status</b>: " . htmlspecialchars($applicationStatus) . ".</p>
+                <p><b>Application date</b>: " . htmlspecialchars($application_date) . ".</p>
+                <p><b>Application follow up date</b>: " . htmlspecialchars($follow_up_date) . ".</p>
+            </div>
             </div>
             </div>
           </div>";
