@@ -27,22 +27,27 @@ async function getFollowUps() {
             }
             return response.json();
         })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Something went wrong while trying to get announcements.");
+            }
+            return response.json();
+        })
         .then(data => {
             const reminders = document.getElementById('reminders');
             if (!reminders) {
-                console.error('Reminders area not found');
+                console.error('Announcements not found in HTML');
                 return;
             }
-            data.forEach(application => {
-                let follow_up_date = new Date(application.follow_up_date);
+            data.forEach(announcements => {
+                let announcement_date = new Date(announcements.date);
                 // compare the incoming dates to today to get ones within our range
-                if (fiveDaysLate <= follow_up_date
-                    && follow_up_date <= fiveDaysAhead) {
+                if (fiveDaysLate <= announcement_date
+                    && announcement_date <= fiveDaysAhead) {
                     const row = document.createElement('p');
 
                     // we'll change the format of the dates so it doesn't display the h/m/s
-                    let follow_up_date = new Date(application.follow_up_date);
-                    let formattedDate = follow_up_date.toISOString().split('T')[0];
+                    let formattedDate = announcement_date.toISOString().split('T')[0];
 
                     row.innerHTML = `
                        
@@ -51,9 +56,9 @@ async function getFollowUps() {
                             <div class="border border-success rounded mb-4 p-2 overflow-auto">
                                 <div>
                                     <form method="POST" action="../form-responses/edit-app-form.php">
-                                        <input type = "hidden" name = "applicationId" value = "${application.applicationsId}">
-                                        <p>Follow up with ${application.employer_name} by ${formattedDate}</p>
-                                        <button type = "submit" class = "btn">View</button>
+                                        <input type = "hidden" name = "announcementId" value = "${announcements.announcementsId}">
+                                        <p><b>Announcement: </b>${announcements.title} posted on ${formattedDate}</p>
+                                        <button type = "submit">View</button>
                                     </form>
                                 </div>
                             </div>

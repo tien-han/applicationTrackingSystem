@@ -11,10 +11,8 @@
 async function getAnnouncements() {
     // first grab the date range +-5
     let today = new Date();
-    let fiveDaysAhead = new Date(today);
-    fiveDaysAhead.setDate(today.getDate() + 5);
-    let fiveDaysLate = new Date(today);
-    fiveDaysLate.setDate(today.getDate() - 5)
+    let lastFiveDays = new Date(today);
+    lastFiveDays.setDate(today.getDate() - 5)
 
     // grab our data and create our rows
     await fetch("/YOLO/data-processing/get-recent-announcements.php")
@@ -32,9 +30,9 @@ async function getAnnouncements() {
             }
             data.forEach(announcements => {
                 let announcement_date = new Date(announcements.date);
-                // compare the incoming dates to today to get ones within our range
-                if (fiveDaysLate <= announcement_date
-                    && announcement_date <= fiveDaysAhead) {
+                // we shouldn't need to check anything else since we have no feature for future announcements
+                if (lastFiveDays <= announcement_date &&
+                announcement_date) {
                     const row = document.createElement('p');
 
                     // we'll change the format of the dates so it doesn't display the h/m/s
@@ -48,8 +46,8 @@ async function getAnnouncements() {
                                 <div>
                                     <form method="POST" action="../form-responses/edit-app-form.php">
                                         <input type = "hidden" name = "announcementId" value = "${announcements.announcementsId}">
-                                        <p>Announcement: ${announcements.title} posted on ${formattedDate}</p>
-                                        <button type = "submit" class = "btn">View</button>
+                                        <p><b>Announcement:</b> ${announcements.title} posted on ${formattedDate}</p>
+                                        <button type = "submit">View</button>
                                     </form>
                                 </div>
                             </div>
