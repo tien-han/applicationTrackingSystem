@@ -102,20 +102,10 @@
                         </div>
                     </div>
                     <!-- Reminders -->
-                    <div id="reminders" class="container border border-success rounded col-sm-4 text-break">
+                    <div class="container border border-success rounded col-sm-4 text-break">
                         <h2 class="text-center p-2">Recent Announcements</h2>
-                        <div class="border border-success rounded mb-4 p-2 overflow-auto">
-                            <p class="text-center">Applications for Disney will be c... <button>VIEW</button></p>
-                        </div>
-                        <div class="border border-success rounded mb-4 p-2 overflow-auto">
-                            <div>
-                                <p class="text-center">Please delete applications tha...<button>VIEW</button></p>
-                            </div>
-                        </div>
-                        <div id="reminder-section3" class="border border-success rounded mb-4 p-2 overflow-auto">
-                            <p class="text-center">
-                                <a class="link-text" href="#" target="_blank">See All Announcements</a>
-                            </p>
+                        <div id = "reminders">
+                            <!-- recent announcements will be placed here -->
                         </div>
                     </div>
                 </div>
@@ -161,8 +151,6 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
     <br />
     <br />
     <br />
@@ -183,6 +171,8 @@
     <script type="text/javascript" src="../scripts/get-users.js"></script>
     <!-- JS Script for getting all applications -->
     <script type="text/javascript" src="../scripts/get-applications.js"></script>
+    <!-- Scripts to pull in recent announcements -->
+    <script type="text/javascript" src="../scripts/get-announcements.js"></script>
 </body>
 
 </html>

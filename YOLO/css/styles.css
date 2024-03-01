@@ -125,7 +125,7 @@ label#darkmode-label:active:after {
 /* Reminders Section*/
 #reminders {
   text-align: center;
-  width: 40%;
+  width: 100%;
   padding: 15px;
 }
 

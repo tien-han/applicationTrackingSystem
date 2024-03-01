@@ -1,17 +1,14 @@
-/*This file contains scripts to get the follow up dates
-* of applications which are due either in the next five days,
-* or under 5 days late.
-* It also drops the time off the displayed dates.
+/*This file contains scripts to get announcements
+* made in the last five days.
 *
 * Author: Sage Markwardt
 * Date last touched: 2/28/2024
-* File: get-follow-ups.js
-* */
-window.addEventListener("load", function (event) {
-    getFollowUps();
+* File: get-announcements.js
+* */window.addEventListener("load", function (event) {
+    getAnnouncements();
 })
 
-async function getFollowUps() {
+async function getAnnouncements() {
     // first grab the date range +-5
     let today = new Date();
     let fiveDaysAhead = new Date(today);
@@ -20,29 +17,28 @@ async function getFollowUps() {
     fiveDaysLate.setDate(today.getDate() - 5)
 
     // grab our data and create our rows
-    await fetch("/YOLO/data-processing/get-recent-applications.php")
+    await fetch("/YOLO/data-processing/get-recent-announcements.php")
         .then(response => {
             if (!response.ok) {
-                throw new Error("Something went wrong while trying to get all applications.");
+                throw new Error("Something went wrong while trying to get announcements.");
             }
             return response.json();
         })
         .then(data => {
             const reminders = document.getElementById('reminders');
             if (!reminders) {
-                console.error('Reminders area not found');
+                console.error('Announcements not found in HTML');
                 return;
             }
-            data.forEach(application => {
-                let follow_up_date = new Date(application.follow_up_date);
+            data.forEach(announcements => {
+                let announcement_date = new Date(announcements.date);
                 // compare the incoming dates to today to get ones within our range
-                if (fiveDaysLate <= follow_up_date
-                    && follow_up_date <= fiveDaysAhead) {
+                if (fiveDaysLate <= announcement_date
+                    && announcement_date <= fiveDaysAhead) {
                     const row = document.createElement('p');
 
                     // we'll change the format of the dates so it doesn't display the h/m/s
-                    let follow_up_date = new Date(application.follow_up_date);
-                    let formattedDate = follow_up_date.toISOString().split('T')[0];
+                    let formattedDate = announcement_date.toISOString().split('T')[0];
 
                     row.innerHTML = `
                        
@@ -51,8 +47,8 @@ async function getFollowUps() {
                             <div class="border border-success rounded mb-4 p-2 overflow-auto">
                                 <div>
                                     <form method="POST" action="../form-responses/edit-app-form.php">
-                                        <input type = "hidden" name = "applicationId" value = "${application.applicationsId}">
-                                        <p>Follow up with ${application.employer_name} by ${formattedDate}</p>
+                                        <input type = "hidden" name = "announcementId" value = "${announcements.announcementsId}">
+                                        <p>Announcement: ${announcements.title} posted on ${formattedDate}</p>
                                         <button type = "submit" class = "btn">View</button>
                                     </form>
                                 </div>
