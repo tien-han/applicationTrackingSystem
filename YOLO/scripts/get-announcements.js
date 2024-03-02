@@ -37,14 +37,14 @@ async function getAnnouncements() {
 
                     // we'll change the format of the dates so it doesn't display the h/m/s
                     let formattedDate = announcement_date.toISOString().split('T')[0];
-
+                    // TODO: add link in the form method to go to the announcement page
                     row.innerHTML = `
                        
                             <!-- The following form method assigns the Id and allows us to direct to
                             the correct form for updating/viewing so the user can follow up or say they did -->
                             <div class="border border-success rounded mb-4 p-2 overflow-auto">
                                 <div>
-                                    <form method="POST" action="../form-responses/edit-app-form.php">
+                                    <form method="POST">
                                         <input type = "hidden" name = "announcementId" value = "${announcements.announcementsId}">
                                         <p><b>Announcement:</b> ${announcements.title} posted on ${formattedDate}</p>
                                         <button type = "submit">View</button>

@@ -55,7 +55,7 @@ async function getFollowUps() {
                             the correct form for updating/viewing so the user can follow up or say they did -->
                             <div class="border border-success rounded mb-4 p-2 overflow-auto">
                                 <div>
-                                    <form method="POST" action="../form-responses/edit-app-form.php">
+                                    <form method="POST" action="YOLO/form-responses/edit-app-form.php">
                                         <input type = "hidden" name = "announcementId" value = "${announcements.announcementsId}">
                                         <p><b>Announcement: </b>${announcements.title} posted on ${formattedDate}</p>
                                         <button type = "submit">View</button>
