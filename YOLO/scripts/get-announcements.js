@@ -15,7 +15,7 @@ async function getAnnouncements() {
     lastFiveDays.setDate(today.getDate() - 5)
 
     // grab our data and create our rows
-    await fetch("/YOLO/data-processing/get-recent-announcements.php")
+    await fetch("/TestingforApp/data-processing/get-recent-announcements.php")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Something went wrong while trying to get announcements.");
@@ -32,19 +32,19 @@ async function getAnnouncements() {
                 let announcement_date = new Date(announcements.date);
                 // we shouldn't need to check anything else since we have no feature for future announcements
                 if (lastFiveDays <= announcement_date &&
-                announcement_date) {
+                    announcement_date) {
                     const row = document.createElement('p');
 
                     // we'll change the format of the dates so it doesn't display the h/m/s
                     let formattedDate = announcement_date.toISOString().split('T')[0];
-                    // TODO: add link in the form method to go to the announcement page
+
                     row.innerHTML = `
                        
                             <!-- The following form method assigns the Id and allows us to direct to
                             the correct form for updating/viewing so the user can follow up or say they did -->
                             <div class="border border-success rounded mb-4 p-2 overflow-auto">
                                 <div>
-                                    <form method="POST">
+                                    <form method="POST" action="../form-responses/edit-app-form.php">
                                         <input type = "hidden" name = "announcementId" value = "${announcements.announcementsId}">
                                         <p><b>Announcement:</b> ${announcements.title} posted on ${formattedDate}</p>
                                         <button type = "submit">View</button>
