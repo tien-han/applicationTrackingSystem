@@ -15,7 +15,7 @@ async function getAnnouncements() {
     lastFiveDays.setDate(today.getDate() - 5)
 
     // grab our data and create our rows
-    await fetch("/TestingforApp/data-processing/get-recent-announcements.php")
+    await fetch("/YOLO/data-processing/get-recent-announcements.php")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Something went wrong while trying to get announcements.");
@@ -41,7 +41,8 @@ async function getAnnouncements() {
                     row.innerHTML = `
                        
                             <!-- The following form method assigns the Id and allows us to direct to
-                            the correct form for updating/viewing so the user can follow up or say they did -->
+                            the correct form for updating/viewing so the user can follow up or say they did
+                             TODO: add correct link to the announcements view page instead of edit app page-->
                             <div class="border border-success rounded mb-4 p-2 overflow-auto">
                                 <div>
                                     <form method="POST" action="../form-responses/edit-app-form.php">
