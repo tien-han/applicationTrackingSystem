@@ -104,15 +104,7 @@ if (document.getElementById("new-app-form")) {
     document.getElementById("Jobdesc").addEventListener("change", function () {
         validateMessage("Jobdesc");
     })
-    document.getElementById("ContactName").addEventListener("change", function () {
-        validateFullName("ContactName");
-    })
-    document.getElementById("ContactEmail").addEventListener("change", function () {
-        validateEmail("ContactEmail");
-    })
-    document.getElementById("ContactPhone").addEventListener("change", function () {
-        validateContactPhone("ContactPhone");
-    })
+
     document.getElementById("InterviewNotes").addEventListener("change", function () {
         validateInterviewNotes("InterviewNotes");
     })
@@ -126,11 +118,10 @@ if (document.getElementById("new-app-form")) {
 function validatenewappform() {
     const validationResult =
         validateMessage("Jobdesc") //Form validation for a message (currently used in Contact Form)
-        && validateEmail("ContactEmail")
-        && validateContactPhone("ContactPhone")
+
         && validateInterviewNotes("InterviewNotes")
         && validateemployerName("employerName")
-        && validateFullName("ContactName")
+
         && validateRoleName("RoleName");
     if (!validationResult) {
         event.preventDefault();
