@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `users`(
     `status` VARCHAR(255) DEFAULT NULL,
     `roles` VARCHAR(255) DEFAULT NULL,
     `created_at` DATETIME DEFAULT NULL,
+    `updated_at` DATETIME DEFAULT NULL,
     `user_deleted` BOOLEAN DEFAULT FALSE,
     `user_deleted_at` DATETIME DEFAULT NULL,
     `user_hard_delete` BOOLEAN DEFAULT FALSE, 

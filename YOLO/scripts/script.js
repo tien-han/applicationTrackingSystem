@@ -137,7 +137,6 @@ function validatenewappform() {
     }
 }
 
-
 function validateemployerName() { //
     const name = document.getElementById("employerName").value.trim();
     const errorMessage = document.getElementById("employerName-error");
@@ -150,6 +149,7 @@ function validateemployerName() { //
     errorMessage.innerText = "";
     return true;
 }
+
 function validateRoleName() { //
     const name = document.getElementById("RoleName").value.trim();
     const errorMessage = document.getElementById("RoleName-error");
@@ -162,6 +162,7 @@ function validateRoleName() { //
     errorMessage.innerText = "";
     return true;
 }
+
 function validateInterviewNotes(messageId) {
     const message = document.getElementById(messageId).value.trim();
     const errorMessage = document.getElementById("InterviewNotes-error");
@@ -189,9 +190,9 @@ function validateContactPhone(ContactPhone) {
     return true;
 }
 
-// ------------
-// Edit App Validation
-// ------------
+//-------------------------------------------------------------------------------------------------
+// Edit Application Validation
+//-------------------------------------------------------------------------------------------------
 function validateEditAppForm() {
     validatenewappform();
 }
@@ -216,7 +217,6 @@ if (document.getElementById("edit-app-form")) {
         });
     });
 }
-
 
 //-------------------------------------------------------------------------------------------------
 // Sign Up Form Validation
@@ -247,6 +247,33 @@ if (document.getElementById("sign-up-form")) {
 }
 
 //-------------------------------------------------------------------------------------------------
+// Edit User Form Validation
+//-------------------------------------------------------------------------------------------------
+//Edit User Form Validation on Change
+if (document.getElementById("sign-up-form")) {
+    document.getElementById("name").addEventListener("change", function () {
+        validateFullName("name");
+    })
+    document.getElementById("email").addEventListener("change", function () {
+        validateEmail("email");
+    })
+    document.getElementById("cohortNumber").addEventListener("change", function () {
+        validateCohort("cohortNumber");
+    })
+}
+
+//Edit User Form Validation on Submit
+function validateEditUser() {
+    const validationResult =
+        validateFullName("name")
+        && validateEmail("email")
+        && validateCohort("cohortNumber");
+    if (!validationResult) {
+        event.preventDefault();
+    }
+}
+
+//-------------------------------------------------------------------------------------------------
 // Contact Form Validation
 //-------------------------------------------------------------------------------------------------
 //Contact Form Validation on Change
@@ -271,6 +298,34 @@ function validateContactForm() {
     if (!validationResult) {
         event.preventDefault();
     }
+}
+
+//-------------------------------------------------------------------------------------------------
+// Admin Announcement Form Validation
+//-------------------------------------------------------------------------------------------------
+function validateFormAdmin() {
+    var emailInput = document.getElementById('email');
+    var urlInput = document.getElementById('url');
+
+    var email = emailInput.value;
+    var url = urlInput.value;
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var urlRegex = /^(http(s)?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}(\S*)?$/;
+
+    if (!emailRegex.test(email)) {
+        alert('Invalid email address');
+        emailInput.focus();
+        return false;
+    }
+
+    if (!urlRegex.test(url)) {
+        alert('Invalid URL');
+        urlInput.focus();
+        return false;
+    }
+
+    return true;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -325,63 +380,15 @@ function validateMessage(messageId) {
     return true;
 }
 
-//-------------------------------------------------------------------------------------------------
-// Users Table Search Bar
-//-------------------------------------------------------------------------------------------------
-function searchUsers() {
-    // Declare variables first to prevent any issues from variables not loading properly
-    let input, filter, table, tr, td, email, i, txtValue, emailValue;
-    input = document.getElementById("user-search");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("users-table");
-    tr = table.getElementsByTagName("tr");
+//Form validation for the cohort number
+function validateCohort(cohortNum) {
+    const cohortNumber = document.getElementById(cohortNum).value;
+    const errorMessage = document.getElementById("cohort-error");
 
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-        //td represents each name in the users table (full name)
-        td = tr[i].getElementsByTagName("td")[0];
-        email = tr[i].getElementsByTagName("td")[1];
-
-        if (td || email) {
-            txtValue = td.textContent || td.innerText;
-            emailValue = email.textContent || email.innerText;
-
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                //Check if the users name matches
-                tr[i].style.display = "";
-            } else if (emailValue.toUpperCase().indexOf(filter) > -1) {
-                //Check if the users email matches
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
-}
-
-// admin announcement Form Validation
-
-function validateFormAdmin() {
-    var emailInput = document.getElementById('email');
-    var urlInput = document.getElementById('url');
-
-    var email = emailInput.value;
-    var url = urlInput.value;
-
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    var urlRegex = /^(http(s)?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}(\S*)?$/;
-
-    if (!emailRegex.test(email)) {
-        alert('Invalid email address');
-        emailInput.focus();
+    if (cohortNumber < 1 || cohortNumber > 100) {
+        errorMessage.innerText = "***Cohort  Number must be higher than 1 and 100 or lower";
         return false;
     }
-
-    if (!urlRegex.test(url)) {
-        alert('Invalid URL');
-        urlInput.focus();
-        return false;
-    }
-
+    errorMessage.innerText = "";
     return true;
 }
