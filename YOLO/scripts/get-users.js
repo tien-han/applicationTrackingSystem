@@ -82,11 +82,24 @@ function updateUsersTable(users) {
             user.email,
             roles,
             "<button type='button' class='btn btn-success'>View</button>",
-            "<td><button type='button' class='btn btn-danger'>Delete</button></td>",
+            `
+            <td>
+            <form method="POST" action="../data-processing/softDeleteUser.php">
+                <input type="hidden" name="userId" value="${user.userId}">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            </td>
+            `,
         ]).draw(false).node(); //Don't redraw the table (i.e. reset the sort/search)
 
         //Set the row's id
         $(rowData).attr("id", user.userId);
+    });
+
+    // Add event listeners for delete buttons
+    const deleteButtons = document.querySelectorAll('.btn-danger');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', deleteButtons);
     });
 
     //Create filtering for the user table

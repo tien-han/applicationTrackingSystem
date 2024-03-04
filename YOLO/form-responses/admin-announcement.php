@@ -101,25 +101,31 @@
         // Send email
         $mailSuccess = mail($to, $subject, $message, $headers);
 
+        // print out the receipt
+        echo "
+                <div class='container-fluid'>
+                    <div class='row col-12'>
+                        <header>
+                            <h1>Admin Announcement Completed</h1>
+                        </header>
+                    </div>
 
-        // print out the reciept
-        echo "<div class='form-container pt-0'>
-        <div class = 'row justify-content-center'>
-        <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
-
-        <h1 class='pt-5 header-text'>A response will be sent soon, thank you!</h1>
-        <h5>Here's what you just entered:</h5><br/>
-        <p>The name you added was: " . $title . ".</p>
-        <p>The job type you added was: " . $jobType . ".</p>
-        <p>The location you added was: " . $location . ".</p>
-        <p>The subject of your message was: " . $subject . "</p>
-        <p>The email you added was: " . $email . ".</p>
-        <p>The message you added was: " . $moreInfo . ".</p>
-        <p>The employer you added was: " . $employer . ".</p>
-        <p>The url you added was: " . $url . ".</p>
-        </div>
-        </div>
-        </div>";
+                    <div class='row justify-content-center'>
+                        <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
+                            <h1 class='pt-5 header-text text-center'>Thank You.</h1>
+                            <div class='form-response'>
+                                <p>The details you entered are:</p>
+                                <p><b>Title</b>: " . $title . "</p>
+                                <p><b>Job Type</b>: " . $jobType . "</p>
+                                <p><b>Employer</b>: " . $employer . "</p>
+                                <p><b>Email</b>: " . $email . "</p>
+                                <p><b>Location</b>: " . $location . "</p>
+                                <p><b>Url</b>: " . $url . "</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ";
     } else {
         // tell the user to go to the contact form and fill it out
         echo "<div class='form-container pt-0'>

@@ -35,7 +35,7 @@
         require '/home/cicadagr/atsdb.php';
 
         //SQL query for getting all users out of the database
-        $usersSQL = "SELECT userId, name, email FROM users";
+        $usersSQL = "SELECT userId, name, email FROM users WHERE user_deleted = 1";
         //Run SQL query to get all users
         $usersResult = mysqli_query($cnxn, $usersSQL);
 

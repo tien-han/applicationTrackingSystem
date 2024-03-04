@@ -30,10 +30,26 @@ async function getApplications() {
                             <button type="submit" class="btn btn-success">Update</button>
                         </form>
                     </td>
-                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                    td>
+                      <form method="POST" action="../data-processing/softDelete.php">
+                            <input type="hidden" name="applicationId" value="${application.applicationsId}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                       </form>
+                        
+                    </td>
             `;
                 tableBody.appendChild(row);
             });
+
+            // Add event listeners for delete buttons
+            const deleteButtons = document.querySelectorAll('.btn-danger');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', deleteButtons);
+
+
+            });
+
+
         })
         .catch((error) => {
             console.error('Error loading recent applications:', error);
