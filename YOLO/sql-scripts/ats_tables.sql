@@ -255,16 +255,53 @@ CREATE TABLE IF NOT EXISTS `applications`(
 -- Dumping data for table `applications`
 --
 INSERT INTO `applications`(
+    `userId`,
     `role_name`,
     `job_description`,
     `application_date`,
     `employer_name`,
-    `userId`
+    `status`
 )
 VALUES (
+    1,
     'SWE I',
     'Software stuff',
     '2024-2-3 12:42:54',
     'GRC',
-    1
+    'Need to Apply'
+), (
+    2,
+    'Software Developer',
+    'Develop a website',
+    '2024-2-3 11:03:00',
+    'Google',
+    'Applied'
+), (
+    3,
+    'Software Tester',
+    'Test surgical software',
+    '2024-3-3 10:23:10',
+    'Intuitive Surgical',
+    'Interviewing'
+), (
+    4,
+    'SDE',
+    'Develop on ecommerce site',
+    '2024-3-4 01:00:50',
+    'Amazon',
+    'Rejected'
+), (
+    4,
+    'SDE II',
+    'Develop on ecommerce site, in advertisements',
+    '2024-3-4 02:00:50',
+    'Amazon',
+    'Accepted'
+), (
+    1,
+    'Full-stack software engineer',
+    'Build a platform for capturing dog paw prints',
+    '2024-3-4 03:00:50',
+    'Petsmart',
+    'Inactive/Expired'
 );
