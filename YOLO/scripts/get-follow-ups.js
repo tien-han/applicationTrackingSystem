@@ -1,3 +1,11 @@
+/*This file contains scripts to get follow-up
+* dates 5 days from today for the student homepage.
+*
+* Author: Sage Markwardt
+* Date last touched: 3/4/2024
+* File: get-follow-ups.js
+
+ */
 window.addEventListener("load", function (event) {
     getFollowUps();
 })

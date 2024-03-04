@@ -2,7 +2,7 @@
 * made in the last five days for the student homepage.
 *
 * Author: Sage Markwardt
-* Date last touched: 2/28/2024
+* Date last touched: 3/4/2024
 * File: get-announcements.js
 * */window.addEventListener("load", function (event) {
     getAnnouncements();
