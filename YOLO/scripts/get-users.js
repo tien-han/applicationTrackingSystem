@@ -4,7 +4,7 @@
 
     Author: Tien Han
     File: get-users.js
-    Date: 2/15/2024
+    Date: 3/4/2024
 */
 
 //When the dom elements complete loading, populate the users table with users
@@ -81,7 +81,14 @@ function updateUsersTable(users) {
             user.name,
             user.email,
             roles,
-            "<button type='button' class='btn btn-success'>View</button>",
+            `
+                <td>
+                    <form method="POST" action="../form-responses/edit-user-form-admin.php">
+                        <input type="hidden" name="userId" value="${user.userId}">
+                        <button type="submit" class="btn btn-success">Edit</button>
+                    </form>
+                </td>
+            `,
             "<td><button type='button' class='btn btn-danger'>Delete</button></td>",
         ]).draw(false).node(); //Don't redraw the table (i.e. reset the sort/search)
 
