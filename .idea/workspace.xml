@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="Added a set 1 for Id" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Gene@localhost:22 password" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2bxxNN3w93NEztt5Z7SKl4ukc1f" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-b4dcf6bb9de9-com.jetbrains.php.sharedIndexes-PS-233.13135.108" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="" />
+      <created>1707170489201</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707170489201</updated>
+      <workItem from="1707170490291" duration="12143000" />
+      <workItem from="1707358894959" duration="2101000" />
+      <workItem from="1707436316894" duration="6659000" />
+      <workItem from="1707963370065" duration="8609000" />
+      <workItem from="1708023800701" duration="4860000" />
+      <workItem from="1708030510611" duration="23027000" />
+      <workItem from="1708108320612" duration="14814000" />
+      <workItem from="1708390448578" duration="1690000" />
+      <workItem from="1708655950292" duration="1755000" />
+      <workItem from="1708659532126" duration="1499000" />
+      <workItem from="1709069223634" duration="8716000" />
+      <workItem from="1709169898274" duration="7895000" />
+      <workItem from="1709259947762" duration="5070000" />
+      <workItem from="1709270295437" duration="1803000" />
+      <workItem from="1709320859807" duration="6923000" />
+      <workItem from="1709523945606" duration="443000" />
+      <workItem from="1709524396420" duration="3190000" />
+      <workItem from="1709604002929" duration="2162000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added spans and Tested all the form validation so it works correctly on the new-app page">
+      <option name="closed" value="true" />
+      <created>1707179489410</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707179489410</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Corrected all the contact form validations so they are not required and only check if something is inputed.&#10;&#10;Corrected follow up date so it always defults to 2 weeks from now, and moves around to follow the chosen interview date.">
+      <option name="closed" value="true" />
+      <created>1707451991638</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707451991638</updated>
+    </task>
+    <task id="LOCAL-00003" summary="All new Users now get added to the database, &#10;(will need to test once its in as ive only tested(thoroughly) on my cpanel.) &#10;New file get-recent-applications pulls that data along with a script that is currently in both index.html and admin-dashboard.html as a place holder till it works in the script.js. &#10;&#10;fixed the application_date and follow_up_date so they are recorded along with the rest of the data. &#10;&#10;Removed place holder information in index and admin and now replaced with a Id that fills out the recent apps. &#10;&#10;Implented the reciept correctly so it formats equally to the others. (Some assisting code is being kept in to say if its connecting or not to help when testing once in the main app, will probably have another super small pr after to remove this.)">
+      <option name="closed" value="true" />
+      <created>1708125348569</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708125348569</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added a set 1 for Id">
+      <option name="closed" value="true" />
+      <created>1708132793746</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708132793746</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added spans and Tested all the form validation so it works correctly on the new-app page" />
+    <MESSAGE value="Corrected all the contact form validations so they are not required and only check if something is inputed.&#10;&#10;Corrected follow up date so it always defults to 2 weeks from now, and moves around to follow the chosen interview date." />
+    <MESSAGE value="All new Users now get added to the database, &#10;(will need to test once its in as ive only tested(thoroughly) on my cpanel.) &#10;New file get-recent-applications pulls that data along with a script that is currently in both index.html and admin-dashboard.html as a place holder till it works in the script.js. &#10;&#10;fixed the application_date and follow_up_date so they are recorded along with the rest of the data. &#10;&#10;Removed place holder information in index and admin and now replaced with a Id that fills out the recent apps. &#10;&#10;Implented the reciept correctly so it formats equally to the others. (Some assisting code is being kept in to say if its connecting or not to help when testing once in the main app, will probably have another super small pr after to remove this.)" />
+    <MESSAGE value="Added a set 1 for Id" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a set 1 for Id" />
+  </component>
+</project>
