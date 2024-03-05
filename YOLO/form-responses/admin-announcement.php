@@ -106,7 +106,7 @@
                 <div class='container-fluid'>
                     <div class='row col-12'>
                         <header>
-                            <h1>Admin Announcement Completed</h1>
+                            <h1>Admin Announcement Form Completed</h1>
                         </header>
                     </div>
 
