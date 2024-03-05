@@ -1,14 +1,14 @@
 /*This file contains scripts to get announcements
-* made in the last five days.
+* made in the last five days for the student homepage.
 *
 * Author: Sage Markwardt
-* Date last touched: 2/28/2024
-* File: get-announcements.js
+* Date last touched: 3/4/2024
+* File: get-announcements-students.js
 * */window.addEventListener("load", function (event) {
-    getAnnouncements();
+    getAnnouncementsStudents();
 })
 
-async function getAnnouncements() {
+async function getAnnouncementsStudents() {
     // first grab the date range +-5
     let today = new Date();
     let lastFiveDays = new Date(today);
@@ -23,8 +23,8 @@ async function getAnnouncements() {
             return response.json();
         })
         .then(data => {
-            const reminders = document.getElementById('reminders');
-            if (!reminders) {
+            const announcement = document.getElementById('announcements');
+            if (!announcement) {
                 console.error('Announcements not found in HTML');
                 return;
             }
@@ -40,24 +40,19 @@ async function getAnnouncements() {
 
                     row.innerHTML = `
                        
-                            <!-- The following form method assigns the Id and allows us to direct to
-                            the correct form for updating/viewing so the user can follow up or say they did
-                             TODO: add correct link to the announcements view page instead of edit app page-->
-                            <div class="border border-success rounded mb-4 p-2 overflow-auto">
-                                <div>
-                                    <form method="POST" action="../form-responses/edit-app-form.php">
-                                        <input type = "hidden" name = "announcementId" value = "${announcements.announcementsId}">
-                                        <p><b>Announcement:</b> ${announcements.title} posted on ${formattedDate}</p>
-                                        <button type = "submit">View</button>
-                                    </form>
-                                </div>
-                            </div>
+                            <form id = "${announcements.announcementsId}" method = "POST">
+                                <input type = "hidden" name = "announcementId" value = "${announcements.announcementsId}">
+                                <a href="javascript:void(0);" onclick="document.getElementById('${announcements.announcementsId}').submit();"><i class="fa-solid fa-bullhorn"></i>
+                                ${announcements.title}</a>
+                                <p class = "dated">Posted: ${formattedDate}</p>
+                            </form>
                        `;
-                    reminders.appendChild(row);
+                    announcement.appendChild(row);
                 }
+
             });
         })
         .catch((error) => {
-            console.error('Error loading follow ups:', error);
+            console.error('Error loading announcements:', error);
         });
 }
