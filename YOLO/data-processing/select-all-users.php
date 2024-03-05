@@ -1,3 +1,11 @@
+<!--
+    This page selects all users from the users table and echos it out for the front end to pick up.
+
+    Author: Tien Han
+    File: select-all-users.php
+    Date: 3/4/2024
+ -->
+
 <?php
     // PHP class that holds user information needed for the Users table
     class User {

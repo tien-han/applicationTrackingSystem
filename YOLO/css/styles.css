@@ -122,12 +122,26 @@ label#darkmode-label:active:after {
 }
 
 /* ------------------------------Homepage Styling------------------------------ */
-/* Reminders Section*/
-#reminders {
-  text-align: center;
+/* Reminders and Announcements Section*/
+#reminders, #announcements {
+  text-align: left;
   width: 100%;
   padding: 15px;
 }
+
+#reminders a, #announcements a{
+  text-decoration: none;
+}
+
+#reminders a:hover, #announcements a:hover{
+  text-decoration: underline;
+}
+
+.dated {
+  color: #6CB443;
+  margin-left: 20px;
+}
+
 
 /* New App Button */
 #newApp {

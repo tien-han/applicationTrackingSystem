@@ -1,3 +1,11 @@
+/*This file contains scripts to get follow-up
+* dates 5 days from today for the student homepage.
+*
+* Author: Sage Markwardt
+* Date last touched: 3/4/2024
+* File: get-follow-ups.js
+
+ */
 window.addEventListener("load", function (event) {
     getFollowUps();
 })
@@ -34,19 +42,37 @@ async function getFollowUps() {
                     let follow_up_date = new Date(application.follow_up_date);
                     let formattedDate = follow_up_date.toISOString().split('T')[0];
 
-                    row.innerHTML = `
-                       
-                            <div class="border border-success rounded mb-4 p-2 overflow-auto">
-                                <div>
-                            <form method="POST" action="/YOLO/form-responses/edit-app-form.php">
+                    // for late items, turn the bell red
+                    if (today > follow_up_date){
+                        row.innerHTML = `
+                            <form id = "${application.applicationsId}" action="/YOLO/form-responses/edit-app-form.php" method = "POST">
                                 <input type = "hidden" name = "applicationId" value = "${application.applicationsId}">
-                                <p>Follow up with ${application.employer_name} by ${formattedDate}</p>
-                                <button type = "submit">View</button>
+                                <a href="javascript:void(0);" onclick="document.getElementById('${application.applicationsId}').submit();"><span style = "color:#D14900;"><i class="fa-solid fa-bell"></i></span>
+                                Follow up with ${application.employer_name}</a>
+                                <p class = "dated" style = "color:#D14900;">Overdue: ${formattedDate}</p>
                             </form>
-                            </div>
-                            </div>
+                          
                        `;
+
+                    } else {
+                        // print the bell icon default color for non-late items
+                        row.innerHTML = `
+                       
+                            <form id = "${application.applicationsId}" action="/YOLO/form-responses/edit-app-form.php" method = "POST">
+                                <input type = "hidden" name = "applicationId" value = "${application.applicationsId}">
+                                <a href="javascript:void(0);" onclick="document.getElementById('${application.applicationsId}').submit();"><i class="fa-solid fa-bell"></i>
+                                Follow up with ${application.employer_name}</a>
+                                <p class = "dated">Due: ${formattedDate}</p>
+                            </form>
+                            
+                            
+                          
+                       `;
+                    }
+
                     reminders.appendChild(row);
+
+
                 }
             });
         })
