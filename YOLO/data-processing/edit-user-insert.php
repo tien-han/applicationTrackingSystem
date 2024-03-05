@@ -148,7 +148,7 @@
                     <a class="nav-link" href="../pages/new-app.html">New Application</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="../pages/sign-up.html">Sign Up</a>
+                    <a class="nav-link" href="../pages/sign-up.html">Sign Up</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/contact.html">Contact</a>
