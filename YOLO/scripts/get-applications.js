@@ -33,7 +33,7 @@ async function getApplications() {
                             </form>
                         </td>
                         <td>
-                            <form method="POST" action="../data-processing/softDelete.php">
+                            <form method="POST" action="/YOLO/data-processing/softDelete.php">
                                 <input type="hidden" name="applicationId" value="${application.applicationsId}">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
