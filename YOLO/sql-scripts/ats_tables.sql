@@ -25,12 +25,12 @@ DROP TABLE IF EXISTS roles;
 -- Table structure for table `roles`
 --
 CREATE TABLE IF NOT EXISTS `roles`(
-    `roleId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `role_name` VARCHAR(255) NOT NULL UNIQUE,
+                                      `roleId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                      `role_name` VARCHAR(255) NOT NULL UNIQUE,
     `role_description` VARCHAR(255) DEFAULT NULL,
     `created_at` DATETIME DEFAULT NULL,
     `deleted_at` DATETIME DEFAULT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 --
 -- Dumping data for table `roles`
 --
@@ -40,22 +40,22 @@ INSERT INTO `roles`(
     `created_at`
 )
 VALUES (
-    'Admin',
-    'Has the ability to add applications and edit/delete users and applications.',
-    '2024-2-26 12:00:00'
-), (
-    'User',
-    'Has the ability to add applications and edit/delete their added applications.',
-    '2024-2-26 12:00:00'
-);
+           'Admin',
+           'Has the ability to add applications and edit/delete users and applications.',
+           '2024-2-26 12:00:00'
+       ), (
+           'User',
+           'Has the ability to add applications and edit/delete their added applications.',
+           '2024-2-26 12:00:00'
+       );
 
 -- --------------------------------------------------------
 --
 -- Table structure for table `users`
 --
 CREATE TABLE IF NOT EXISTS `users`(
-    `userId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) DEFAULT NULL,
+                                      `userId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                      `name` VARCHAR(255) DEFAULT NULL,
     `email` VARCHAR(255) DEFAULT NULL,
     `cohort` INT DEFAULT NULL,
     `status` VARCHAR(255) DEFAULT NULL,
@@ -64,12 +64,12 @@ CREATE TABLE IF NOT EXISTS `users`(
     `updated_at` DATETIME DEFAULT NULL,
     `user_deleted` BOOLEAN DEFAULT FALSE,
     `user_deleted_at` DATETIME DEFAULT NULL,
-    `user_hard_delete` BOOLEAN DEFAULT FALSE, 
+    `user_hard_delete` BOOLEAN DEFAULT FALSE,
     `admin_deleted` BOOLEAN DEFAULT FALSE,
     `admin_deleted_at` DATETIME DEFAULT NULL,
     `admin_hard_delete` BOOLEAN DEFAULT FALSE,
     `deleted_at` DATETIME DEFAULT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 --
 -- Dumping data for table `users` (students)
 --
@@ -81,66 +81,66 @@ INSERT INTO `users`(
     `roles`
 )
 VALUES (
-    'Annie Appletree',
-    'annie@apple.com',
-    10,
-    'Seeking Internship',
-    'Full time'
-), (
-    'Miedrail Pelilde',
-    'm.pelilde@student.greenriver.edu',
-    11,
-    'Seeking Job',
-    'Full time'
-), (
-    'Am Raingloom',
-    'rgloom@student.greenriver.edu',
-    11,
-    'Not Actively Searching',
-    'Full time'
-), (
-    'Ufuh Rolod',
-    'ufuhrolod@student.greenriver.edu',
-    11,
-    'Seeking Internship',
-    'Full time'
-), (
-    'Nia Uy',
-    'nia@student.greenriver.edu',
-    11,
-    'Not Actively Searching',
-    'Full time'
-), (
-    'Mildred',
-    'milly@student.greenriver.edu',
-    11,
-    'Seeking Job',
-    'Full time'
-), (
-    'Anna',
-    'anna@student.greenriver.edu',
-    11,
-    'Seeking Internship',
-    'Full time'
-), (
-    'Keith',
-    'kelly@student.greenriver.edu',
-    11,
-    'Not Actively Searching',
-    'Full time'
-), (
-    'Melyvr',
-    'melly@student.greenriver.edu',
-    11,
-    'Seeking Job',
-    'Full time'
-), (
-    'Zach the Crab',
-    'crabby@student.greenriver.edu',
-    11,
-    'Seeking Job',
-    'Full time'
-);
+           'Annie Appletree',
+           'annie@apple.com',
+           10,
+           'Seeking Internship',
+           'Full time'
+       ), (
+           'Miedrail Pelilde',
+           'm.pelilde@student.greenriver.edu',
+           11,
+           'Seeking Job',
+           'Full time'
+       ), (
+           'Am Raingloom',
+           'rgloom@student.greenriver.edu',
+           11,
+           'Not Actively Searching',
+           'Full time'
+       ), (
+           'Ufuh Rolod',
+           'ufuhrolod@student.greenriver.edu',
+           11,
+           'Seeking Internship',
+           'Full time'
+       ), (
+           'Nia Uy',
+           'nia@student.greenriver.edu',
+           11,
+           'Not Actively Searching',
+           'Full time'
+       ), (
+           'Mildred',
+           'milly@student.greenriver.edu',
+           11,
+           'Seeking Job',
+           'Full time'
+       ), (
+           'Anna',
+           'anna@student.greenriver.edu',
+           11,
+           'Seeking Internship',
+           'Full time'
+       ), (
+           'Keith',
+           'kelly@student.greenriver.edu',
+           11,
+           'Not Actively Searching',
+           'Full time'
+       ), (
+           'Melyvr',
+           'melly@student.greenriver.edu',
+           11,
+           'Seeking Job',
+           'Full time'
+       ), (
+           'Zach the Crab',
+           'crabby@student.greenriver.edu',
+           11,
+           'Seeking Job',
+           'Full time'
+       );
 
 --
 -- Dumping data for table `users` (will be admin)
@@ -150,22 +150,22 @@ INSERT INTO `users`(
     `email`
 )
 VALUES (
-    'Prof. Layton',
-    'layton.mobile@teachersRUs.com'
-);
+           'Prof. Layton',
+           'layton.mobile@teachersRUs.com'
+       );
 
 -- --------------------------------------------------------
 --
 -- Table structure for table `user_roles`
 --
 CREATE TABLE IF NOT EXISTS `user_roles`(
-    `userRoleId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `userId` INT NOT NULL REFERENCES users(userId),
+                                           `userRoleId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                           `userId` INT NOT NULL REFERENCES users(userId),
     `roleId` INT NOT NULL REFERENCES roles(roleId),
     `created_at` DATETIME DEFAULT NULL,
     `deleted_at` DATETIME DEFAULT NULL,
     UNIQUE(userId, roleId)
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 --
 -- Dumping data for table `user_roles`
 --
@@ -175,63 +175,63 @@ INSERT INTO `user_roles`(
     `created_at`
 )
 VALUES (
-    1,
-    1,
-    '2024-2-26 12:00:00'
-), (
-    2,
-    2,
-    '2024-2-26 12:00:00'
-), (
-    3,
-    2,
-    '2024-2-26 12:00:00'
-), (
-    4,
-    2,
-    '2024-2-26 12:00:00'
-), (
-    5,
-    1,
-    '2024-2-26 12:00:00'
-), (
-    5,
-    2,
-    '2024-2-26 12:00:00'
-), (
-    6,
-    2,
-    '2024-2-26 12:00:00'
-), (
-    7,
-    2,
-    '2024-2-26 12:00:00'
-), (
-    8,
-    2,
-    '2024-2-26 12:00:00'
-), (
-    9,
-    2,
-    '2024-2-26 12:00:00'
-), (
-    10,
-    2,
-    '2024-2-26 12:00:00'
-), (
-    11,
-    1,
-    '2024-2-26 12:00:00'
-);
+           1,
+           1,
+           '2024-2-26 12:00:00'
+       ), (
+           2,
+           2,
+           '2024-2-26 12:00:00'
+       ), (
+           3,
+           2,
+           '2024-2-26 12:00:00'
+       ), (
+           4,
+           2,
+           '2024-2-26 12:00:00'
+       ), (
+           5,
+           1,
+           '2024-2-26 12:00:00'
+       ), (
+           5,
+           2,
+           '2024-2-26 12:00:00'
+       ), (
+           6,
+           2,
+           '2024-2-26 12:00:00'
+       ), (
+           7,
+           2,
+           '2024-2-26 12:00:00'
+       ), (
+           8,
+           2,
+           '2024-2-26 12:00:00'
+       ), (
+           9,
+           2,
+           '2024-2-26 12:00:00'
+       ), (
+           10,
+           2,
+           '2024-2-26 12:00:00'
+       ), (
+           11,
+           1,
+           '2024-2-26 12:00:00'
+       );
 
 -- --------------------------------------------------------
 --
 -- Table structure for table `applications`
 --
 CREATE TABLE IF NOT EXISTS `applications`(
-    `applicationsId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `userId` INT NOT NULL,
-    `role_name` VARCHAR(255) DEFAULT NULL,
+                                             `applicationsId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                             `userId` INT NOT NULL,
+                                             `role_name` VARCHAR(255) DEFAULT NULL,
     `job_description` VARCHAR(255) DEFAULT NULL,
     `application_date` DATETIME DEFAULT NULL,
     `follow_up_date` DATETIME DEFAULT NULL,
@@ -244,13 +244,13 @@ CREATE TABLE IF NOT EXISTS `applications`(
     `created_at` DATETIME DEFAULT NULL,
     `user_deleted` BOOLEAN DEFAULT FALSE,
     `user_deleted_at` DATETIME DEFAULT NULL,
-    `user_hard_delete` BOOLEAN DEFAULT FALSE, 
+    `user_hard_delete` BOOLEAN DEFAULT FALSE,
     `admin_deleted` BOOLEAN DEFAULT FALSE,
     `admin_deleted_at` DATETIME DEFAULT NULL,
     `admin_hard_delete` BOOLEAN DEFAULT FALSE,
     `deleted_at` DATETIME DEFAULT NULL,
     FOREIGN KEY (userId) REFERENCES users(userId)
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 --
 -- Dumping data for table `applications`
 --
@@ -261,7 +261,6 @@ INSERT INTO `applications`(
     `application_date`,
     `employer_name`,
     `status`
-        `userId`
 )
 VALUES (
            1,
@@ -306,7 +305,6 @@ VALUES (
            'Petsmart',
            'Inactive/Expired'
        );
-
 -------
 /* Announcements Table */
 
