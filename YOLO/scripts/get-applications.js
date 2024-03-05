@@ -25,7 +25,7 @@ async function getApplications() {
                     <!-- The following form method assigns the Id and allows us to direct to
                         the correct form for updating -->
                     <td>
-                        <form method="POST" action="../form-responses/edit-app-form.php">
+                        <form method="POST" action="/YOLO/form-responses/edit-app-form.php">
                             <input type="hidden" name="applicationId" value="${application.applicationsId}">
                             <button type="submit" class="btn btn-success">Update</button>
                         </form>

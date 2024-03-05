@@ -40,9 +40,9 @@ async function getAnnouncementsStudents() {
 
                     row.innerHTML = `
                        
-                            <form id = "${announcements.announcementsId}" method = "POST">
+                            <form id = "${announcements.announcementsId}" method = "POST" action="/YOLO/form-responses/detailsPage.php">
                                 <input type = "hidden" name = "announcementId" value = "${announcements.announcementsId}">
-                                <a href="javascript:void(0);" onclick="document.getElementById('${announcements.announcementsId}').submit();"><i class="fa-solid fa-bullhorn"></i>
+                                <a href="/YOLO/data-processing/detailsPage.php?id=${announcement.announcementId}" class="announcement-title"><i class="fa-solid fa-bullhorn"></i>
                                 ${announcements.title}</a>
                                 <p class = "dated">Posted: ${formattedDate}</p>
                             </form>
