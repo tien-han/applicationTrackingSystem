@@ -2,7 +2,7 @@
     ob_start();
     header('Content-Type: application/json');
     require '/home/cicadagr/atsdb.php';
-    $sql = "SELECT * FROM applications WHERE admin_deleted = 1 ORDER BY application_date DESC LIMIT 5";
+    $sql = "SELECT * FROM applications WHERE admin_deleted = 0 ORDER BY application_date DESC LIMIT 5";
     $result = mysqli_query($cnxn, $sql);
     $recentApplications = [];
     if (mysqli_num_rows($result) > 0) {

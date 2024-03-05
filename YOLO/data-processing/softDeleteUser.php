@@ -127,6 +127,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 <!-- Form validation and dark mode script -->
-<script type="text/javascript" src="sprint3/scripts/script.js"></script>
+<script type="text/javascript" src="../scripts/script.js"></script>
 </body>
 </html>
