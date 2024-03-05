@@ -3,12 +3,12 @@
 *
 * Author: Sage Markwardt
 * Date last touched: 3/4/2024
-* File: get-announcements.js
+* File: get-announcements-students.js
 * */window.addEventListener("load", function (event) {
-    getAnnouncements();
+    getAnnouncementsStudents();
 })
 
-async function getAnnouncements() {
+async function getAnnouncementsStudents() {
     // first grab the date range +-5
     let today = new Date();
     let lastFiveDays = new Date(today);
