@@ -102,16 +102,25 @@
                         </div>
                     </div>
                     <!-- Reminders -->
-                    <div class="container border border-success rounded col-sm-4 text-break">
-                        <h2 class="text-center p-2">Recent Announcements</h2>
-                        <div id="reminders">
-                            <!-- recent announcements will be placed here -->
+                    <div id="reminders" class="container border border-success rounded col-sm-4 text-break">
+                        <h2 class="text-center p-2">Reminders</h2>
+                        <div class="border border-success rounded mb-4 p-2">
+                            <table class="table text-center align-middle">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Job Type</th>
+                                </tr>
+                                </thead>
+                                <tbody id="announcementsDiv">
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
     <!-- Admin Homepage Dashboard for Seeing Users-->
     <div class="row">
