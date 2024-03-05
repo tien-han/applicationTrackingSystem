@@ -268,3 +268,77 @@ VALUES (
     'GRC',
     1
 );
+
+-------
+/* Announcements Table */
+
+CREATE TABLE IF NOT EXISTS `announcements`(
+    `announcementsId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `userId` INT NOT NULL,
+    `date` DATETIME DEFAULT NULL,
+    `title` VARCHAR(50) DEFAULT NULL,
+    `more_info` VARCHAR(255) DEFAULT NULL,
+    `job_type` VARCHAR(10) DEFAULT NULL,
+    `location` VARCHAR(100) DEFAULT NULL,
+    `employer` VARCHAR(100) DEFAULT NULL,
+    `url` VARCHAR(255) DEFAULT NULL,
+    `email` VARCHAR(255) DEFAULT NULL,
+    FOREIGN KEY (userId) REFERENCES users(userId)
+    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+
+INSERT INTO announcements(
+    `userId`,
+    `date`,
+    `title`,
+    `more_info`,
+    `job_type`,
+    `location`,
+    `employer`,
+    `url`,
+    `email`)
+VALUES (
+           3, '2024-02-28 12:32:32', "Boeing just posted Internships!", "This announcement is about some very important new internships at Boeing!", "Intern", "Seattle, WA", "Boeing", "www.boeing.com", "ethan@ethan.com"
+       );
+
+INSERT INTO announcements(
+    `userId`,
+    `date`,
+    `title`,
+    `more_info`,
+    `job_type`,
+    `location`,
+    `employer`,
+    `url`,
+    `email`)
+VALUES (
+           2, 3, '2024-02-01 12:32:32', "February job openings!", "Boeing is hiring some full-time entry level people this week!", "Intern", "Seattle, WA", "Boeing", "www.boeing.com", "etn@etn.com"
+       );
+
+INSERT INTO announcements(
+    `userId`,
+    `date`,
+    `title`,
+    `more_info`,
+    `job_type`,
+    `location`,
+    `employer`,
+    `url`,
+    `email`)
+VALUES (
+           3, '2024-03-04 12:32:32', "Today is the last day!", "For those interested in the distribution and trucking industry, Paccar is looking for new interns!", "Intern", "Seattle, WA", "Paccar", "www.boeing.com", "ethan@ethan.com"
+       );
+
+INSERT INTO announcements(
+    `announcementsId`,
+    `userId`,
+    `date`,
+    `title`,
+    `more_info`,
+    `job_type`,
+    `location`,
+    `employer`,
+    `url`,
+    `email`)
+VALUES (
+           3, '2024-03-03 12:32:32', "CS Scholarships", "There are some great scholarships out for students, please take a look at the links attached."Intern", "Seattle, WA", "Boeing", "www.boeing.com", "ethan@ethan.com"
+       )
