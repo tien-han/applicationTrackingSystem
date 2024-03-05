@@ -40,7 +40,7 @@ async function getAnnouncementsStudents() {
 
                     row.innerHTML = `
                        
-                            <a href="/TestingforApp/data-processing/detailsPage.php?id=${announcements.announcementId}" class="announcement-title"><i class="fa-solid fa-bullhorn"></i>
+                            <a href="/YOLO/data-processing/detailsPage.php?id=${announcements.announcementId}" class="announcement-title"><i class="fa-solid fa-bullhorn"></i>
                                 ${announcements.title}</a>
                                 <p class = "dated">Posted: ${formattedDate}</p>
                        `;
