@@ -19,7 +19,7 @@ async function getFollowUps() {
     fiveDaysLate.setDate(today.getDate() - 5)
 
     // grab our data and create our rows
-    await fetch("/YOLO/data-processing/get-follow-up-applications.php")
+    await fetch("/sprint4/data-processing/get-follow-up-applications.php")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Something went wrong while trying to get all applications.");
@@ -43,9 +43,9 @@ async function getFollowUps() {
                     let formattedDate = follow_up_date.toISOString().split('T')[0];
 
                     // for late items, turn the bell red
-                    if (today > follow_up_date){
+                    if (today > follow_up_date) {
                         row.innerHTML = `
-                            <form id = "${application.applicationsId}" action="/YOLO/form-responses/edit-app-form.php" method = "POST">
+                            <form id = "${application.applicationsId}" action="/sprint4/form-responses/edit-app-form.php" method = "POST">
                                 <input type = "hidden" name = "applicationId" value = "${application.applicationsId}">
                                 <a href="javascript:void(0);" onclick="document.getElementById('${application.applicationsId}').submit();"><span style = "color:#D14900;"><i class="fa-solid fa-bell"></i></span>
                                 Follow up with ${application.employer_name}</a>
@@ -58,7 +58,7 @@ async function getFollowUps() {
                         // print the bell icon default color for non-late items
                         row.innerHTML = `
                        
-                            <form id = "${application.applicationsId}" action="/YOLO/form-responses/edit-app-form.php" method = "POST">
+                            <form id = "${application.applicationsId}" action="/sprint4/form-responses/edit-app-form.php" method = "POST">
                                 <input type = "hidden" name = "applicationId" value = "${application.applicationsId}">
                                 <a href="javascript:void(0);" onclick="document.getElementById('${application.applicationsId}').submit();"><i class="fa-solid fa-bell"></i>
                                 Follow up with ${application.employer_name}</a>

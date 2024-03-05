@@ -77,36 +77,34 @@ require '/home/cicadagr/atsdb.php'; // Include your database connection
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $applicationId = $_POST["applicationId"];
+    $userId = $_POST["userId"];
     //echo $applicationId . "</br>";
 
     // Validate and sanitize the input
-    $applicationId = filter_var($applicationId, FILTER_SANITIZE_NUMBER_INT);
+    $userId = filter_var($userId, FILTER_SANITIZE_NUMBER_INT);
     //echo $applicationId . "</br>";
     //echo gettype($applicationId) . "</br>";
 
     // Check if the application ID is valid
-    if ($applicationId !== null) {
+    if ($userId !== null) {
         // Perform the soft delete operation
-        $sql = "UPDATE applications SET admin_deleted = 0 WHERE applicationsId = " . $applicationId;
+        $sql = "UPDATE users SET user_deleted = 1 WHERE userId = " . $userId;
         // echo($sql) . "</br>";
         $result = mysqli_query($cnxn, $sql);
 
         // Bind parameters and execute the query
         if ($result) {
             // Soft delete successful
-            json_encode(['success' => true, 'message' => 'Application deleted successfully']);
+            json_encode(['success' => true, 'message' => 'User deleted successfully']);
         } else {
             // Soft delete failed
-            echo json_encode(['success' => false, 'message' => 'Failed to delete application']);
+            echo json_encode(['success' => false, 'message' => 'Failed to delete user']);
         }
     } else {
         // Invalid application ID
-        echo json_encode(['success' => false, 'message' => 'Invalid application ID']);
-        echo json_encode($applicationsId);
+        echo json_encode(['success' => false, 'message' => 'Invalid user ID']);
+        echo json_encode($userId);
     }
-
-
 
 
     echo "<div class='form-container pt-0'>
@@ -114,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
 
         <h1 class='pt-5 header-text'></h1>
-        <h5>Successfully deleted application with the ID of: " . $applicationId . ".</h5><br/>
+        <h5>Successfully deleted user with the ID of: " . $userId . ".</h5><br/>
        
         </div>
         </div>
