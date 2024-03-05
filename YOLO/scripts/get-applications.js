@@ -41,15 +41,15 @@ async function getApplications() {
                 tableBody.appendChild(row);
             });
 
+            console.log("Attempting to add delete buttons");
+
             // Add event listeners for delete buttons
             const deleteButtons = document.querySelectorAll('.btn-danger');
             deleteButtons.forEach(button => {
                 button.addEventListener('click', deleteButtons);
-
-
             });
 
-
+            console.log("Failed on adding delete buttons");
         })
         .catch((error) => {
             console.error('Error loading recent applications:', error);
