@@ -38,14 +38,11 @@ async function getAnnouncementsStudents() {
                     // we'll change the format of the dates so it doesn't display the h/m/s
                     let formattedDate = announcement_date.toISOString().split('T')[0];
 
-                    row.innerHTML = `
-                       
-                            <form id = "${announcements.announcementsId}" method = "POST" action="/sprint4/form-responses/detailsPage.php">
-                                <input type = "hidden" name = "announcementId" value = "${announcements.announcementsId}">
-                                <a href="/sprint4/data-processing/detailsPage.php?id=${announcement.announcementId}" class="announcement-title"><i class="fa-solid fa-bullhorn"></i>
+                    row.innerHTML =
+                        `
+                            <a href="/sprint4/data-processing/detailsPage.php?id=${announcements.announcementId}" class="announcement-title"><i class="fa-solid fa-bullhorn"></i>
                                 ${announcements.title}</a>
-                                <p class = "dated">Posted: ${formattedDate}</p>
-                            </form>
+                            <p class = "dated">Posted: ${formattedDate}</p>
                        `;
                     announcement.appendChild(row);
                 }
