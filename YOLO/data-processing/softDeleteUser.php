@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check if the application ID is valid
     if ($userId !== null) {
         // Perform the soft delete operation
-        $sql = "UPDATE users SET user_deleted = 0 WHERE userId = " . $userId;
+        $sql = "UPDATE users SET user_deleted = 1 WHERE userId = " . $userId;
         // echo($sql) . "</br>";
         $result = mysqli_query($cnxn, $sql);
 
