@@ -2,8 +2,6 @@
 // Start the session
 session_start();
 
-include ('pizza-order-form/index.php');
-
 // Get DB Connection credentials
 require '/home/cicadagr/pizzadb.php';
 // Check if the user is logged in
