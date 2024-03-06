@@ -3,7 +3,7 @@ window.addEventListener("load", function (event) {
 })
 
 async function getApplications() {
-    await fetch("/YOLO/data-processing/get-recent-applications.php")
+    await fetch("/sprint4/data-processing/get-recent-applications.php")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Something went wrong while trying to get all applications.");
@@ -27,13 +27,13 @@ async function getApplications() {
                         <!-- The following form method assigns the Id and allows us to direct to
                             the correct form for updating -->
                         <td>
-                            <form method="POST" action="/YOLO/form-responses/edit-app-form.php">
+                            <form method="POST" action="/sprint4/form-responses/edit-app-form.php">
                                 <input type="hidden" name="applicationId" value="${application.applicationsId}">
                                 <button type="submit" class="btn btn-success">Update</button>
                             </form>
                         </td>
                         <td>
-                            <form method="POST" action="/YOLO/data-processing/softDelete.php">
+                            <form method="POST" action="/sprint4/data-processing/softDelete.php">
                                 <input type="hidden" name="applicationId" value="${application.applicationsId}">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>

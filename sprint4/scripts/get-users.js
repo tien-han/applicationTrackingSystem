@@ -46,7 +46,7 @@ $(window).on('resize', function () {
 //This method gets all users with fetch() and kicks off "updateUsersTable()" to populate the users table
 //Note: The given path is relative to home, not where the file is
 async function getUsers() {
-    await fetch("/YOLO/data-processing/select-all-users.php")
+    await fetch("/sprint4/data-processing/select-all-users.php")
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Something went wrong while trying to get all users.");
