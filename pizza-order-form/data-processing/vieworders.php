@@ -1,6 +1,20 @@
 <?php
+include ('pizza-order-form/index.php');
+// Start the session
+session_start();
+
 // Get DB Connection credentials
 require '/home/cicadagr/pizzadb.php';
+
+
+// Check if the user is logged in
+if (!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) {
+    // Redirect to login.php if not logged in
+    header("Location: index.php");
+    exit();
+}
+
+// Display orders or any relevant content for logged-in users
 
 // Fetch all orders from the Orders table
 $ordersSQL = "SELECT * FROM Orders";
