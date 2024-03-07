@@ -3,7 +3,7 @@
 
     Author: Sage, Colton, Gene, Tien
     File: sign-up.html
-    Date: 1/30/2024
+    Date: 3/5/2024
  -->
 
 <!DOCTYPE html>
@@ -78,10 +78,10 @@
 
     <div class="row justify-content-center">
         <form class="form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12" id="signUp" method="POST"
-            action="../form-responses/sign-up-form.php">
+            action="../form-responses/sign-up-form.php" onsubmit="return validateUserSignUp()">
             <!-- Name -->
             <div class="form-group">
-                <label for="name">Name*</label>
+                <label for="name">Name*</label><span class="text-danger" id="name-error"></span>
                 <input type="text" class="form-control" id="name" name="name" maxlength="100" minlength="1"
                     aria-describedby="nameHelp" placeholder="Enter name" required>
                 <small id="nameHelp" class="form-text text-muted"></small>
@@ -120,7 +120,7 @@
             </section>
 
             <!-- Text (Seeking what types of roles) -->
-            <section class="form-group">
+            <section class="form-group"><span class="text-danger" id="message-error"></span>
                 <label for="seekingRoles">What types of roles are you seeking?*</label>
                 <textarea class="form-control" name="seekingRoles" id="seekingRoles" rows="4" required></textarea>
             </section>
