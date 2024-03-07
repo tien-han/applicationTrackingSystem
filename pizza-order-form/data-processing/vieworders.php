@@ -7,7 +7,7 @@ require '/home/cicadagr/pizzadb.php';
 // Check if the user is logged in
 if (!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) {
     // Redirect to login.php if not logged in
-    header("Location: /pizza-order-form/data-processing/index.php");
+    header("Location: /pizza-order-form/index.php");
     exit();
 }
 
