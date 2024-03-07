@@ -4,13 +4,8 @@
 
     Author: Tien Han
     File: get-users.js
-    Date: 3/4/2024
+    Date: 3/7/2024
 */
-
-//When the dom elements complete loading, populate the users table with users
-window.addEventListener("load", function (event) {
-    getUsers();
-})
 
 //Make the users table into a datatable & set parameters
 $(document).ready(function () {
@@ -37,6 +32,9 @@ $(document).ready(function () {
         ],
         autoWidth: false,
     });
+
+    //Populate the users table with users
+    getUsers();
 });
 
 $(window).on('resize', function () {

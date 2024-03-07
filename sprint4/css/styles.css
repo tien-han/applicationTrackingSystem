@@ -129,11 +129,11 @@ label#darkmode-label:active:after {
   padding: 15px;
 }
 
-#reminders a, #announcements a{
+#reminders a, #announcements a {
   text-decoration: none;
 }
 
-#reminders a:hover, #announcements a:hover{
+#reminders a:hover, #announcements a:hover {
   text-decoration: underline;
 }
 
@@ -141,7 +141,6 @@ label#darkmode-label:active:after {
   color: #6CB443;
   margin-left: 20px;
 }
-
 
 /* New App Button */
 #newApp {
@@ -170,12 +169,20 @@ label#darkmode-label:active:after {
   padding: 15px;
 }
 
-/* ------------------------------Admin Homepage Styling------------------------------ */
+/* ------------------------------Datatable Styling------------------------------ */
 #users-table tr:hover td {
   background-color: #f1f1f1;
 }
 
 body.darkMode #users-table tr:hover td {
+  background-color: #333333;
+}
+
+#applications-table tr:hover td {
+  background-color: #f1f1f1;
+}
+
+body.darkMode #applications-table tr:hover td {
   background-color: #333333;
 }
 

@@ -1,10 +1,10 @@
 <!--
     This page features a dashboard where users can keep track of job applications and
-	receive reminders about their "to-do's".
+	receive reminders about their applications and recent admin announcements.
 
-    Author: Sage, Colton, Gene, Tien
+    Author: Sage, Colton, Gene, Tien Han
     File: index.html
-    Date: 3/5/2024
+    Date: 3/7/2024
  -->
 
 <!DOCTYPE html>
@@ -14,10 +14,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Dashboard</title>
+    <!-- Favicon for the tab -->
     <link rel="icon" type="image/x-icon" href="images/GRC_logo.png">
     <!-- Bootstrap CDN -->
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+    <!-- Datatables CDN -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" />
     <!-- Link to connect free icons -->
     <script src="https://kit.fontawesome.com/bf84dcb5c2.js" crossorigin="anonymous"></script>
     <!-- Our personal CSS styles -->
@@ -78,34 +81,44 @@
             </header>
         </div>
 
-        <!-- Main Homepage Dashboard -->
+        <!-- Main Homepage Dashboard for Recent Applications -->
         <div class="row">
             <div class="container m-3">
                 <div class="row col-12">
-                    <!-- Recent Applications -->
-                    <div class="border border-success rounded col-12 col-md-8 text-break">
-                        <h2 class="text-center p-2">Recent Applications</h2>
-                        <table class="table text-center align-middle">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Update</th>
-                                    <th scope="col">Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody id="applicationsTableBody">
-
-                            </tbody>
-                        </table>
-                        <!-- <div class="text-center">
-                            <button type="button">MORE</button>
-                        </div> -->
+                    <div class="border border-success rounded col-md-8">
+                        <!-- Table Title -->
+                        <div class="align-items-center">
+                            <h2 class="text-center p-2">Recent Applications</h2>
+                        </div>
+                        <!-- List of Applications -->
+                        <div id="applications-table-wrapper" class="align-items-center table-responsive">
+                            <table id="applications-table" class="table text-center align-middle">
+                                <thead id="applications-table-header">
+                                    <!-- This row is used for filtering -->
+                                    <tr>
+                                        <td class="user-filter-head" scope="col"></td>
+                                        <td class="user-filter-head" scope="col"></td>
+                                        <td class="user-filter-head" scope="col"></td>
+                                        <td class="user-filter-head" scope="col"></td>
+                                        <td class="user-filter-head" scope="col"></td>
+                                    </tr>
+                                    <!-- This row is used for sorting -->
+                                    <tr>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Position</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Update</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="applications-table-body">
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <!-- Reminders -->
-                    <div class="container rounded col-md-3 col-12 text-break">
+                    <div class="container rounded col-md-3 text-break">
                         <h2>Reminders</h2>
                         <h4 class="fs-5 fw-light">Follow Ups</h4>
                         <hr>
@@ -133,7 +146,7 @@
             <!-- <div class="col-5"> -->
             <!-- TODO: Update link once we actually have a page to update account settings -->
             <!-- <a href="#" id="accountSettings">Update Account Settings</a>
-            </div> -->
+             </div> -->
         </div>
     </div>
     <br />
@@ -246,6 +259,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <!-- jQuery CDN to get Datables to work -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Datatables CDN link -->
+    <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
     <!-- Form validation and dark mode script -->
     <script type="text/javascript" src="scripts/script.js"></script>
     <!-- JS Script for getting all applications -->
