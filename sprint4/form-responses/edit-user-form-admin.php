@@ -3,10 +3,10 @@
 
     Author: Tien Han
     File: edit-user-form-admin.php
-    Date: 3/4/2024
+    Date: 3/5/2024
  -->
  
- <?php
+<?php
     require "../data-processing/edit-user-populate.php";
 ?>
 
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../scripts/set-theme.js"></script>
 </head>
 
-<body id="sign-up-form">
+<body id="edit-user-permissions-form">
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
         <!-- Navbar Brand & Toggler -->
         <div class="navbar-header" id="navbar-header">
@@ -81,8 +81,8 @@
     </div>
 
     <div class="row justify-content-center">
-        <form class="form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12" id="editUser" method="POST"
-            action="../data-processing/edit-user-insert.php">
+        <form class="form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12" method="POST"
+            action="../data-processing/edit-user-insert.php" onsubmit="return validateEditUserPermissions()">
             <input type="hidden" name="userId" value="<?php echo $userId;?>">
             <!-- Name -->
             <div class="form-group">
@@ -147,7 +147,7 @@
 
             <!-- User ATS Permission -->
             <section class="form-group">
-                <label>Permissions</label>
+                <label>Permissions</label><span class="text-danger" id="permissions-error"></span>
                 <div class="form-check">
                     <input type="checkbox"
                         id="user-permissions"
