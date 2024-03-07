@@ -2,6 +2,11 @@
 session_start();
 include ('pizza-order-form/placeOrder/placeOrder.html');
 
+if (isset($_GET['logged_out'])) {
+    echo "<script>alert('You have been logged out.');</script>";
+}
+
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];

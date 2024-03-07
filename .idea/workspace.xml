@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="Added a set 1 for Id" />
+    <list default="true" id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="Merge branch 'main' of https://github.com/cmatthews444/applicationTrackingSystem">
+      <change afterPath="$PROJECT_DIR$/pizza-order-form/data-processing/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizza-order-form/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pizza-order-form/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizza-order-form/placeOrder/placeOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/pizza-order-form/placeOrder/placeOrder.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,6 +80,8 @@
       <workItem from="1709523945606" duration="443000" />
       <workItem from="1709524396420" duration="3190000" />
       <workItem from="1709604002929" duration="2162000" />
+      <workItem from="1709831202257" duration="59000" />
+      <workItem from="1709849725193" duration="655000" />
     </task>
     <task id="LOCAL-00001" summary="Added spans and Tested all the form validation so it works correctly on the new-app page">
       <option name="closed" value="true" />
@@ -108,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708132793746</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merge branch 'main' of https://github.com/cmatthews444/applicationTrackingSystem">
+      <option name="closed" value="true" />
+      <created>1709670918752</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709670918752</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +134,8 @@
     <MESSAGE value="Corrected all the contact form validations so they are not required and only check if something is inputed.&#10;&#10;Corrected follow up date so it always defults to 2 weeks from now, and moves around to follow the chosen interview date." />
     <MESSAGE value="All new Users now get added to the database, &#10;(will need to test once its in as ive only tested(thoroughly) on my cpanel.) &#10;New file get-recent-applications pulls that data along with a script that is currently in both index.html and admin-dashboard.html as a place holder till it works in the script.js. &#10;&#10;fixed the application_date and follow_up_date so they are recorded along with the rest of the data. &#10;&#10;Removed place holder information in index and admin and now replaced with a Id that fills out the recent apps. &#10;&#10;Implented the reciept correctly so it formats equally to the others. (Some assisting code is being kept in to say if its connecting or not to help when testing once in the main app, will probably have another super small pr after to remove this.)" />
     <MESSAGE value="Added a set 1 for Id" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a set 1 for Id" />
+    <MESSAGE value="changed max apps to 8" />
+    <MESSAGE value="Merge branch 'main' of https://github.com/cmatthews444/applicationTrackingSystem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'main' of https://github.com/cmatthews444/applicationTrackingSystem" />
   </component>
 </project>
