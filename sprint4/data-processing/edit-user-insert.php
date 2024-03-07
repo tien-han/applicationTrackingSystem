@@ -49,15 +49,16 @@
         //Get DB Connection credentials
         require '/home/cicadagr/atsdb.php';
 
+        //What the user has updated in the form for permissions
         $userPermission = 0;
         $adminPermission = 0;
-        if (isset($_POST["user-permissions"])) {
-            $userPermission = 2; //2 is the User role
-        }
         if (isset($_POST["admin-permissions"])) {
             $adminPermission = 1; //1 is the Admin role
         }
-
+        if (isset($_POST["user-permissions"])) {
+            $userPermission = 2; //2 is the User role
+        }
+ 
         $getUserRolesSQL = "
             SELECT *
             FROM user_roles
@@ -67,32 +68,43 @@
         
         $updateUserRolesSQL = "";
         $date = date('Y-m-d H:i:s', time());
+        $isAdmin = false;
+        $isUser = false;
 
         //Look through each database result for the user and admin roles
         while ($userRole = mysqli_fetch_assoc($userRolesResult)) {
             $userRoleId = (int)$userRole['userRoleId'];
+            $roleId = (int)$userRole['roleId'];
 
-            //If the user has user permissions in the database and user permissions were removed
-            if ($userRole['roleId'] == "2" && $userPermission == 0) {
-                $updateUserRolesSQL = $updateUserRolesSQL . "DELETE FROM user_roles WHERE userRoleId='$userRoleId';";
+            //If the user has admin permissions in the database
+            if ($roleId == 1) {
+                if ($adminPermission == 0) { //if admin permissions were removed
+                    $updateUserRolesSQL = $updateUserRolesSQL . "DELETE FROM user_roles WHERE userRoleId='$userRoleId';";
+                } else {
+                    $isAdmin = true;
+                }
             }
 
-            //If the user has admin permissions in the database and admin permissions were removed
-            if ($userRole['roleId'] == "1" && $adminPermission == 0) {
-                $updateUserRolesSQL = $updateUserRolesSQL . "DELETE FROM user_roles WHERE userRoleId='$userRoleId';";
+            //If the user has user permissions in the database
+            if ($roleId == 2) {
+                if ($userPermission == 0) { //if user permissions were removed
+                    $updateUserRolesSQL = $updateUserRolesSQL . "DELETE FROM user_roles WHERE userRoleId='$userRoleId';";
+                } else {
+                    $isUser = true;
+                }
             }
-        }
-
-        //If the user does not have user permissions in the db and user permissions were granted
-        if ($userPermission == 2) {
-            $updateUserRolesSQL = $updateUserRolesSQL . "INSERT INTO user_roles (userId, roleId, created_at)
-                                                        VALUES ('$userId', '2', '$date');";
         }
 
         //If the user does not have admin permissions in the db and admin permissions were granted
-        if ($adminPermission == 1) {
+        if (!$isAdmin && $adminPermission == 1) {
             $updateUserRolesSQL = $updateUserRolesSQL . "INSERT INTO user_roles (userId, roleId, created_at)
                                                         VALUES ('$userId', '1', '$date');";
+        }
+
+        //If the user does not have user permissions in the db and user permissions were granted
+        if (!$isUser && $userPermission == 2) {
+            $updateUserRolesSQL = $updateUserRolesSQL . "INSERT INTO user_roles (userId, roleId, created_at)
+                                                        VALUES ('$userId', '2', '$date');";
         }
 
         $userRoleUpdateResult = mysqli_multi_query($cnxn, $updateUserRolesSQL);

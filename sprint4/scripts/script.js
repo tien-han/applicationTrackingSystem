@@ -230,13 +230,13 @@ if (document.getElementById("sign-up-form")) {
     //Email validation
     document.getElementById("email").addEventListener("change", function () {
         validateEmail("email");
-    })
 
-    var email = document.getElementById('email').value.trim();
-    if (!email.endsWith('@greenriver.edu') && !email.endsWith('@greenrivercollege.edu')) {
-        const errorMessage = document.getElementById("email-error");
-        errorMessage.innerText = "***A greenriver.edu email is preferred, but not required";
-    }
+        var email = document.getElementById('email').value.trim();
+        if (!email.endsWith('@greenriver.edu') && !email.endsWith('@greenrivercollege.edu')) {
+            const errorMessage = document.getElementById("email-error");
+            errorMessage.innerText = "***A greenriver.edu email is preferred, but not required";
+        }
+    })
 
     document.getElementById("message").addEventListener("change", function () {
         validateMessage("message");
