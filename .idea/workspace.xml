@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="Added a set 1 for Id" />
+    <list default="true" id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="One last link issue">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +17,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "SageMar"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="03f385dc-ad1b-4a02-bc88-a5a607db05de" />
+        <option name="url" value="https://github.com/SageMar/applicationTrackingSystem.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -33,7 +49,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sageMain&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -75,6 +91,7 @@
       <workItem from="1709523945606" duration="443000" />
       <workItem from="1709524396420" duration="3190000" />
       <workItem from="1709604002929" duration="2162000" />
+      <workItem from="1709749089802" duration="6094000" />
     </task>
     <task id="LOCAL-00001" summary="Added spans and Tested all the form validation so it works correctly on the new-app page">
       <option name="closed" value="true" />
@@ -108,17 +125,65 @@
       <option name="project" value="LOCAL" />
       <updated>1708132793746</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="announcementId - changed from announcementsId in the announcements table (Colton has more pages using this so it's easiest to match his and singular for Id makes more sense)&#10;Changed in the get-announcements-students.js to reflect&#10;Fixed link in get-announcements-students.js to direct to correct page">
+      <option name="closed" value="true" />
+      <created>1709651446876</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709651446876</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added navbar to login page (with only the place order option)&#10;Added navbar to vieworders&#10;fixed redirect from direct connecting to vieworders (now takes to log-in if not logged in)&#10;Fixed pizza link for team page">
+      <option name="closed" value="true" />
+      <created>1709761358781</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709761358782</updated>
+    </task>
+    <task id="LOCAL-00007" summary="double checked file directing and fixed one for the logo">
+      <option name="closed" value="true" />
+      <created>1709761504356</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709761504356</updated>
+    </task>
+    <task id="LOCAL-00008" summary="One last link issue">
+      <option name="closed" value="true" />
+      <created>1709761997612</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709761997612</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added spans and Tested all the form validation so it works correctly on the new-app page" />
     <MESSAGE value="Corrected all the contact form validations so they are not required and only check if something is inputed.&#10;&#10;Corrected follow up date so it always defults to 2 weeks from now, and moves around to follow the chosen interview date." />
     <MESSAGE value="All new Users now get added to the database, &#10;(will need to test once its in as ive only tested(thoroughly) on my cpanel.) &#10;New file get-recent-applications pulls that data along with a script that is currently in both index.html and admin-dashboard.html as a place holder till it works in the script.js. &#10;&#10;fixed the application_date and follow_up_date so they are recorded along with the rest of the data. &#10;&#10;Removed place holder information in index and admin and now replaced with a Id that fills out the recent apps. &#10;&#10;Implented the reciept correctly so it formats equally to the others. (Some assisting code is being kept in to say if its connecting or not to help when testing once in the main app, will probably have another super small pr after to remove this.)" />
     <MESSAGE value="Added a set 1 for Id" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a set 1 for Id" />
+    <MESSAGE value="Fixed tabbing" />
+    <MESSAGE value="announcementId - changed from announcementsId in the announcements table (Colton has more pages using this so it's easiest to match his and singular for Id makes more sense)&#10;Changed in the get-announcements-students.js to reflect&#10;Fixed link in get-announcements-students.js to direct to correct page" />
+    <MESSAGE value="Added navbar to login page (with only the place order option)&#10;Added navbar to vieworders&#10;fixed redirect from direct connecting to vieworders (now takes to log-in if not logged in)&#10;Fixed pizza link for team page" />
+    <MESSAGE value="double checked file directing and fixed one for the logo" />
+    <MESSAGE value="One last link issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="One last link issue" />
   </component>
 </project>
