@@ -67,9 +67,9 @@ function updateApplicationsTable(applications) {
 
         //Create and add a row for the application
         const rowData = applicationsTable.row.add([
-            `<td>${applicationDate}</td>`,
-            `<td>${application.role_name}</td>`,
-            `<td>${application.status}</td>`,
+            applicationDate,
+            application.role_name,
+            application.status,
             `
                 <td>
                     <form method="POST" action="/sprint4/form-responses/edit-app-form.php">
