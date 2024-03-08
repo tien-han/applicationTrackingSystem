@@ -16,7 +16,7 @@ $(document).ready(function () {
         scrollY: "560px",
         searching: true,
         columns: [
-            { name: "cat" },
+            null,
             null,
             null,
             { orderable: false },
