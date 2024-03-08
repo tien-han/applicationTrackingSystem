@@ -72,7 +72,7 @@ function updateApplicationsTable(applications) {
             `<td>${application.status}</td>`,
             `
                 <td>
-                    <form method="POST" action="/pages/projects/application-tracking-system/form-responses/edit-app-form.php">
+                    <form method="POST" action="/sprint4/form-responses/edit-app-form.php">
                         <input type="hidden" name="applicationId" value="${application.applicationsId}">
                         <button type="submit" class="btn btn-success">Update</button>
                     </form>
@@ -80,7 +80,7 @@ function updateApplicationsTable(applications) {
             `,
             `
                 <td>
-                    <form method="POST" action="/pages/projects/application-tracking-system/data-processing/softDelete.php">
+                    <form method="POST" action="/sprint4/data-processing/softDelete.php">
                         <input type="hidden" name="applicationId" value="${application.applicationsId}">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
