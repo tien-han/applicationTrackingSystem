@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function fetchAnnouncements() {
-    await fetch("/sprint4/data-processing/get-recent-applications.php")
+    await fetch("/sprint4/data-processing/get-recent-announcements.php")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Something went wrong while trying to get all announcements.");
@@ -26,7 +26,7 @@ async function fetchAnnouncements() {
                 announcementElement.classList.add('announcement');
                 announcementElement.innerHTML = `
                     <td>${announcement.date}</td>
-<td><a href="/pages/projects/application-tracking-system/data-processing/detailsPage.php?id=${announcement.announcementId}" class="announcement-title">${announcement.title}</a></td>
+                    <td><a href="/sprint4/data-processing/detailsPage.php?id=${announcement.announcementId}" class="announcement-title">${announcement.title}</a></td>
                     <td>${announcement.job_type}</td>
                 `;
                 announcementsDiv.appendChild(announcementElement);
