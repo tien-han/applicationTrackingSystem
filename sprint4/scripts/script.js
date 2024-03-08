@@ -48,35 +48,6 @@ document.getElementById('darkmode-toggle').addEventListener('change', (event) =>
 //-------------------------------------------------------------------------------------------------
 // New Application Form Validation
 //-------------------------------------------------------------------------------------------------
-// document.addEventListener('DOMContentLoaded', function() {
-//     fetch('../form-responses/get-recent-applications.php')
-//         .then(response => {
-//             console.log(response); // Check the raw response
-//             return response.json();
-//         })
-//         .then(data => {
-//             console.log(data); // Log the JSON data
-//             const tableBody = document.getElementById('applicationsTableBody');
-//             if (!tableBody) {
-//                 console.error('Table body not found');
-//                 return;
-//             }
-//             data.forEach(application => {
-//                 console.log(application); // Log each application data
-//                 const row = document.createElement('tr');
-//                 row.innerHTML = `
-//                     <td>${application.application_date}</td>
-//                     <td>${application.role_name}</td>
-//                     <td>${application.status}</td>
-//                     <td><button type="button" class="btn btn-success">Update</button></td>
-//                     <td><button type="button" class="btn btn-danger">Delete</button></td>
-//                 `;
-//                 tableBody.appendChild(row);
-//             });
-//         })
-//         .catch(error => console.error('Error loading recent applications:', error));
-// });
-
 if (document.getElementById("new-app-form")) {
     document.addEventListener('DOMContentLoaded', function () {
         var currentDateInput = document.getElementById("application_date");
@@ -91,7 +62,6 @@ if (document.getElementById("new-app-form")) {
         }
         updateFollowUpDate();
         currentDateInput.addEventListener('change', updateFollowUpDate);
-
     });
 
 }
@@ -124,13 +94,17 @@ if (document.getElementById("new-app-form")) {
 
 //new app Form Validation on Submit
 function validatenewappform() {
+    const contactName = document.getElementById("ContactName").value;
+    const contactEmail = document.getElementById("ContactEmail").value;
+    const contactPhone = document.getElementById("ContactPhone").value;
+
     const validationResult =
         validateMessage("Jobdesc") //Form validation for a message (currently used in Contact Form)
-        && validateEmail("ContactEmail")
-        && validateContactPhone("ContactPhone")
         && validateInterviewNotes("InterviewNotes")
         && validateemployerName("employerName")
-        && validateFullName("ContactName")
+        && (contactName ? validateFullName("ContactName") : true)
+        && (contactEmail ? validateEmail("ContactEmail") : true)
+        && (contactPhone ? validateContactPhone("ContactPhone") : true)
         && validateRoleName("RoleName");
     if (!validationResult) {
         event.preventDefault();

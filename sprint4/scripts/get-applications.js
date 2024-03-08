@@ -1,6 +1,46 @@
-window.addEventListener("load", function (event) {
+/*
+    This page holds JavaScript code that pulls application information and populates the applications table
+    for both users and admins.
+
+    Author: Colton Matthews, Gene Faison, Tien Han
+    File: get-applications.js
+    Date: 3/7/2024
+*/
+
+//Make the applications table into a datatable & set parameters
+$(document).ready(function () {
+    $("#applications-table").DataTable({
+        pageLength: 10,
+        lengthMenu: [5, 10, 25, 50, 75, 100, { label: "All", value: - 1 }],
+        paging: true,
+        scrollY: "560px",
+        searching: true,
+        columns: [
+            null,
+            null,
+            null,
+            { orderable: false },
+            { orderable: false }
+        ],
+        "language": {
+            "search": "Search: ",
+            "infoEmpty": "No matching records found"
+        },
+        columnDefs: [
+            // Center align header content of columns 1, 2, 3, 4, 5
+            { className: "dt-head-center", targets: [0, 1, 2, 3, 4] },
+            // Center align body content of columns 1, 2, 3, 4, 5
+            { className: "dt-body-center", targets: [0, 1, 2, 3, 4] },
+        ],
+        autoWidth: false,
+    });
+
     getApplications();
-})
+});
+
+$(window).on('resize', function () {
+    $("#applications-table").DataTable().columns.adjust().draw();
+});
 
 async function getApplications() {
     await fetch("/sprint4/data-processing/get-recent-applications.php")
@@ -11,44 +51,65 @@ async function getApplications() {
             return response.json();
         })
         .then(data => {
-            const tableBody = document.getElementById('applicationsTableBody');
-            if (!tableBody) {
-                console.error('Table body not found');
-                return;
-            }
-
-            data.forEach(application => {
-                const row = document.createElement('tr');
-                row.innerHTML =
-                    `
-                        <td>${application.application_date}</td>
-                        <td>${application.role_name}</td>
-                        <td>${application.status}</td>
-                        <!-- The following form method assigns the Id and allows us to direct to
-                            the correct form for updating -->
-                        <td>
-                            <form method="POST" action="/sprint4/form-responses/edit-app-form.php">
-                                <input type="hidden" name="applicationId" value="${application.applicationsId}">
-                                <button type="submit" class="btn btn-success">Update</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="POST" action="/sprint4/data-processing/softDelete.php">
-                                <input type="hidden" name="applicationId" value="${application.applicationsId}">
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    `;
-                tableBody.appendChild(row);
-            });
-
-            // Add event listeners for delete buttons
-            const deleteButtons = document.querySelectorAll('.btn-danger');
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', deleteButtons);
-            });
+            updateApplicationsTable(data);
         })
         .catch((error) => {
             console.error('Error loading recent applications:', error);
         });
+}
+
+//This method updates the applications table with all the applications
+function updateApplicationsTable(applications) {
+    let applicationsTable = $("#applications-table").DataTable();
+
+    applications.forEach(application => {
+        const applicationDate = new Date(application.application_date).toISOString().split('T')[0];
+
+        //Create and add a row for the application
+        const rowData = applicationsTable.row.add([
+            `<td>${applicationDate}</td>`,
+            `<td>${application.role_name}</td>`,
+            `<td>${application.status}</td>`,
+            `
+                <td>
+                    <form method="POST" action="/pages/projects/application-tracking-system/form-responses/edit-app-form.php">
+                        <input type="hidden" name="applicationId" value="${application.applicationsId}">
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </form>
+                </td>
+            `,
+            `
+                <td>
+                    <form method="POST" action="/pages/projects/application-tracking-system/data-processing/softDelete.php">
+                        <input type="hidden" name="applicationId" value="${application.applicationsId}">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            `,
+        ]).draw(false).node();
+    })
+
+    //Create filtering for the applications table
+    $("#applications-table-header tr:eq(0) td").not(":eq(3),:eq(4)").each(function (i) {
+        //Create selects for each column (besides the View and Delete columns)
+        //And enable search/filter based on what's selected
+        var select = $('<select><option value=""></option></select>')
+            .appendTo($(this).empty())
+            .on('change', function () {
+                var term = $(this).val();
+                applicationsTable.column(i).search(term, false, false).draw();
+            });
+
+        //Apply values from the table into the select button
+        applicationsTable.column(i).data().unique().sort().each(function (d, j) {
+            select.append('<option value="' + d + '">' + d + '</option>')
+        });
+
+        //Stop select triggering sort
+        $("#applications-table-header tr:eq(0) td").click(function (e) {
+            e.stopPropagation();
+        });
+    });
+
+    applicationsTable.columns.adjust().draw();
 }

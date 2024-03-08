@@ -24,10 +24,9 @@ async function fetchAnnouncements() {
             data.forEach(announcement => {
                 const announcementElement = document.createElement('tr');
                 announcementElement.classList.add('announcement');
-                console.log(announcement);
                 announcementElement.innerHTML = `
                     <td>${announcement.date}</td>
-<td><a href="/sprint4/data-processing/detailsPage.php?id=${announcement.announcementId}" class="announcement-title">${announcement.title}</a></td>
+                    <td><a href="/sprint4/data-processing/detailsPage.php?id=${announcement.announcementId}" class="announcement-title">${announcement.title}</a></td>
                     <td>${announcement.job_type}</td>
                 `;
                 announcementsDiv.appendChild(announcementElement);
