@@ -148,7 +148,7 @@
         <div class="collapse navbar-collapse" id="navbar-toggler">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Student Home</a>
+                    <a class="nav-link" href="../pages/user-dashboard.html">Student Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/admin-dashboard.html">Admin Home</a>
