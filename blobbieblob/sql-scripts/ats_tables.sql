@@ -323,6 +323,27 @@ VALUES (
     '2024-3-5 03:00:50',
     'Petsmart',
     'Applied'
+), (
+    5,
+    'Potato Eater',
+    'Eat potatoes to beat out the competition - need to eat at least 5 to qualify for job',
+    '2024-3-5 03:00:50',
+    'Potato Counter',
+    'Rejected'
+), (
+    5,
+    'Android Developer',
+    'Use React Native to build a mobile app that showcases school events',
+    '2024-3-5 03:00:50',
+    'Green River College',
+    'Rejected'
+), (
+    1,
+    'Front end engineer',
+    'Show types of potatoes',
+    '2024-3-5 03:00:50',
+    'Potato Counter',
+    'Inactive/Expired'
 );
 
 
