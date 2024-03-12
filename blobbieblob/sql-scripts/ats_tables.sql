@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `users`(
     `userId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) DEFAULT NULL,
     `email` VARCHAR(255) DEFAULT NULL,
+    `password` VARCHAR(20) DEFAULT NULL,
     `cohort` INT DEFAULT NULL,
     `status` VARCHAR(255) DEFAULT NULL,
     `roles` VARCHAR(255) DEFAULT NULL,
@@ -152,11 +153,21 @@ VALUES (
 --
 INSERT INTO `users`(
     `name`,
-    `email`
+    `email`,
+    `password`
 )
 VALUES (
     'Prof. Layton',
-    'layton.mobile@teachersRUs.com'
+    'layton.mobile@teachersRUs.com',
+    'iamaprof'
+), (
+    'admin',
+    'admin',
+    'admin'
+), (
+    'user',
+    'user',
+    'user'
 );
 
 -- --------------------------------------------------------
