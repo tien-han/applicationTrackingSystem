@@ -57,52 +57,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
-    <!-- Navbar Brand & Toggler -->
-    <div class="navbar-header" id="navbar-header">
-        <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
-                    alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
-                aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span></button>
-    </div>
-    <!-- Navbar Items with Links -->
-    <div class="collapse navbar-collapse" id="navbar-toggler">
-        <ul class="navbar-nav align-items-center">
-            <li class="nav-item">
-                <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pages/sign-up.html">Sign Up</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pages/contact.html">Contact</a>
-            </li>
-        </ul>
-    </div>
-    <!-- Dark Mode Toggler -->
-    <div id="darkmode-container" class="nav-item text-center px-3" hidden="true">
-        <input type="checkbox" id="darkmode-toggle"></input>
-        <label id="darkmode-label" for="darkmode-toggle"></label>
-    </div>
-</nav>
-<br />
-<br />
-<br />
-<br />
-<h2>Login</h2>
-<?php
-if (isset($error_message)) {
-    echo "<p style='color: red;'>$error_message</p>";
-}
-?>
-<form action="login.php" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br>
-    <input type="submit" value="Login">
-</form>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" role="navigation">
+        <!-- Navbar Brand & Toggler -->
+        <div class="navbar-header" id="navbar-header">
+            <a class="navbar-brand navbar-left px-3" href="https://www.greenriver.edu/" target="_blank"><img
+                        alt="Green River College's logo" src="../images/GRC_logo_navbar.png" width="70"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler"
+                    aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+        </div>
+        <!-- Navbar Items with Links -->
+        <div class="collapse navbar-collapse" id="navbar-toggler">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/sign-up.html">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Dark Mode Toggler -->
+        <div id="darkmode-container" class="nav-item text-center px-3" hidden="true">
+            <input type="checkbox" id="darkmode-toggle"></input>
+            <label id="darkmode-label" for="darkmode-toggle"></label>
+        </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h2>Login</h2>
+
+    <?php
+        if (isset($error_message)) {
+            echo "<p style='color: red;'>$error_message</p>";
+        }
+    ?>
+
+    <form action="login.php" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Login">
+    </form>
 </body>
 </html>
 
