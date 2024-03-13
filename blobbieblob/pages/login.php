@@ -13,17 +13,20 @@ if (isset($_GET['logged_out'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["username"];
     $password = $_POST["password"];
+    $_SESSION["permissions"] = $permissions[0]['role_name'];
 
     // Check if password matches the one in database for the email
     if ($password == $passwordDB) {
-        if ($permissions[0]['role_name'] == "Admin") {
+        if ($_SESSION["permissions"] == "Admin") {
             // Set the logged-in status in the session
             $_SESSION["logged_in"] = true;
+            $_SESSION["userId"] = $userId;
             header("Location: admin-dashboard.html");
             exit();
-        } else if ($permissions[0]["role_name"] == "User"){
+        } else if ($_SESSION["permissions"] == "User"){
             // Set the logged-in status in the session
             $_SESSION["logged_in"] = true;
+            $_SESSION["userId"] = $userId;
             header("Location: user-dashboard.html");
             exit();
         }
