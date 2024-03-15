@@ -1,3 +1,5 @@
+//This method gets all the cookies in the page and returns the cookie with the
+//given key
 function getCookie(name) {
     const cookies = document.cookie.split(';');
     for (let i = 0; i < cookies.length; i++) {
