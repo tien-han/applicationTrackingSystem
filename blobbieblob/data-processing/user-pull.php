@@ -1,22 +1,22 @@
 <?php
-/** This file will pull the user data from a certain email.
- * Names: Tien, Colton, Sage, Eugene
- * Date: 3/13/2024
-*/
-//Get DB Connection credentials
-require '/home/cicadagr/atsdb.php';
+    /** This file will pull the user data from a certain email.
+     * Names: Tien, Colton, Sage, Eugene
+     * Date: 3/15/2024
+    */
+    //Get DB Connection credentials
+    require '/home/cicadagr/atsdb.php';
 
-// the username must be named email or it will conflict with cnxn file variable
-$email = $_POST["username"];
-$password = $_POST["password"];
+    // the username must be named email or it will conflict with cnxn file variable
+    $email = $_POST["username"];
+    $password = $_POST["password"];
 
-//Get the user from the database, using the email/username
-$userSQLquery = "SELECT * FROM users WHERE email = '$email'";
-$userResult = @mysqli_query($cnxn, $userSQLquery);
+    //Get the user from the database, using the email/username
+    $userSQLquery = "SELECT * FROM users WHERE email = '$email'";
+    $userResult = @mysqli_query($cnxn, $userSQLquery);
 
-//Assign values to variables to place in fields initially
-while ($row = mysqli_fetch_assoc($userResult))
-{
+    $row = mysqli_fetch_assoc($userResult);
+
+    //Assign values to variables to place in fields initially
     $name = $row['name'];
     $email = $row['email'];
     $cohort = $row['cohort'];
@@ -31,8 +31,17 @@ while ($row = mysqli_fetch_assoc($userResult))
                         INNER JOIN user_roles ON roles.roleId=user_roles.roleId
                         WHERE user_roles.userId = '$userId'";
     $userRolesResult = @mysqli_query($cnxn, $userRolesQuery);
-    //Get an array of all user permissions
     $userRolesResult = mysqli_fetch_all($userRolesResult, MYSQLI_ASSOC);
-    $permissions = $userRolesResult;
-}
+
+    // Create an array of all the user's permissions
+    //$permissions is an array of all the permissions for the user
+    //Example: Array([0] => Admin [1] => User)
+    $permissions = [];
+
+    foreach ($userRolesResult as $userRole) {
+        //$userRole is a single array with index "role_name"
+        //$permission represents the user ats role itself, i.e. "Admin" or "User"
+        $permission = $userRole["role_name"];
+        array_push($permissions, $permission);
+    };
 ?>
