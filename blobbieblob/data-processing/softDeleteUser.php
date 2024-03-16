@@ -70,7 +70,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
-require '/home/cicadagr/atsdb.php'; // Include your database connection
+require '/home/cicadagr/atsdb.php';
 
 
 
@@ -82,14 +82,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validate and sanitize the input
     $userId = filter_var($userId, FILTER_SANITIZE_NUMBER_INT);
-    //echo $applicationId . "</br>";
-    //echo gettype($applicationId) . "</br>";
 
     // Check if the application ID is valid
     if ($userId !== null) {
         // Perform the soft delete operation
         $sql = "UPDATE users SET user_deleted = 1 WHERE userId = " . $userId;
-        // echo($sql) . "</br>";
         $result = mysqli_query($cnxn, $sql);
 
         // Bind parameters and execute the query

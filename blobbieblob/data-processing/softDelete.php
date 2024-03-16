@@ -70,7 +70,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
-require '/home/cicadagr/atsdb.php'; // Include your database connection
+require '/home/cicadagr/atsdb.php';
 
 
 
@@ -78,18 +78,14 @@ require '/home/cicadagr/atsdb.php'; // Include your database connection
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $applicationId = $_POST["applicationId"];
-    //echo $applicationId . "</br>";
 
     // Validate and sanitize the input
     $applicationId = filter_var($applicationId, FILTER_SANITIZE_NUMBER_INT);
-    //echo $applicationId . "</br>";
-    //echo gettype($applicationId) . "</br>";
 
     // Check if the application ID is valid
     if ($applicationId !== null) {
         // Perform the soft delete operation
         $sql = "UPDATE applications SET admin_deleted = 1 WHERE applicationsId = " . $applicationId;
-        // echo($sql) . "</br>";
         $result = mysqli_query($cnxn, $sql);
 
         // Bind parameters and execute the query
