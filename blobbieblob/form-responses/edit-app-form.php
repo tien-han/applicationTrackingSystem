@@ -73,7 +73,6 @@ require "../data-processing/edit-app-populate.php"
 
     <!-- NOTE: Updated id for form to mitigate conflict with styling
         uses same JavaScript as new app since the data is the same-->
-    <!-- TODO: change JavaScript to check for changed value-->
 
         <div class="row justify-content-center">
             <form class = "form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12" method="POST" action="../data-processing/edit-app-insert-sql.php" onsubmit="return validateEditAppForm()">
