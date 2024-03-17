@@ -3,8 +3,8 @@
 	receive reminders about their applications and recent admin announcements.
 
     Author: Sage, Colton, Gene, Tien Han
-    File: user-dashboard.html
-    Date: 3/17/2024
+    File: user-user-dashboard.html
+    Date: 3/16/2024
  -->
 
 <!DOCTYPE html>
@@ -25,15 +25,13 @@
     <script src="https://kit.fontawesome.com/bf84dcb5c2.js" crossorigin="anonymous"></script>
     <!-- Our personal CSS styles -->
     <link rel="stylesheet" href="../css/styles.css">
-    <!-- Redirect the user -->
+    <!-- Redirect the user if they're not a user -->
     <script type="text/javascript" src="../scripts/get-cookies.js"></script>
     <script type="text/javascript">
         let permissions = getCookie("permissions");
         if (permissions == null) {
             //If null, return to the website landing page
             window.location.replace("/blobbieblob/index.html");
-        } else if (permissions == "User") {
-            window.location.replace("/blobbieblob/pages/user-user-dashboard.html");
         } else if (permissions == "Admin") {
             window.location.replace("/blobbieblob/pages/admin-admin-dashboard.html");
         }
@@ -56,19 +54,13 @@
         <div class="collapse navbar-collapse" id="navbar-toggler">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="admin-dashboard.html">Admin Dashboard</a>
+                    <a class="nav-link active" href="user-user-dashboard.html">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin-announcement.html">Admin Announcement</a>
+                    <a class="nav-link" href="user-new-application.html">Add New Application</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="user-dashboard.html">Student Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="new-app.html">New Application</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="user-contact.html">Contact Admin</a>
                 </li>
             </ul>
         </div>
@@ -156,7 +148,7 @@
             <!-- <div class="col-5"> -->
             <!-- TODO: Update link once we actually have a page to update account settings -->
             <!-- <a href="#" id="accountSettings">Update Account Settings</a>
-            </div> -->
+             </div> -->
         </div>
     </div>
     <br />

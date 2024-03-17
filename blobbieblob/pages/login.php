@@ -14,53 +14,46 @@
         $password = $_POST["password"];
 
         // Check if password matches the one in database for the email
+        //Go through all the user roles and assign session & cookies per their permissions
         if ($password == $passwordDB) {
-            //Go through all the user roles and assign session & cookies per their permissions
-
             //If the user is an admin AND a user
             if (count($permissions) > 1) {
-                echo "admin and student";
-            } else { //The user only has one role
-                $permissions = $permissions[0];
+                setPermissions($userId, "admin-user");
+            } else {
+                //If the user only has one role
+                $permission = $permissions[0];
                 if ($permission == "Admin") {
-                    // Set the logged-in status in the session
-                    $_SESSION["logged_in"] = true;
-                    $_SESSION["userId"] = $userId;
-
-                    // Assign the cookie key-value pair for the admin permissions
-                    $cookie_name = "permissions";
-                    $cookie_value = "Admin";
-                    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-
-                    //Set a cookie for the administrator's ID as well
-                    $cookie_name = "userId";
-                    setcookie($cookie_name, $userId);
-
-                    //Redirect to the admin dashboard
-                    header("Location: admin-dashboard.html");
-                    exit();
+                    setPermissions($userId, "Admin");
                 } else if ($permission == "User") {
-                    // Set the logged-in status in the session
-                    $_SESSION["logged_in"] = true;
-                    $_SESSION["userId"] = $userId;
-
-                    // Assign the cookie key-value pair for the user permissions
-                    $cookie_name = "permissions";
-                    $cookie_value = "User";
-                    setcookie($cookie_name, $cookie_value);
-
-                    // store the userId in a cookie as well
-                    $cookie_name = "userId";
-                    setcookie($cookie_name, $userId);
-
-                    header("Location: user-dashboard.html");
-                    exit();
+                    setPermissions($userId, "User");
                 }
             }
         } else {
             //If the password doesn't match, let the user know
             $error_message = "Invalid username or password";
         }
+    }
+
+    function setPermissions($userId, $permissionRole) {
+        // Set the logged-in status in the session
+        $_SESSION["logged_in"] = true;
+        $_SESSION["userId"] = $userId;
+
+        // Assign the cookie key-value pair for the admin permissions
+        setcookie("permissions", $permissionRole, time() + (86400 * 30), "/"); // 86400 = 1 day
+
+        //Set a cookie for the individual's ID as well
+        setcookie("userId", $userId);
+
+        //Redirect to the user's main dashboard
+        if ($permissionRole == "Admin") {
+            header("Location: admin-admin-dashboard.html");
+        } else if ($permissionRole == "User") {
+            header("Location: user-user-dashboard.html");
+        } else if ($permissionRole == "admin-user") {
+            header("Location: admin-dashboard.html");
+        }
+        exit();
     }
 ?>
 <!-- Navbar -->
