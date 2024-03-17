@@ -2,8 +2,8 @@
     This page features a dashboard where administration can keep track of recent applications added by students and to see all users.
 
     Author: Tien Han, Colton Matthews, Eugene Faison
-    File: admin-dashboard.html
-    Date: 3/7/2024
+    File: admin-admin-dashboard.html
+    Date: 3/16/2024
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +21,17 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" />
     <!-- Our personal CSS styles -->
     <link rel="stylesheet" href="../css/styles.css">
+    <!-- Redirect the user if they're not an administrator -->
+    <script type="text/javascript" src="../scripts/get-cookies.js"></script>
+    <script type="text/javascript">
+        let permissions = getCookie("permissions");
+        if (permissions == null) {
+            //If null, return to the website landing page
+            window.location.replace("/blobbieblob/index.html");
+        } else if (permissions == "User") {
+            window.location.replace("/blobbieblob/pages/user-user-dashboard.html");
+        }
+    </script>
     <!-- Setting dark mode theme before page loads -->
     <script type="text/javascript" src="../scripts/set-theme.js"></script>
 </head>

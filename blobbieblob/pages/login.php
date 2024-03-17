@@ -23,52 +23,35 @@
                 //If the user only has one role
                 $permission = $permissions[0];
                 if ($permission == "Admin") {
-                    setAdmin($userId);
+                    setPermissions($userId, "Admin");
                 } else if ($permission == "User") {
-                    setUser($userId);
+                    setPermissions($userId, "User");
                 }
             }
-            exit();
         } else {
             //If the password doesn't match, let the user know
             $error_message = "Invalid username or password";
         }
     }
 
-    function setAdmin($userId) {
+    function setPermissions($userId, $permissionRole) {
         // Set the logged-in status in the session
         $_SESSION["logged_in"] = true;
         $_SESSION["userId"] = $userId;
 
         // Assign the cookie key-value pair for the admin permissions
-        $cookie_name = "permissions";
-        $cookie_value = "Admin";
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+        setcookie("permissions", $permissionRole, time() + (86400 * 30), "/"); // 86400 = 1 day
 
-        //Set a cookie for the administrator's ID as well
-        $cookie_name = "userId";
-        setcookie($cookie_name, $userId);
+        //Set a cookie for the individual's ID as well
+        setcookie("userId", $userId);
 
-        //Redirect to the admin dashboard
-        header("Location: admin-admin-dashboard.html");
-    }
-
-    function setUser($userId) {
-        // Set the logged-in status in the session
-        $_SESSION["logged_in"] = true;
-        $_SESSION["userId"] = $userId;
-
-        // Assign the cookie key-value pair for the user permissions
-        $cookie_name = "permissions";
-        $cookie_value = "User";
-        setcookie($cookie_name, $cookie_value);
-
-        // store the userId in a cookie as well
-        $cookie_name = "userId";
-        setcookie($cookie_name, $userId);
-
-        //Redirect to the user dashboard
-        header("Location: user-user-dashboard.html");
+        //Redirect to the user's main dashboard
+        if ($permissionRole == "Admin") {
+            header("Location: admin-admin-dashboard.html");
+        } else if ($permissionRole == "User") {
+            header("Location: user-user-dashboard.html");
+        }
+        exit();
     }
 ?>
 <!-- Navbar -->
