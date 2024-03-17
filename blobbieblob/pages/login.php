@@ -18,7 +18,7 @@
         if ($password == $passwordDB) {
             //If the user is an admin AND a user
             if (count($permissions) > 1) {
-                echo "admin and student";
+                setPermissions($userId, "admin-user");
             } else {
                 //If the user only has one role
                 $permission = $permissions[0];
@@ -50,6 +50,8 @@
             header("Location: admin-admin-dashboard.html");
         } else if ($permissionRole == "User") {
             header("Location: user-user-dashboard.html");
+        } else if ($permissionRole == "admin-user") {
+            header("Location: admin-dashboard.html");
         }
         exit();
     }
