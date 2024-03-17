@@ -50,7 +50,7 @@
         setcookie($cookie_name, $userId);
 
         //Redirect to the admin dashboard
-        header("Location: admin-dashboard.html");
+        header("Location: admin-admin-dashboard.html");
     }
 
     function setUser($userId) {
