@@ -3,8 +3,8 @@
 	receive reminders about their applications and recent admin announcements.
 
     Author: Sage, Colton, Gene, Tien Han
-    File: user-dashboard.html
-    Date: 3/7/2024
+    File: user-user-dashboard.html
+    Date: 3/16/2024
  -->
 
 <!DOCTYPE html>
@@ -25,6 +25,17 @@
     <script src="https://kit.fontawesome.com/bf84dcb5c2.js" crossorigin="anonymous"></script>
     <!-- Our personal CSS styles -->
     <link rel="stylesheet" href="../css/styles.css">
+    <!-- Redirect the user if they're not a user -->
+    <script type="text/javascript" src="../scripts/get-cookies.js"></script>
+    <script type="text/javascript">
+        let permissions = getCookie("permissions");
+        if (permissions == null) {
+            //If null, return to the website landing page
+            window.location.replace("/blobbieblob/index.html");
+        } else if (permissions == "Admin") {
+            window.location.replace("/blobbieblob/pages/admin-admin-dashboard.html");
+        }
+    </script>
     <!-- Setting dark mode theme before page loads -->
     <script type="text/javascript" src="../scripts/set-theme.js"></script>
 </head>
@@ -137,7 +148,7 @@
             <!-- <div class="col-5"> -->
             <!-- TODO: Update link once we actually have a page to update account settings -->
             <!-- <a href="#" id="accountSettings">Update Account Settings</a>
-            </div> -->
+             </div> -->
         </div>
     </div>
     <br />
