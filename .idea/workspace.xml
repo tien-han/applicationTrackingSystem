@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="Merge branch 'main' of https://github.com/cmatthews444/applicationTrackingSystem">
-      <change afterPath="$PROJECT_DIR$/blobbieblob/form-responses/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/data-processing/get-recent-applications.php" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/data-processing/get-recent-applications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/pages/admin-admin-announcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/pages/admin-admin-announcement.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/pages/admin-admin-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/pages/admin-admin-dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/pages/admin-announcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/pages/admin-announcement.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/pages/admin-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/pages/admin-dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/pages/new-app.html" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/pages/new-app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/pages/user-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/pages/user-dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/pages/user-new-application.html" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/pages/user-new-application.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/pages/user-user-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/pages/user-user-dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/scripts/get-follow-ups.js" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/scripts/get-follow-ups.js" afterDir="false" />
-    </list>
+    <list default="true" id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="Logout, fixed character limit&#10;closeable followups and follow up limit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +98,7 @@
       <workItem from="1709849725193" duration="655000" />
       <workItem from="1709749089802" duration="6094000" />
       <workItem from="1710720894760" duration="2653000" />
-      <workItem from="1710725139759" duration="4993000" />
+      <workItem from="1710725139759" duration="5747000" />
     </task>
     <task id="LOCAL-00001" summary="Added spans and Tested all the form validation so it works correctly on the new-app page">
       <option name="closed" value="true" />
@@ -177,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709761997612</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Logout, fixed character limit&#10;closeable followups and follow up limit">
+      <option name="closed" value="true" />
+      <created>1710741452155</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710741452155</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +201,7 @@
     <MESSAGE value="Added navbar to login page (with only the place order option)&#10;Added navbar to vieworders&#10;fixed redirect from direct connecting to vieworders (now takes to log-in if not logged in)&#10;Fixed pizza link for team page" />
     <MESSAGE value="double checked file directing and fixed one for the logo" />
     <MESSAGE value="One last link issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="One last link issue" />
+    <MESSAGE value="Logout, fixed character limit&#10;closeable followups and follow up limit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logout, fixed character limit&#10;closeable followups and follow up limit" />
   </component>
 </project>

@@ -32,7 +32,7 @@ async function getFollowUps() {
             }
             let followUpsAdded = 0;
             data.forEach(application => {
-                if (followUpsAdded >= 5) return;
+                if (followUpsAdded >= 5) return; //caps follow ups at 5 or set number
 
                 let follow_up_date = new Date(application.follow_up_date);
                 if (fiveDaysLate <= follow_up_date && follow_up_date <= fiveDaysAhead) {
