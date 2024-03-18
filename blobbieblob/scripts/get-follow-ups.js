@@ -2,21 +2,22 @@
 * dates 5 days from today for the student homepage.
 *
 * Author: Sage Markwardt, Colton Matthews
-* Date last touched: 3/17/2024
+* Date last touched: 3/18/2024
 * File: get-follow-ups.js
-
- */
+*/
 window.addEventListener("load", function (event) {
     getFollowUps();
 });
 
 async function getFollowUps() {
+    // first grab the date range +-5
     let today = new Date();
     let fiveDaysAhead = new Date(today);
     fiveDaysAhead.setDate(today.getDate() + 5);
     let fiveDaysLate = new Date(today);
     fiveDaysLate.setDate(today.getDate() - 5);
 
+    // grab our data and create our rows
     await fetch("/blobbieblob/data-processing/get-follow-up-applications.php")
         .then(response => {
             if (!response.ok) {
@@ -30,40 +31,48 @@ async function getFollowUps() {
                 console.error('Reminders area not found');
                 return;
             }
-            let followUpsAdded = 0;
             data.forEach(application => {
-                if (followUpsAdded >= 5) return; //caps follow ups at 5 or set number
-
                 let follow_up_date = new Date(application.follow_up_date);
+                // compare the incoming dates to today to get ones within our range
                 if (fiveDaysLate <= follow_up_date && follow_up_date <= fiveDaysAhead) {
-                    const container = document.createElement('div');
-                    container.className = 'follow-up-container';
-                    container.style.position = 'relative'; // Ensure container is positioned relatively for absolute positioning of close button
+                    const row = document.createElement('div'); // Changed to div for to allow easier 'x'
+                    row.className = 'reminder-row';
+                    row.style.display = 'flex';
+                    row.style.alignItems = 'center';   //makes the x in the right area
+                    row.style.justifyContent = 'space-between';
 
                     let formattedDate = follow_up_date.toISOString().split('T')[0];
-                    let overdue = today > follow_up_date;
-                    let overdueStyle = overdue ? 'color:#D14900;' : '';
-                    let overdueText = overdue ? 'Overdue: ' : 'Due: ';
 
-                    container.innerHTML = `
-                        <div class="follow-up-content" style="${overdueStyle}">
-                            <form id="${application.applicationsId}" class="follow-up-form" action="/blobbieblob/form-responses/edit-app-form.php" method="POST">
+                    // Constructing reminder row content based on the original structure
+                    if (today > follow_up_date) {
+                        row.innerHTML = `
+                            <form id="${application.applicationsId}" action="/blobbieblob/form-responses/edit-app-form.php" method="POST" style="flex-grow: 1;">
+                                <input type="hidden" name="applicationId" value="${application.applicationsId}">
+                                <a href="javascript:void(0);" onclick="document.getElementById('${application.applicationsId}').submit();"><span style="color:#D14900;"><i class="fa-solid fa-bell"></i></span>
+                                Follow up with ${application.employer_name}</a>
+                                <p class="dated" style="color:#D14900;">Overdue: ${formattedDate}</p>
+                            </form>
+                            <span class="close-btn" style="cursor:pointer; flex-shrink: 0;">&#10005;</span>
+                        `;
+                    } else {
+                        // print the bell icon default color for non-late items
+                        row.innerHTML = `
+                            <form id="${application.applicationsId}" action="/blobbieblob/form-responses/edit-app-form.php" method="POST" style="flex-grow: 1;">
                                 <input type="hidden" name="applicationId" value="${application.applicationsId}">
                                 <a href="javascript:void(0);" onclick="document.getElementById('${application.applicationsId}').submit();"><i class="fa-solid fa-bell"></i>
                                 Follow up with ${application.employer_name}</a>
-                                <p class="dated">${overdueText}${formattedDate}</p>
+                                <p class="dated">Due: ${formattedDate}</p>
                             </form>
-                        </div>  
-                        <div class="close-btn" style="position: absolute; right: 5px; top: 5px; cursor:pointer;">&#10005;</div> 
-                    `;  //positions the "X"
-                    reminders.appendChild(container);
+                            <span class="close-btn" style="cursor:pointer; flex-shrink: 0;">&#10005;</span>
+                        `;
+                    }
 
-                    // x closes the follow ups
-                    container.querySelector('.close-btn').addEventListener('click', function() {
-                        container.style.display = 'none';
+                    // Adding the close functionality
+                    row.querySelector('.close-btn').addEventListener('click', function() {
+                        reminders.removeChild(row);
                     });
 
-                    followUpsAdded++;
+                    reminders.appendChild(row);
                 }
             });
         })

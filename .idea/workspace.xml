@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="Logout, fixed character limit&#10;closeable followups and follow up limit" />
+    <list default="true" id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="Logout, fixed character limit&#10;closeable followups and follow up limit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blobbieblob/scripts/get-follow-ups.js" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/scripts/get-follow-ups.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +101,9 @@
       <workItem from="1709849725193" duration="655000" />
       <workItem from="1709749089802" duration="6094000" />
       <workItem from="1710720894760" duration="2653000" />
-      <workItem from="1710725139759" duration="5747000" />
+      <workItem from="1710725139759" duration="6021000" />
+      <workItem from="1710747969282" duration="35000" />
+      <workItem from="1710749145428" duration="898000" />
     </task>
     <task id="LOCAL-00001" summary="Added spans and Tested all the form validation so it works correctly on the new-app page">
       <option name="closed" value="true" />
@@ -172,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710741452155</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Logout, fixed character limit&#10;closeable followups and follow up limit">
+      <option name="closed" value="true" />
+      <created>1710747442652</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710747442652</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
