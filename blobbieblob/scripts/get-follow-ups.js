@@ -7,7 +7,7 @@
 */
 window.addEventListener("load", function (event) {
     getFollowUps();
-});
+})
 
 async function getFollowUps() {
     // first grab the date range +-5
@@ -31,48 +31,47 @@ async function getFollowUps() {
                 console.error('Reminders area not found');
                 return;
             }
+            let followUpsAdded = 0;
             data.forEach(application => {
+                if (followUpsAdded >= 5) return; // cap the reminders at 5
+
                 let follow_up_date = new Date(application.follow_up_date);
                 // compare the incoming dates to today to get ones within our range
                 if (fiveDaysLate <= follow_up_date && follow_up_date <= fiveDaysAhead) {
-                    const row = document.createElement('div'); // Changed to div for to allow easier 'x'
-                    row.className = 'reminder-row';
+                    const row = document.createElement('div'); // using divs to make the "x" easier
                     row.style.display = 'flex';
-                    row.style.alignItems = 'center';   //makes the x in the right area
                     row.style.justifyContent = 'space-between';
+                    row.style.alignItems = 'center';
 
                     let formattedDate = follow_up_date.toISOString().split('T')[0];
 
-                    // Constructing reminder row content based on the original structure
+                    // for late items, turn the bell red
                     if (today > follow_up_date) {
                         row.innerHTML = `
-                            <form id="${application.applicationsId}" action="/blobbieblob/form-responses/edit-app-form.php" method="POST" style="flex-grow: 1;">
-                                <input type="hidden" name="applicationId" value="${application.applicationsId}">
-                                <a href="javascript:void(0);" onclick="document.getElementById('${application.applicationsId}').submit();"><span style="color:#D14900;"><i class="fa-solid fa-bell"></i></span>
+                            <form id = "${application.applicationsId}" action="/blobbieblob/form-responses/edit-app-form.php" method = "POST" style="flex-grow: 1; margin-right: 10px;">
+                                <input type = "hidden" name = "applicationId" value = "${application.applicationsId}">
+                                <a href="javascript:void(0);" onclick="document.getElementById('${application.applicationsId}').submit();"><span style = "color:#D14900;"><i class="fa-solid fa-bell"></i></span>
                                 Follow up with ${application.employer_name}</a>
-                                <p class="dated" style="color:#D14900;">Overdue: ${formattedDate}</p>
+                                <p class = "dated" style = "color:#D14900;">Overdue: ${formattedDate}</p>
                             </form>
-                            <span class="close-btn" style="cursor:pointer; flex-shrink: 0;">&#10005;</span>
+                            <span style="cursor:pointer;" onclick="this.parentElement.remove();">&#10005;</span>
                         `;
                     } else {
                         // print the bell icon default color for non-late items
                         row.innerHTML = `
-                            <form id="${application.applicationsId}" action="/blobbieblob/form-responses/edit-app-form.php" method="POST" style="flex-grow: 1;">
-                                <input type="hidden" name="applicationId" value="${application.applicationsId}">
+                            <form id = "${application.applicationsId}" action="/blobbieblob/form-responses/edit-app-form.php" method = "POST" style="flex-grow: 1; margin-right: 10px;">
+                                <input type = "hidden" name = "applicationId" value = "${application.applicationsId}">
                                 <a href="javascript:void(0);" onclick="document.getElementById('${application.applicationsId}').submit();"><i class="fa-solid fa-bell"></i>
                                 Follow up with ${application.employer_name}</a>
-                                <p class="dated">Due: ${formattedDate}</p>
+                                <p class = "dated">Due: ${formattedDate}</p>
                             </form>
-                            <span class="close-btn" style="cursor:pointer; flex-shrink: 0;">&#10005;</span>
+                            <span style="cursor:pointer;" onclick="this.parentElement.remove();">&#10005;</span>
                         `;
                     }
 
-                    // Adding the close functionality
-                    row.querySelector('.close-btn').addEventListener('click', function() {
-                        reminders.removeChild(row);
-                    });
-
                     reminders.appendChild(row);
+
+
                 }
             });
         })
