@@ -93,13 +93,16 @@
         <div class="collapse navbar-collapse" id="navbar-toggler">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
+                    <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/sign-up.html">Sign Up</a>
+                    <a class="nav-link" href="sign-up.html">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/contact.html">Contact</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="login.php">Login</a>
                 </li>
             </ul>
         </div>
@@ -114,7 +117,14 @@
     <br />
     <br />
 
-    <h2>Login</h2>
+    <!-- Login Form -->
+    <div class="container-fluid">
+        <div class="row col-12">
+            <header>
+                <h1>Login</h1>
+            </header>
+        </div>
+    </div>
 
     <?php
         if (isset($error_message)) {
@@ -122,12 +132,19 @@
         }
     ?>
 
-    <form action="login.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" value="Login">
-    </form>
+    <div class="row justify-content-center">
+        <form class="form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12" action="login.php" method="post">
+            <section class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required><br>
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required><br>
+                <!-- Submit Button -->
+                <section class="form-group text-left">
+                    <input id="submit-button" type="submit" class="btn btn-primary" value="Login"></input>
+                </section>
+            </section>
+        </form>
+    </div>
 </body>
 </html>
