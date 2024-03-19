@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="292aa835-f2cf-47e5-959d-604f16b1d94b" name="Changes" comment="Logout, fixed character limit&#10;closeable followups and follow up limit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blobbieblob/scripts/get-follow-ups.js" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/scripts/get-follow-ups.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blobbieblob/pages/user-user-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/blobbieblob/pages/user-user-dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
