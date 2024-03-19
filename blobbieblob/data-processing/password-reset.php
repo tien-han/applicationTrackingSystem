@@ -44,13 +44,13 @@ require '/home/cicadagr/atsdb.php';
                     <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sign-up.html">Sign Up</a>
+                    <a class="nav-link" href="../pages/sign-up.html">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="../pages/contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="login.php">Login</a>
+                    <a class="nav-link active" href="../pages/login.php">Login</a>
                 </li>
             </ul>
         </div>
