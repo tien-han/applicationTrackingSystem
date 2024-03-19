@@ -42,13 +42,16 @@
                     <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/new-app.html">New Application</a>
+                    <a class="nav-link" href="../pages/new-app.html">Add New Application</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/sign-up.html">Sign Up</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>
         </div>

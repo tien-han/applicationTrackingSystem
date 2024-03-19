@@ -51,6 +51,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/user-contact.html">Contact Admin</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                </li>
             </ul>
         </div>
         <!-- Dark Mode Toggler -->

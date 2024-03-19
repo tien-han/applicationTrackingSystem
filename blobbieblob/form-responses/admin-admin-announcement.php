@@ -48,6 +48,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="../pages/admin-admin-announcement.html">Admin Announcement</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                </li>
             </ul>
         </div>
         <!-- Dark Mode Toggler -->
