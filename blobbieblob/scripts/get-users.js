@@ -4,7 +4,7 @@
 
     Author: Tien Han
     File: get-users.js
-    Date: 3/7/2024
+    Date: 3/18/2024
 */
 
 //Make the users table into a datatable & set parameters
@@ -27,8 +27,10 @@ $(document).ready(function () {
             "infoEmpty": "No matching records found"
         },
         columnDefs: [
-            // Center align both header and body content of columns 1, 2 & 3
-            { className: "dt-center", targets: [0, 1, 2, 3] },
+            // Center align header content of columns 1, 2, 3, 4, 5
+            { className: "dt-head-center", targets: [0, 1, 2, 3, 4] },
+            // Center align body content of columns 1, 2, 3, 4, 5
+            { className: "dt-body-center", targets: [0, 1, 2, 3, 4] },
         ],
         autoWidth: false,
     });
@@ -128,4 +130,6 @@ function updateUsersTable(users) {
             e.stopPropagation();
         });
     });
+
+    userTable.columns.adjust().draw();
 }
