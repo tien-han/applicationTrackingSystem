@@ -9,13 +9,13 @@
     <script type="text/javascript">
         let permissions = getCookie("permissions");
         if (permissions == "Admin") {
-            window.location.replace("/pages/projects/blobbieblob/pages/admin-admin-dashboard.html");
+            window.location.replace("/blobbieblob/pages/admin-admin-dashboard.html");
         } else if (permissions == "User") {
-            window.location.replace("/pages/projects/blobbieblob/pages/user-user-dashboard.html");
-        } else if (permissions == "admin-user") {
             //We don't actually want to do anything, but if we provide this then we can have a catch-all else statement
+        } else if (permissions == "admin-user") {
+            window.location.replace("/blobbieblob/pages/new-app.html");
         } else {
-            window.location.replace("/pages/projects/blobbieblob/index.html");
+            window.location.replace("/blobbieblob/index.html");
         }
     </script>
     <title>New Application Form</title>
@@ -43,19 +43,13 @@
         <div class="collapse navbar-collapse" id="navbar-toggler">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/admin-dashboard.html">Admin Dashboard</a>
+                    <a class="nav-link" href="../pages/user-user-dashboard.html">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcement</a>
+                    <a class="nav-link active" href="../pages/user-new-application.html">Add New Application</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/user-dashboard.html">Student Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="../pages/new-app.html">New Application</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/contact.html">Contact</a>
+                    <a class="nav-link" href="../pages/user-contact.html">Contact Admin</a>
                 </li>
             </ul>
         </div>
@@ -93,6 +87,7 @@
                             <h1>New Application Form Completed</h1>
                         </header>
                     </div>
+
                     <div class='row justify-content-center'>
                         <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
                             <h1 class='pt-5 header-text text-center'>Thank You</h1>
@@ -122,18 +117,22 @@
         require '/home/cicadagr/atsdb.php';
 
         $sql = "INSERT INTO applications (userId, role_name, job_description, employer_name, contact_name, contact_email, contact_phone, notes, status, application_date,follow_up_date ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
         $stmt = mysqli_prepare($cnxn, $sql);
 
         if ($stmt) {
             $userid = $userid = 1;
             mysqli_stmt_bind_param($stmt, 'sssssssssss', $userid, $roleName, $jobDesc, $employerName, $contactName, $contactEmail, $contactPhone, $interviewNotes, $applicationStatus,$application_date ,$follow_up_date);
+
             if (mysqli_stmt_execute($stmt)) {
                 echo "";
             } else {
+
                 echo "Error: " . mysqli_error($cnxn);
             }
             mysqli_stmt_close($stmt);
         } else {
+
             echo "Error preparing statement: " . mysqli_error($cnxn);
         }
     ?>

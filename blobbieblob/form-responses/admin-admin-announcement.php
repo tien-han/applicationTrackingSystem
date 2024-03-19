@@ -9,11 +9,11 @@
     <script type="text/javascript">
         let permissions = getCookie("permissions");
         if (permissions == "Admin") {
-            window.location.replace("/blobbieblob/pages/admin-admin-announcement.html");
+            //We don't actually want to do anything, but if we provide this then we can have a catch-all else statement
         } else if (permissions == "User") {
             window.location.replace("/blobbieblob/pages/user-user-dashboard.html");
         } else if (permissions == "admin-user") {
-            //We don't actually want to do anything, but if we provide this then we can have a catch-all else statement
+            window.location.replace("/blobbieblob/pages/admin-announcement.html");
         } else {
             window.location.replace("/blobbieblob/index.html");
         }
@@ -43,19 +43,10 @@
         <div class="collapse navbar-collapse" id="navbar-toggler">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/admin-dashboard.html">Admin Dashboard</a>
+                    <a class="nav-link" href="../pages/admin-admin-dashboard.html">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="../pages/admin-announcement.html">Admin Announcement</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/user-dashboard.html">Student Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/new-app.html">New Application</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/contact.html">Contact</a>
+                    <a class="nav-link active" href="../pages/admin-admin-announcement.html">Admin Announcement</a>
                 </li>
             </ul>
         </div>
@@ -123,7 +114,7 @@
 
                             <div class='row justify-content-center'>
                                 <div class='form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12'>
-                                    <h1 class='pt-5 header-text text-center'>Thank You.</h1>
+                                    <h1 class='pt-5 header-text text-center'>Thank You</h1>
                                     <div class='form-response'>
                                         <p>The details you entered are:</p>
                                         <p><b>Title</b>: " . $title . "</p>
@@ -152,6 +143,7 @@
                 ";}
         require '/home/cicadagr/atsdb.php';
         require '../data-processing/get-users-email.php';
+
 
         $userId = 1;
 

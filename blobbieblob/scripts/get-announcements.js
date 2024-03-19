@@ -26,7 +26,7 @@ async function fetchAnnouncements() {
                 announcementElement.classList.add('announcement');
                 announcementElement.innerHTML = `
                     <td>${announcement.date}</td>
-                    <td><a href="/blobbieblob/data-processing/detailsPage.php?id=${announcement.announcementId}" class="announcement-title">${announcement.title}</a></td>
+                    <td><a href="/blobbieblob/form-responses/admin-announcement-details-page.php?id=${announcement.announcementId}" class="announcement-title">${announcement.title}</a></td>
                     <td>${announcement.job_type}</td>
                 `;
                 announcementsDiv.appendChild(announcementElement);

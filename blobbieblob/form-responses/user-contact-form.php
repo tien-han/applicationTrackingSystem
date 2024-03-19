@@ -11,11 +11,11 @@
         if (permissions == "Admin") {
             window.location.replace("/blobbieblob/pages/admin-admin-dashboard.html");
         } else if (permissions == "User") {
-            window.location.replace("/blobbieblob/pages/user-contact.html");
-        } else if (permissions == "admin-user") {
             //We don't actually want to do anything, but if we provide this then we can have a catch-all else statement
+        } else if (permissions == "admin-user") {
+            window.location.replace("/blobbieblob/pages/user-dashboard.html");
         } else {
-            window.location.replace("/blobbieblob/pages/general-contact.html");
+            window.location.replace("/blobbieblob/index.html");
         }
     </script>
     <title>Contact Form</title>
@@ -43,19 +43,13 @@
             <div class="collapse navbar-collapse" id="navbar-toggler">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/admin-dashboard.html">Admin Dashboard</a>
+                        <a class="nav-link" href="../pages/user-user-dashboard.html">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcement</a>
+                        <a class="nav-link" href="../pages/user-new-application.html">Add New Application</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/user-dashboard.html">Student Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../pages/new-app.html">New Application</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="../pages/contact.html">Contact</a>
+                        <a class="nav-link active" href="../pages/user-contact.html">Contact Admin</a>
                     </li>
                 </ul>
             </div>
