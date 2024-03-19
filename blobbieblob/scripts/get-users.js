@@ -83,7 +83,7 @@ function updateUsersTable(users) {
             roles,
             `
                 <td>
-                    <form method="POST" action="../form-responses/admin-edit-user-form-admin.php">
+                    <form method="POST" action="../form-responses/edit-user-form-admin.php">
                         <input type="hidden" name="userId" value="${user.userId}">
                         <button type="submit" class="btn btn-success">Edit</button>
                     </form>
@@ -91,7 +91,7 @@ function updateUsersTable(users) {
             `,
             `
             <td>
-            <form method="POST" action="../form-responses/admin-soft-delete-user.php">
+            <form method="POST" action="../data-processing/softDeleteUser.php">
                 <input type="hidden" name="userId" value="${user.userId}">
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
