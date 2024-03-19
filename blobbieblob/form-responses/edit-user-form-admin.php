@@ -3,7 +3,7 @@
 
     Author: Tien Han
     File: edit-user-form-admin.php
-    Date: 3/5/2024
+    Date: 3/18/2024
  -->
  
 <?php
@@ -16,6 +16,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Redirect the user if needed -->
+    <script type="text/javascript" src="../scripts/get-cookies.js"></script>
+    <script type="text/javascript">
+        let permissions = getCookie("permissions");
+        if (permissions == "Admin") {
+            window.location.replace("/blobbieblob/pages/admin-admin-dashboard.html");
+        } else if (permissions == "User") {
+            window.location.replace("/blobbieblob/pages/user-user-dashboard.html");
+        } else if (permissions == "admin-user") {
+            //We don't actually want to do anything, but if we provide this then we can have a catch-all else statement
+        } else {
+            window.location.replace("/blobbieblob/index.html");
+        }
+    </script>
     <title>Update User Permissions Form</title>
     <link rel="icon" type="image/x-icon" href="../images/GRC_logo.png">
     <!-- Bootstrap CDN -->
@@ -41,22 +55,19 @@
         <div class="collapse navbar-collapse" id="navbar-toggler">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/user-dashboard.html">Student Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/admin-dashboard.html">Admin Home</a>
+                    <a class="nav-link" href="../pages/admin-dashboard.html">Admin Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcement</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="../pages/user-dashboard.html">Student Dashboard</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="../pages/new-app.html">Add New Application</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/sign-up.html">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/contact.html">Contact</a>
+                    <a class="nav-link" href="../pages/contact.html">Contact Admin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>

@@ -18,17 +18,19 @@ $(document).ready(function () {
         columns: [
             null,
             null,
-            null
+            null,
+            { orderable: false },
+            { orderable: false }
         ],
         "language": {
             "search": "Search: ",
             "infoEmpty": "No matching records found"
         },
         columnDefs: [
-            // Center align header content of columns 1, 2, 3
-            { className: "dt-head-center", targets: [0, 1, 2] },
-            // Center align body content of columns 1, 2, 3
-            { className: "dt-body-center", targets: [0, 1, 2] },
+            // Center align header content of columns 1, 2, 3, 4, 5
+            { className: "dt-head-center", targets: [0, 1, 2, 3, 4] },
+            // Center align body content of columns 1, 2, 3, 4, 5
+            { className: "dt-body-center", targets: [0, 1, 2, 3, 4] },
         ],
         autoWidth: false,
     });
