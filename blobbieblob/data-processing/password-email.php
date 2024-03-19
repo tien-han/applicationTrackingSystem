@@ -116,8 +116,8 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
         $message = '<p>Dear user,</p>
                 <p>Please click on the following link to reset your password:</p>
                 <br>
-                <p><a href = "https://www.smarkwardt.greenriverdev.com/TestingforApp/data-processing/password-reset.php?key='.$key.'&email='.$email.'">
-        https://www.smarkwardt.greenriverdev.com/TestingforApp/data-processing/password-reset.php?key='.$key.'&email='.$email.'</a></p>
+                <p><a href = "https://www.cicada.greenriverdev.com/blobbieblob/data-processing/password-reset.php?key='.$key.'&email='.$email.'">
+        https://www.cicada.greenriverdev.com/blobbieblob/data-processing/password-reset.php?key='.$key.'&email='.$email.'</a></p>
         <br>
         <p>The link will expire after 1 day.</p>
         <p>If you did not request this forgotten password email, no action 

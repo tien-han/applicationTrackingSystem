@@ -86,7 +86,7 @@ if (isset($_GET["key"]) && isset($_GET["email"]) && !isset($_POST["action"])){
         echo '<h2>Invalid Link</h2>
                     <p>The link used to access this page was invalid. It is possible your link sat for too long 
                     and expired, or that something happened on our end. Please try again.</p>
-                    <p><a href="https://cicada.greenriverdev.com/TestingforApp/data-processing/password-email.php">
+                    <p><a href="https://cicada.greenriverdev.com/blobbieblob/data-processing/password-email.php">
                     Click here to reset your password.</a></p>';
     } else {
         // go through the rows and check the expiration date
@@ -121,7 +121,7 @@ if (isset($_GET["key"]) && isset($_GET["email"]) && !isset($_POST["action"])){
             // if the date has passed already, the link is old
             echo "<h2>Link Expired</h2>
                     <p>The link you clicked is expired. The links sent out are only valid for 24 hours.</p>
-                    <p><a href='https://cicada.greenriverdev.com/TestingforApp/data-processing/password-email.php'>
+                    <p><a href='https://cicada.greenriverdev.com/blobbieblob/data-processing/password-email.php'>
                         Click here to request another reset link.</a></p>";
         }
     }
@@ -156,7 +156,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) && ($_POST["action"]=="upda
             echo "Error updating record: " . mysqli_error($cnxn);
         } else {
             echo '<p>Congratulations! Your password has been updated successfully.</p>
-                <p><a href="https://smarkwardt.greenriverdev.com/TestingforApp/pages/login.php">
+                <p><a href="https://cicada.greenriverdev.com/blobbieblob/pages/login.php">
                 Click here to Login.</a></p>';
         }
 
