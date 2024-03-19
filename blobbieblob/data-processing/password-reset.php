@@ -41,13 +41,16 @@ require '/home/cicadagr/atsdb.php';
         <div class="collapse navbar-collapse" id="navbar-toggler">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="../index.html">Home</a>
+                    <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/sign-up.html">Sign Up</a>
+                    <a class="nav-link" href="sign-up.html">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/contact.html">Contact</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="login.php">Login</a>
                 </li>
             </ul>
         </div>
