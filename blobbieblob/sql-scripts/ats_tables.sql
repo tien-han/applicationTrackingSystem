@@ -444,3 +444,6 @@ VALUES (
     "www.boeing.com",
     "ethan@ethan.com"
 );
+
+--TODO: Add in the token database AND the delete for when re-testing
+--without the token database the emails will not send
