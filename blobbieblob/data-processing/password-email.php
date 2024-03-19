@@ -2,10 +2,7 @@
 // This file will ask the user to enter an email in order
 // to get the password reset code
 
-require '/home/smarkwar/atsdb.php';
-?>
-<?php
-require '/home/smarkwar/atsdb.php';
+require '/home/cicadagr/atsdb.php';
 ?>
 
 <!-- Navbar -->
@@ -173,6 +170,7 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
     <div class='row justify-content-center'>
         <form class = "form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12" method="post" action="password-email.php" name="reset">
             <br>
+            <section class = "form-group">
             <label for = "email">Enter Your Email Address:</label>
             <br>
             <input type="email" class = "form-control" id = "email" name="email" placeholder="username@email.com">
