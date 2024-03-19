@@ -48,10 +48,6 @@ VALUES (
     'User',
     'Has the ability to add applications and edit/delete their added applications.',
     '2024-2-26 12:00:00'
-), (
-    'Super Admin',
-    'Has the ability to add applications and edit/delete users and applications.',
-    '2024-2-26 12:00:00'
 );
 
 -- --------------------------------------------------------
@@ -154,23 +150,28 @@ VALUES (
 INSERT INTO `users`(
     `name`,
     `email`,
+    `cohort`,
     `password`
 )
 VALUES (
     'Prof. Layton',
     'layton.mobile@teachersRUs.com',
+    0,
     'iamaprof'
 ), (
     'admin',
     'admin',
+    0,
     'admin'
 ), (
     'user',
     'user',
+    0,
     'user'
 ), (
     'ta',
     'ta',
+    0,
     'ta'
 );
 
