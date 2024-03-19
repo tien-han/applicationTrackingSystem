@@ -55,7 +55,7 @@
                         <a class="nav-link" href="../pages/new-app.html">Add New Application</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../pages/contact.html">Contact</a>
+                        <a class="nav-link active" href="../pages/contact.html">Contact Admin</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>

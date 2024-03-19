@@ -8,6 +8,20 @@ require "../data-processing/edit-app-populate.php"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Redirect the user if they're not an administrator -->
+    <script type="text/javascript" src="../scripts/get-cookies.js"></script>
+    <script type="text/javascript">
+        let permissions = getCookie("permissions");
+        if (permissions == "Admin") {
+            window.location.replace("/blobbieblob/pages/admin-admin-dashboard.html");
+        } else if (permissions == "User") {
+            window.location.replace("/blobbieblob/pages/user-user-dashboard.html");
+        } else if (permissions == "admin-user") {
+            //We don't actually want to do anything, but if we provide this then we can have a catch-all else statement
+        } else {
+            window.location.replace("/blobbieblob/index.html");
+        }
+    </script>
     <title>Edit Application Form</title>
     <link rel="icon" type="image/x-icon" href="../images/GRC_logo.png">
     <!-- Bootstrap CDN -->
@@ -33,22 +47,19 @@ require "../data-processing/edit-app-populate.php"
         <div class="collapse navbar-collapse" id="navbar-toggler">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/user-dashboard.html">Student Home</a>
+                    <a class="nav-link" href="../pages/admin-dashboard.html">Admin Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/admin-dashboard.html">Admin Home</a>
+                    <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/admin-announcement.html">Admin Announcment</a>
+                    <a class="nav-link" href="../pages/user-dashboard.html">Student Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/new-app.html">Add New Application</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/sign-up.html">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../pages/contact.html">Contact</a>
+                    <a class="nav-link" href="../pages/contact.html">Contact Admin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>
@@ -78,7 +89,7 @@ require "../data-processing/edit-app-populate.php"
         uses same JavaScript as new app since the data is the same-->
 
         <div class="row justify-content-center">
-            <form class = "form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12" method="POST" action="../data-processing/edit-app-insert-sql.php" onsubmit="return validateEditAppForm()">
+            <form class = "form-container pt-0 col-lg-6 col-md-8 col-sm-12 col-12" method="POST" action="../data-processing/dual-edit-app-insert-sql.php" onsubmit="return validateEditAppForm()">
                 <input type="hidden" name="applicationId" value="<?php echo $applicationsId;?>">
 
                 <section class="form-group">

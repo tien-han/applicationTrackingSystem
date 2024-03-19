@@ -80,7 +80,7 @@ function updateApplicationsTable(applications) {
             `,
             `
                 <td>
-                    <form method="POST" action="/blobbieblob/data-processing/softDelete.php">
+                    <form method="POST" action="/blobbieblob/data-processing/dual-soft-delete-application.php">
                         <input type="hidden" name="applicationId" value="${application.applicationsId}">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
