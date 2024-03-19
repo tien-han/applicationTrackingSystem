@@ -20,6 +20,7 @@ DROP TABLE IF EXISTS applications;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS user_roles;
 DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS password_reset_temp;
 
 -- --------------------------------------------------------
 --
@@ -444,3 +445,12 @@ VALUES (
     "www.boeing.com",
     "ethan@ethan.com"
 );
+
+-- without this token database we can't reset passwords
+-- this file will be edited by php files, we do not need dummy data
+CREATE TABLE `password_reset_temp` (
+    `email` varchar(250) NOT NULL,
+    `key` varchar(250) NOT NULL,
+    `expDate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+

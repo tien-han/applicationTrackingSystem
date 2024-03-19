@@ -143,6 +143,11 @@
                 <section class="form-group text-left">
                     <input id="submit-button" type="submit" class="btn btn-primary" value="Login"></input>
                 </section>
+                <!-- the redirect for resetting passwords -->
+                <section>
+                    <br>
+                    <a href = "../data-processing/password-email.php">Password Reset</a>
+                </section>
             </section>
         </form>
     </div>
