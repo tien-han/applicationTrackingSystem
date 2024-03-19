@@ -4,7 +4,7 @@
 
     Author: Sage, Colton, Gene, Tien Han
     File: user-user-dashboard.html
-    Date: 3/16/2024
+    Date: 3/18/2024
  -->
 
 <!DOCTYPE html>
@@ -13,6 +13,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Redirect the user if they're not an administrator -->
+    <script type="text/javascript" src="../scripts/get-cookies.js"></script>
+    <script type="text/javascript">
+        let permissions = getCookie("permissions");
+        if (permissions == "Admin") {
+            window.location.replace("/blobbieblob/pages/admin-admin-dashboard.html");
+        } else if (permissions == "User") {
+            //We don't actually want to do anything, but if we provide this then we can have a catch-all else statement
+        } else if (permissions == "admin-user") {
+            window.location.replace("/blobbieblob/pages/user-dashboard.html");
+        } else {
+            window.location.replace("/blobbieblob/index.html");
+        }
+    </script>
     <title>Application Dashboard</title>
     <!-- Favicon for the tab -->
     <link rel="icon" type="image/x-icon" href="../images/GRC_logo.png">
@@ -25,17 +39,6 @@
     <script src="https://kit.fontawesome.com/bf84dcb5c2.js" crossorigin="anonymous"></script>
     <!-- Our personal CSS styles -->
     <link rel="stylesheet" href="../css/styles.css">
-    <!-- Redirect the user if they're not a user -->
-    <script type="text/javascript" src="../scripts/get-cookies.js"></script>
-    <script type="text/javascript">
-        let permissions = getCookie("permissions");
-        if (permissions == null) {
-            //If null, return to the website landing page
-            window.location.replace("/blobbieblob/index.html");
-        } else if (permissions == "Admin") {
-            window.location.replace("/blobbieblob/pages/admin-admin-dashboard.html");
-        }
-    </script>
     <!-- Setting dark mode theme before page loads -->
     <script type="text/javascript" src="../scripts/set-theme.js"></script>
 </head>
@@ -61,9 +64,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="user-contact.html">Contact Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../form-responses/logout.php">Logout</a>
                 </li>
             </ul>
         </div>

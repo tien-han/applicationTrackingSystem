@@ -1,9 +1,9 @@
 <!--
     This page features a dashboard where administration can keep track of recent applications added by students and to see all users.
 
-    Author: Tien Han, Colton Matthews, Eugene Faison
+    Author: Tien Han, Colton Matthews, Sage Markwardt, Eugene Faison
     File: admin-admin-dashboard.html
-    Date: 3/16/2024
+    Date: 3/18/2024
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +11,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Redirect the user if they're not an administrator -->
+    <script type="text/javascript" src="../scripts/get-cookies.js"></script>
+    <script type="text/javascript">
+        let permissions = getCookie("permissions");
+        if (permissions == "Admin") {
+            //We don't actually want to do anything, but if we provide this then we can have a catch-all else statement
+        } else if (permissions == "User") {
+            window.location.replace("/blobbieblob/pages/user-user-dashboard.html");
+        } else if (permissions == "admin-user") {
+            window.location.replace("/blobbieblob/pages/admin-dashboard.html");
+        } else {
+            window.location.replace("/blobbieblob/index.html");
+        }
+    </script>
     <title>Application Dashboard</title>
     <!-- Favicon for the tab -->
     <link rel="icon" type="image/x-icon" href="../images/GRC_logo.png">
@@ -21,17 +35,6 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" />
     <!-- Our personal CSS styles -->
     <link rel="stylesheet" href="../css/styles.css">
-    <!-- Redirect the user if they're not an administrator -->
-    <script type="text/javascript" src="../scripts/get-cookies.js"></script>
-    <script type="text/javascript">
-        let permissions = getCookie("permissions");
-        if (permissions == null) {
-            //If null, return to the website landing page
-            window.location.replace("/blobbieblob/index.html");
-        } else if (permissions == "User") {
-            window.location.replace("/blobbieblob/pages/user-user-dashboard.html");
-        }
-    </script>
     <!-- Setting dark mode theme before page loads -->
     <script type="text/javascript" src="../scripts/set-theme.js"></script>
 </head>
@@ -54,9 +57,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin-admin-announcement.html">Admin Announcement</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../form-responses/logout.php">Logout</a>
                 </li>
             </ul>
         </div>

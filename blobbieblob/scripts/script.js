@@ -212,8 +212,8 @@ if (document.getElementById("sign-up-form")) {
         }
     })
 
-    document.getElementById("message").addEventListener("change", function () {
-        validateMessage("message");
+    document.getElementById("seekingRoles").addEventListener("change", function () {
+        validateMessage("seekingRoles");
     })
 }
 
